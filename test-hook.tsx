@@ -4,8 +4,8 @@ export default function BadFormatting() {
   const z = 3;
   return (
     <div className="flex min-h-screen items-center justify-center">
-      <h1>Testing Git Hooks</h1>
-      <p>This file has terrible formatting</p>
+      <h1>Testing Git Hooks Again</h1>
+      <p>This file has terrible formatting again</p>
     </div>
   );
 }
