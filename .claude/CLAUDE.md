@@ -49,7 +49,17 @@ This project has an active `.claude/` directory (hidden by default) containing:
 
 ### Development Server
 
+```bash
+# Start development server with Turbopack
+yarn dev
+```
+
 ### Testing
+
+```bash
+# Run type checking
+yarn type-check
+```
 
 ### Code Quality
 
@@ -57,15 +67,29 @@ This project has an active `.claude/` directory (hidden by default) containing:
 # Run ESLint
 yarn lint
 
+# Run ESLint with auto-fix
+yarn lint:fix
+
 # Run Prettier check
 yarn format:check
 
 # Run Prettier fix
 yarn format
 
-# Run lint-staged (usually automatic via pre-commit hook)
+# Run type-check + lint-staged (pre-commit workflow)
+yarn code:pre-commit
+
+# Run full validation: lint + format check (pre-push workflow)
+yarn code:fix
+
+# Run lint-staged manually
 yarn lint-staged
 ```
+
+**Git Hooks (automatic):**
+
+- **Pre-commit**: Runs `yarn type-check` then `yarn lint-staged` on staged files only
+- **Pre-push**: Runs `yarn lint:fix` and `yarn format:check` on entire codebase
 
 ### Building & Deployment
 
