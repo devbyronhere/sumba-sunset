@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allowedCommands": [],
+    "blockedCommands": [],
+    "allowedPaths": [],
+    "blockedPaths": []
+  },
+  "preferences": {
+    "autoCommit": false,
+    "testingRequired": true
+  }
+}
