@@ -8,12 +8,40 @@ This is the master planning document for the Sumba Sunset project. It replaces t
 
 ---
 
+## 🏄 Project Overview
+
+**Sumba Sunset** is a surf camp website for a property in Sumba, Indonesia. The site is primarily **marketing and informational**, with booking handled through Smoobu widget integration.
+
+**Live Site:** https://sumba-sunset-m96okb7l6-byrons-projects-a07d9676.vercel.app/ (We will but a domain at a later stage)
+
+**Key Features:**
+
+- 📱 Mobile-first design (primary user device)
+- 🏖️ Static content (pages, images, videos)
+- 📅 Smoobu widget for bookings & payments
+- 💬 Contact form → Twilio → Staff WhatsApp
+- 🖼️ Image hosting via Vercel Blob
+- 📊 Analytics & monitoring (GA4, Sentry, UptimeRobot)
+
+**Tech Stack:**
+
+- **Framework**: Next.js 15 (App Router, TypeScript)
+- **Styling**: Tailwind CSS + shadcn/ui
+- **Forms**: React Hook Form + Zod
+- **Testing**: Vitest
+- **Hosting**: Vercel
+- **External Services**: Smoobu (bookings), Twilio (WhatsApp), Vercel Blob (images)
+
+**No Database Needed:** Smoobu handles bookings, Vercel Blob handles images, site is mostly static content.
+
+---
+
 ## 📊 Project Status Overview
 
-- **Total Tasks:** 2
-- **Completed:** 2 (100%)
+- **Total Tasks:** 31 (SS-1 through SS-31)
+- **Completed:** 2 (6%)
 - **In Progress:** 0
-- **Not Started:** 0
+- **Not Started:** 29
 - **Blocked:** 0
 
 ---
@@ -77,25 +105,55 @@ _No blocked tasks_
 - [x] **SS-1**: Next.js Project Setup
 - [x] **SS-2**: Linting & Formatting Setup
 
-### Phase 2: Core Features (Not Started)
+### Phase 2: Core Infrastructure (Not Started)
 
-- [ ] Authentication system
-- [ ] Database setup
-- [ ] API routes structure
-- [ ] Base UI components
+- [ ] shadcn/ui setup and base components
+- [ ] Vitest testing setup
+- [ ] Vercel Blob integration for images
+- [ ] Sentry error monitoring setup
+- [ ] Google Analytics 4 integration
+- [ ] UptimeRobot monitoring setup
 
-### Phase 3: Business Logic (Not Started)
+### Phase 3: Communication & Booking (Not Started)
 
-- [ ] User management
-- [ ] Data models
-- [ ] Core workflows
+- [ ] Contact form with React Hook Form + Zod
+- [ ] Twilio integration (form → WhatsApp)
+- [ ] WhatsApp Click-to-Chat button
+- [ ] Smoobu widget integration (booking & payments)
+- [ ] Rate limiting for contact form
 
-### Phase 4: Polish & Launch (Not Started)
+### Phase 4: Media & Content (Not Started)
 
-- [ ] Testing suite
+- [ ] Image upload system (Vercel Blob with pre-optimization)
+- [ ] YouTube video embeds (loop, no ads)
+- [ ] Image gallery component
+- [ ] Responsive images for mobile/desktop
+
+### Phase 5: Marketing Pages (Not Started)
+
+- [ ] Homepage (hero, features, gallery, CTA)
+- [ ] About page (surf camp story, team)
+- [ ] Rooms & Accommodation page
+- [ ] Activities & Surf Info page
+- [ ] Mobile-first responsive design
+
+### Phase 6: Testing & Quality (Not Started)
+
+- [ ] Unit tests for utilities and validations
+- [ ] Integration tests for forms and API routes
+- [ ] Mobile device testing
 - [ ] Performance optimization
-- [ ] Deployment pipeline
-- [ ] Documentation
+- [ ] SEO optimization
+
+### Phase 7: Launch & Post-MVP (Not Started)
+
+- [ ] Vercel deployment setup
+- [ ] Custom domain configuration
+- [ ] Environment variables configuration
+- [ ] Pre-launch testing checklist
+- [ ] Booking.com listing integration (future)
+- [ ] Airbnb listing integration (future)
+- [ ] Agoda listing integration (future)
 
 ---
 
@@ -116,7 +174,7 @@ _No blocked tasks_
 
 ---
 
-### Milestone 2: Authentication & Database
+### Milestone 2: Core Infrastructure & Components
 
 **Status:** Not Started
 **Target Date:** TBD
@@ -124,13 +182,16 @@ _No blocked tasks_
 
 **Tasks:**
 
-- [ ] TBD: Database selection and setup
-- [ ] TBD: Authentication system
-- [ ] TBD: User model and migrations
+- [ ] SS-3: shadcn/ui setup with base components
+- [ ] SS-4: Vitest testing framework setup
+- [ ] SS-5: Vercel Blob integration for images
+- [ ] SS-6: Monitoring setup (Sentry, GA4, UptimeRobot)
+
+**Outcome:** Core infrastructure ready for feature development with testing and monitoring in place.
 
 ---
 
-### Milestone 3: Core Application Features
+### Milestone 3: Communication & Booking (Basic Placeholders)
 
 **Status:** Not Started
 **Target Date:** TBD
@@ -138,17 +199,147 @@ _No blocked tasks_
 
 **Tasks:**
 
-- [ ] TBD
+- [ ] SS-7: Contact form with React Hook Form + Zod (basic placeholder page)
+- [ ] SS-8: Twilio integration (WhatsApp forwarding)
+- [ ] SS-9: Smoobu widget integration (basic placeholder page)
+- [ ] SS-10: WhatsApp Click-to-Chat button
+- [ ] SS-11: Rate limiting for contact form
+
+**Outcome:** Functional communication and booking flows with basic placeholder pages. UI polish comes later in Milestone 5.
+
+---
+
+### Milestone 4: Media & Content (Basic Placeholders)
+
+**Status:** Not Started
+**Target Date:** TBD
+**Dependencies:** Milestone 3
+
+**Tasks:**
+
+- [ ] SS-12: Image upload system (Vercel Blob with pre-optimization)
+- [ ] SS-13: YouTube video embeds (loop, no ads)
+- [ ] SS-14: Image gallery component (basic version)
+- [ ] SS-15: Responsive images for mobile/desktop
+
+**Outcome:** Media systems functional with basic placeholder pages. Nice UI comes in Milestone 5.
+
+---
+
+### Milestone 5: Marketing Pages & UI Polish
+
+**Status:** Not Started
+**Target Date:** TBD
+**Dependencies:** Milestone 4
+
+**Tasks:**
+
+- [ ] SS-16: Homepage with hero, features, gallery, CTA (polished UI)
+- [ ] SS-17: About page (surf camp story, team)
+- [ ] SS-18: Rooms & Accommodation page (polished UI)
+- [ ] SS-19: Activities & Surf Info page (polished UI)
+- [ ] SS-20: Polish contact/booking pages with nice UI
+- [ ] SS-21: Mobile-first responsive design across all pages
+
+**Outcome:** All pages have polished, beautiful UI. Site looks professional and ready for users.
+
+---
+
+### Milestone 6: Testing & Quality
+
+**Status:** Not Started
+**Target Date:** TBD
+**Dependencies:** Milestone 5
+
+**Tasks:**
+
+- [ ] SS-22: Unit tests for utilities and validations
+- [ ] SS-23: Integration tests for forms and API routes
+- [ ] SS-24: Mobile device testing
+- [ ] SS-25: Performance optimization
+- [ ] SS-26: SEO optimization
+
+**Outcome:** Site is tested, optimized, and production-ready.
+
+---
+
+### Milestone 7: MVP Launch
+
+**Status:** Not Started
+**Target Date:** TBD
+**Dependencies:** Milestone 6
+
+**Tasks:**
+
+- [ ] SS-27: Vercel deployment setup
+- [ ] SS-28: Custom domain configuration
+- [ ] SS-29: Environment variables configuration
+- [ ] SS-30: Pre-launch testing checklist
+- [ ] SS-31: Go live!
+
+**Outcome:** Fully functional, tested, and polished surf camp website live in production.
 
 ---
 
 ## 🔗 Dependencies Graph
 
 ```
-SS-1 (Next.js Setup)
-  └─> SS-2 (Linting Setup)
-       └─> [Future tasks will depend on this foundation]
+Milestone 1: Foundation ✅ COMPLETE
+├─ SS-1 (Next.js Setup)
+└─ SS-2 (Linting Setup)
+       ↓
+Milestone 2: Core Infrastructure
+├─ SS-3 (shadcn/ui setup)
+├─ SS-4 (Vitest setup)
+├─ SS-5 (Vercel Blob integration)
+└─ SS-6 (Monitoring: Sentry, GA4, UptimeRobot)
+       ↓
+Milestone 3: Communication & Booking (Basic Placeholders)
+├─ SS-7 (Contact form - basic page)
+├─ SS-8 (Twilio → WhatsApp)
+├─ SS-9 (Smoobu widget - basic page)
+├─ SS-10 (WhatsApp Click-to-Chat)
+└─ SS-11 (Rate limiting)
+       ↓
+Milestone 4: Media & Content (Basic Placeholders)
+├─ SS-12 (Image upload system)
+├─ SS-13 (YouTube embeds)
+├─ SS-14 (Image gallery - basic)
+└─ SS-15 (Responsive images)
+       ↓
+Milestone 5: Marketing Pages & UI Polish
+├─ SS-16 (Homepage - polished UI)
+├─ SS-17 (About page - polished UI)
+├─ SS-18 (Rooms page - polished UI)
+├─ SS-19 (Activities page - polished UI)
+├─ SS-20 (Polish contact/booking pages)
+└─ SS-21 (Mobile-first responsive - all pages)
+       ↓
+Milestone 6: Testing & Quality
+├─ SS-22 (Unit tests)
+├─ SS-23 (Integration tests)
+├─ SS-24 (Mobile device testing)
+├─ SS-25 (Performance optimization)
+└─ SS-26 (SEO optimization)
+       ↓
+Milestone 7: MVP Launch
+├─ SS-27 (Vercel deployment setup)
+├─ SS-28 (Custom domain)
+├─ SS-29 (Environment variables)
+├─ SS-30 (Pre-launch QA)
+└─ SS-31 (Go live! 🚀)
+       ↓
+Post-MVP: Booking Site Integrations
+├─ Booking.com
+├─ Airbnb
+└─ Agoda
 ```
+
+**Key Strategy:**
+
+- Milestones 3-4: Build functional flows with **basic placeholder pages**
+- Milestone 5: Polish everything with **beautiful UI and marketing copy**
+- This allows early testing of functionality before investing in design
 
 ---
 

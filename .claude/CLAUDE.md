@@ -465,23 +465,125 @@ yarn lint-staged
 
 ### Building & Deployment
 
+```bash
+# Build for production
+yarn build
+
+# Start production server locally
+yarn start
+```
+
+**Hosting:** Vercel (automatic deployment from GitHub)
+
+---
+
 ## Architecture Overview
+
+### Project Purpose
+
+**Sumba Sunset** is a surf camp website for a property in Sumba, Indonesia. The site is primarily **marketing and informational**, with booking handled through the Smoobu widget integration.
+
+**Live Site:** https://sumba-sunset-m96okb7l6-byrons-projects-a07d9676.vercel.app/
+
+**Key Characteristics:**
+
+- Mobile-first design (most users browse on phones)
+- Static content heavy (pages, images, videos)
+- No database needed (Smoobu handles bookings, Vercel Blob for images)
+- Simple communication flow (contact forms → WhatsApp)
+- Focus on visual appeal and ease of use
+
+---
 
 ### Tech Stack
 
-#### Frontend Stack (Next.js)
+#### Core Framework
 
-- **Framework**:
-- **Language**:
-- **Runtime**:
-- **Package Manager**:
-- **Styling**:
-- **UI Components**:
-- **State Management**:
-- **Data Fetching**:
-- **Forms**:
-- **Testing**:
-- **Development Tools**:
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript (strict mode)
+- **Runtime**: Node.js 18+
+- **Package Manager**: Yarn (NEVER use npm or npx)
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **Forms**: React Hook Form + Zod validation
+- **Testing**: Vitest
+- **Dev Tools**: ESLint, Prettier, Husky, lint-staged
+
+#### External Services
+
+- **Hosting**: Vercel
+  - Automatic deployments from GitHub
+  - Serverless functions for API routes
+  - Edge network for fast global delivery
+
+- **Booking & Payments**: Smoobu
+  - Booking management system
+  - Payment gateway through Stripe
+  - Deposits: 50% upfront, remainder cash on arrival
+  - Widget embedded on site for live availability
+
+- **Media Storage**: Vercel Blob
+  - Image storage and optimization
+  - Pre-upload optimization required
+  - No database needed for static assets
+
+- **Video**: YouTube (embedded)
+  - Loop videos to prevent suggestions
+  - De-monetized channel (no ads)
+  - No background music
+
+- **Communication**:
+  - **Pre-booking**: Contact form → Twilio → Staff WhatsApp
+  - **During booking**: Smoobu widget with special requests
+  - **Post-booking**: Smoobu automated confirmation emails
+  - **Post-stay**: Smoobu thank you & review request
+  - **Direct contact**: WhatsApp Click-to-Chat button
+
+#### Monitoring & Analytics
+
+- **Uptime Monitoring**: UptimeRobot
+- **Performance**: Vercel Speed Insights
+- **Analytics**: Google Analytics 4
+- **Error Tracking**: Sentry (free tier)
+
+#### Future Integrations (Post-MVP)
+
+- Booking.com listing
+- Airbnb listing
+- Agoda listing
+
+---
+
+### Architecture Philosophy
+
+**No Database Needed:**
+
+- Smoobu handles all booking data
+- Vercel Blob handles media assets
+- Site is primarily static content (pages, layouts, images)
+- Dynamic data comes from Smoobu API/widget
+
+**Mobile-First:**
+
+- Design and test on mobile devices first
+- Desktop is secondary experience
+- Touch-friendly interactions
+- Optimized images for mobile bandwidth
+
+**Performance-First:**
+
+- Static generation where possible (Next.js SSG)
+- Image optimization via Vercel
+- Minimal JavaScript bundle
+- Edge caching via Vercel CDN
+
+**Simple Communication Flow:**
+
+```
+User → Contact Form → Twilio → Staff WhatsApp
+User → Smoobu Widget → Booking Confirmation
+User → WhatsApp Button → Direct Chat
+```
 
 ### Critical Coding Standards & Conventions
 
@@ -502,33 +604,49 @@ yarn lint-staged
 
 #### Server Components vs Client Components
 
-- **Default**:
+- **Default**: Use Server Components unless you need interactivity
 - **Server Components**:
+  - Static pages (Home, About, Rooms, Activities)
+  - Data fetching from APIs
+  - SEO-critical content
 - **Client Components**:
+  - Forms (contact form, booking widget integration)
+  - Interactive UI (image carousels, modals, accordions)
+  - Client-side state management
+  - Event handlers (clicks, form submissions)
 - **Best Practices**:
+  - Add `"use client"` only when necessary
+  - Keep client components small and focused
+  - Pass data from Server → Client Components as props
+  - Use React Hook Form + Zod for all forms
 
 ### Naming Conventions
 
 #### Components & Files
 
-- **Components**:
-- **Props & Variables**:
-- **Types/Interfaces**:
+- **Components**: PascalCase (e.g., `ContactForm.tsx`, `HeroSection.tsx`)
+- **Props & Variables**: camelCase (e.g., `userName`, `bookingData`)
+- **Types/Interfaces**: PascalCase (e.g., `ContactFormData`, `BookingInfo`)
 - **Files**:
-- **Directories**:
+  - Components: PascalCase (e.g., `Button.tsx`)
+  - Utilities: camelCase (e.g., `formatDate.ts`)
+  - Config: kebab-case (e.g., `next.config.ts`)
+- **Directories**: kebab-case (e.g., `components/`, `contact-form/`)
 
 #### API Routes & Server Actions
 
-- **API Routes**:
-- **Server Actions**:
-- **Route Handlers**:
+- **API Routes**: kebab-case (e.g., `/api/contact-form/route.ts`)
+- **Server Actions**: camelCase starting with action verb (e.g., `submitContactForm`, `sendToWhatsApp`)
+- **Route Handlers**: Standard Next.js convention (GET, POST, etc.)
 
-#### Database & Models (if applicable)
+#### Images & Media
 
-- **Tables**:
-- **Models**:
-- **Fields**:
-- **Relations**:
+- **Image files**: kebab-case with descriptive names
+  - ✅ `hero-sunset-beach.jpg`
+  - ✅ `room-ocean-view.jpg`
+  - ❌ `IMG_1234.jpg`
+- **Optimize before upload**: Use Vercel Blob with pre-optimization
+- **Alt text**: Always required, descriptive for SEO and accessibility
 
 ## Code Quality Practices
 
@@ -648,32 +766,231 @@ export const env = EnvSchema.parse(process.env);
 
 ### Error Handling
 
+- Use Zod for runtime validation at boundaries (forms, API inputs)
+- Use TypeScript for compile-time safety
+- Implement error boundaries for React components
+- Log errors to Sentry for monitoring
+- Show user-friendly error messages (never expose stack traces)
+
 ### Performance Optimization
 
+**Mobile-First Performance:**
+
+- Lazy load images with Next.js `<Image>` component
+- Use WebP format for images (Vercel Blob optimization)
+- Minimize JavaScript bundle size
+- Defer non-critical scripts
+- Use Vercel Speed Insights to monitor
+
+**Static Generation:**
+
+- Generate static pages at build time (SSG)
+- Only use server-side rendering (SSR) when necessary
+- Cache API responses appropriately
+
+**Image Optimization:**
+
+- Pre-optimize images before uploading to Vercel Blob
+- Use appropriate image sizes for mobile vs desktop
+- Implement responsive images with `srcset`
+- Lazy load below-the-fold images
+
 ### Security Best Practices
+
+- Never commit API keys or secrets (use environment variables)
+- Validate all user inputs with Zod schemas
+- Sanitize data before sending to external services (Twilio, Smoobu)
+- Use HTTPS only (enforced by Vercel)
+- Implement rate limiting on contact form (prevent spam)
+- Set appropriate CORS headers for API routes
+- Use Vercel's built-in security features
+
+---
 
 ## Project Structure
 
 ### Directory Layout
 
+```
+sumba-sunset/
+├── src/
+│   ├── app/                    # Next.js App Router pages
+│   │   ├── (marketing)/       # Marketing pages group
+│   │   │   ├── page.tsx       # Home page
+│   │   │   ├── about/         # About page
+│   │   │   ├── rooms/         # Rooms & accommodation
+│   │   │   ├── activities/    # Activities & surf info
+│   │   │   └── contact/       # Contact page
+│   │   ├── api/               # API routes
+│   │   │   └── contact-form/  # Contact form handler → Twilio
+│   │   ├── layout.tsx         # Root layout
+│   │   └── globals.css        # Global styles
+│   ├── components/            # React components
+│   │   ├── ui/                # shadcn/ui components
+│   │   ├── forms/             # Form components
+│   │   ├── layout/            # Layout components (Header, Footer)
+│   │   └── sections/          # Page sections (Hero, Features)
+│   ├── lib/                   # Utility functions
+│   │   ├── validations/       # Zod schemas
+│   │   ├── api/               # API client functions
+│   │   └── utils.ts           # Helper functions
+│   └── types/                 # TypeScript type definitions
+├── public/                    # Static assets (favicons, etc.)
+├── .claude/                   # Claude Code configuration
+│   ├── planning/              # Planning documents
+│   └── CLAUDE.md             # This file
+├── .husky/                    # Git hooks
+├── next.config.ts             # Next.js configuration
+├── tailwind.config.ts         # Tailwind CSS configuration
+├── tsconfig.json              # TypeScript configuration
+└── package.json               # Dependencies and scripts
+```
+
 ### Key Files & Their Purpose
+
+- **`src/app/layout.tsx`**: Root layout with global metadata, fonts, analytics
+- **`src/app/page.tsx`**: Homepage (hero, features, CTA)
+- **`src/app/api/contact-form/route.ts`**: Handles contact form → Twilio → WhatsApp
+- **`src/components/ui/`**: shadcn/ui components (Button, Input, Card, etc.)
+- **`src/lib/validations/`**: Zod schemas for form validation
+- **`next.config.ts`**: Vercel Blob configuration, image domains
+
+---
 
 ## Testing Strategy
 
-### Unit Tests
+### Unit Tests (Vitest)
 
-### Integration Tests
+**What to Test:**
 
-### E2E Tests
+- Utility functions (date formatting, text processing)
+- Zod validation schemas
+- React Hook Form logic
+- Helper functions
+
+**Coverage Goal:** 80% minimum for utilities and validations
+
+### Integration Tests (Vitest + Testing Library)
+
+**What to Test:**
+
+- Contact form submission flow
+- Smoobu widget integration
+- WhatsApp button behavior
+- Form validation with Zod
+- API route handlers (contact form → Twilio)
+
+**Coverage Goal:** Critical user flows must have integration tests
+
+### E2E Tests (Optional - Playwright)
+
+**What to Test (Post-MVP):**
+
+- Full booking flow with Smoobu widget
+- Contact form to WhatsApp journey
+- Mobile navigation and interactions
+- Image loading and optimization
+
+**Note:** E2E tests are optional initially; prioritize unit and integration tests
 
 ### Test Coverage Goals
+
+- **Utilities**: 80%+ coverage
+- **Form validation**: 100% coverage
+- **API routes**: 80%+ coverage
+- **Components**: 60%+ coverage (focus on logic, not UI)
+- **Critical flows**: 100% integration test coverage
+
+---
 
 ## Deployment
 
 ### Environment Variables
 
+**Required (Production):**
+
+```bash
+# Twilio (Contact form → WhatsApp)
+TWILIO_ACCOUNT_SID=your_account_sid
+TWILIO_AUTH_TOKEN=your_auth_token
+TWILIO_WHATSAPP_NUMBER=whatsapp:+1234567890
+STAFF_WHATSAPP_NUMBER=whatsapp:+1234567890
+
+# Smoobu (Optional - if using API)
+SMOOBU_API_KEY=your_api_key
+
+# Vercel Blob (Media storage)
+BLOB_READ_WRITE_TOKEN=your_blob_token
+
+# Analytics & Monitoring
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+SENTRY_DSN=your_sentry_dsn
+SENTRY_AUTH_TOKEN=your_auth_token
+
+# Site Configuration
+NEXT_PUBLIC_SITE_URL=https://sumba-sunset.com
+```
+
+**Local Development:**
+
+- Create `.env.local` (gitignored)
+- Copy from `.env.example` template
+- Use test/sandbox credentials for Twilio and Smoobu
+
 ### Build Process
+
+```bash
+# Install dependencies
+yarn install
+
+# Run type checking
+yarn type-check
+
+# Run linting
+yarn lint
+
+# Run tests
+yarn test
+
+# Build for production
+yarn build
+```
+
+**Vercel Build Settings:**
+
+- Build Command: `yarn build`
+- Output Directory: `.next`
+- Install Command: `yarn install`
+- Node Version: 18.x
 
 ### Hosting Platform
 
+**Vercel:**
+
+- Automatic deployments from `main` branch
+- Preview deployments for PRs
+- Edge network for fast global delivery
+- Serverless functions for API routes
+- Built-in image optimization
+- Environment variable management
+
+**Custom Domain:**
+
+- Configure DNS to point to Vercel
+- SSL certificate automatically provisioned
+- CDN caching for static assets
+
 ### CI/CD Pipeline
+
+**GitHub Actions (Automatic via Vercel):**
+
+1. Push to branch → Vercel creates preview deployment
+2. Open PR → Vercel comment with preview URL
+3. Merge to `main` → Vercel deploys to production
+4. Git hooks run pre-commit and pre-push checks locally
+
+**Manual Checks (Local):**
+
+- Pre-commit: Type-check + lint-staged
+- Pre-push: Full lint + format check
+- All checks must pass before push succeeds

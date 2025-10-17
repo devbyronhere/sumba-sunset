@@ -23,6 +23,14 @@ pr_number: null
 
 Brief description of what this feature accomplishes and why it's needed.
 
+**Project Context:**
+Sumba Sunset is a surf camp website (mobile-first, marketing-focused, no database). Features should align with:
+
+- 📱 Mobile-first design (primary user device)
+- ⚡ Performance optimization (fast loading, optimized images)
+- 💬 Simple communication (WhatsApp, Smoobu widget)
+- 📄 Static content where possible (no database needed)
+
 **User Story:**
 As a [user type], I want to [action] so that [benefit].
 
