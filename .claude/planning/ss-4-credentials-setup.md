@@ -30,6 +30,7 @@ Before enabling autonomous work with skip permissions, verify access to all thir
 **Business Value:**
 
 - Unblock development of third-party integrations (Twilio, Beds24, Vercel Blob, etc.)
+- Unblock development of third-party integrations (Twilio, Beds24, Vercel Blob, etc.)
 - Enable testing of API integrations locally
 - Establish security best practices for credential management
 - Identify missing permissions or access before starting feature work
@@ -51,6 +52,7 @@ Before enabling autonomous work with skip permissions, verify access to all thir
 
 ### Pain Points
 
+- Cannot test third-party integrations (Twilio, Beds24, Vercel Blob)
 - Cannot test third-party integrations (Twilio, Beds24, Vercel Blob)
 - May discover missing API keys mid-implementation
 - Unclear which services have sandbox/test environments
@@ -290,6 +292,7 @@ From `.env.example`, we need access to:
 - [ ] **Step 1.2**: Check which third-party accounts already exist:
   - [ ] Twilio account status: \***\*\_\_\_\*\***
   - [ ] Beds24 account status: \***\*\_\_\_\*\***
+  - [ ] Beds24 account status: \***\*\_\_\_\*\***
   - [ ] Vercel account status: \***\*\_\_\_\*\***
   - [ ] Sentry account status: \***\*\_\_\_\*\***
   - [ ] Google Analytics account status: \***\*\_\_\_\*\***
@@ -317,6 +320,7 @@ From `.env.example`, we need access to:
   ```
 - [ ] **Step 2.3**: Fill in available credentials in `.env.local`:
   - [ ] Twilio credentials (if available)
+  - [ ] Beds24 API keys (if available)
   - [ ] Beds24 API keys (if available)
   - [ ] Vercel Blob token (if available)
   - [ ] Sentry DSN (if available)
@@ -393,6 +397,7 @@ From `.env.example`, we need access to:
 
 **Note:** Production credentials should NEVER be in the codebase. They belong in Vercel Dashboard → Settings → Environment Variables.
 
+**Permission Decision:** **\*\*\*\***\*\*\*\***\*\*\*\***\_\_\_**\*\*\*\***\*\*\*\***\*\*\*\***
 **Permission Decision:** **\*\*\*\***\*\*\*\***\*\*\*\***\_\_\_**\*\*\*\***\*\*\*\***\*\*\*\***
 
 **Permissions Checkpoint:** Claude Code permissions configured
@@ -707,7 +712,11 @@ _(Fill out after completion)_
 
 - [x] **Twilio (production)**: Account upgraded, WhatsApp enabled, $20 USD credits, Number: (606) 755-8767
 - [x] **Hostinger (production)**: Domain sumbasunset.com (domain registrar ONLY - DNS points to Vercel)
+- [x] **Hostinger (production)**: Domain sumbasunset.com (domain registrar ONLY - DNS points to Vercel)
 - [ ] **Beds24**: Not yet created - HIGH PRIORITY (blocks SS-10)
+- [ ] **Vercel Blob**: Needed for image storage with CDN delivery (part of SS-8)
+- [ ] **Sentry**: Needed for error monitoring (can defer post-MVP)
+- [ ] **Google Analytics**: Needed for analytics (can defer post-MVP)
 - [ ] **Vercel Blob**: Needed for image storage with CDN delivery (part of SS-8)
 - [ ] **Sentry**: Needed for error monitoring (can defer post-MVP)
 - [ ] **Google Analytics**: Needed for analytics (can defer post-MVP)
