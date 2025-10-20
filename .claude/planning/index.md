@@ -1,6 +1,6 @@
 # Sumba Sunset - Planning Index
 
-> **Last Updated:** 2025-01-17
+> **Last Updated:** 2025-10-20
 > **Active Tasks:** 0
 > **Completed Tasks:** 2
 
@@ -38,10 +38,10 @@ This is the master planning document for the Sumba Sunset project. It replaces t
 
 ## 📊 Project Status Overview
 
-- **Total Tasks:** 38 (SS-1 through SS-38)
-- **Completed:** 2 (5%)
+- **Total Tasks:** 49 (SS-1 through SS-49)
+- **Completed:** 2 (4%)
 - **In Progress:** 0
-- **Not Started:** 36
+- **Not Started:** 47
 - **Blocked:** 0
 
 ---
@@ -146,21 +146,25 @@ _No blocked tasks_
 - [ ] **SS-27**: Polish contact/booking pages
 - [ ] **SS-28**: Mobile-first responsive design
 
-### Phase 6: Testing & Quality (Not Started)
+### Phase 6: Currency Investigation (Not Started)
 
-- [ ] **SS-29**: Unit tests for utilities and validations
-- [ ] **SS-30**: Integration tests for forms and API routes
-- [ ] **SS-31**: Mobile device testing
-- [ ] **SS-32**: Performance optimization
-- [ ] **SS-33**: SEO optimization
+- [ ] **SS-39**: Currency Switch Spike - Investigate USD → IDR migration
 
-### Phase 7: MVP Launch (Not Started)
+### Phase 7: Testing & Quality (Not Started)
 
-- [ ] **SS-34**: Vercel deployment setup
-- [ ] **SS-35**: Custom domain configuration
-- [ ] **SS-36**: Environment variables configuration
-- [ ] **SS-37**: Pre-launch testing checklist
-- [ ] **SS-38**: Go live!
+- [ ] **SS-40**: Unit tests for utilities and validations
+- [ ] **SS-41**: Integration tests for forms and API routes
+- [ ] **SS-42**: Mobile device testing
+- [ ] **SS-43**: Performance optimization
+- [ ] **SS-44**: SEO optimization
+
+### Phase 8: MVP Launch (Not Started)
+
+- [ ] **SS-45**: Vercel deployment setup
+- [ ] **SS-46**: Custom domain configuration
+- [ ] **SS-47**: Environment variables configuration
+- [ ] **SS-48**: Pre-launch testing checklist
+- [ ] **SS-49**: Go live!
 
 ### Post-MVP: OTA Channel Integrations (Future)
 
@@ -172,6 +176,73 @@ _No blocked tasks_
 
 ---
 
+## 🚀 Continuous Deployment Strategy
+
+**IMPORTANT: Deploy after every milestone completion to avoid big issues at project end.**
+
+### Deployment Workflow
+
+After completing each milestone:
+
+1. **Verify all quality gates pass** (tests, linting, type-checking)
+2. **Create Pull Request** for milestone branch
+3. **User reviews and approves** PR
+4. **Merge to main** branch
+5. **Vercel automatically deploys** to production (via GitHub integration)
+6. **Verify deployment successful** at production URL
+7. **User performs smoke testing** on production site
+8. **Document any deployment issues** in retrospective
+
+### Why Continuous Deployment?
+
+- **Early issue detection**: Catch deployment problems early, not at launch
+- **Incremental validation**: Each milestone is production-tested
+- **Reduced risk**: Small, frequent deployments are safer than one big bang
+- **Real environment testing**: Test integrations (Beds24, Twilio) in production
+- **Confidence building**: Progressive validation that everything works
+- **Rollback simplicity**: Easy to revert small changes vs. large releases
+
+### Vercel Deployment Process
+
+**Automatic Deployments:**
+
+- Every push to `main` → Production deployment
+- Every PR branch → Preview deployment
+- GitHub integration handles all automation
+
+**What Gets Deployed:**
+
+- Next.js application build
+- Environment variables (configured in Vercel Dashboard)
+- Static assets
+- API routes
+
+**Post-Deployment Checklist (After Each Milestone):**
+
+- [ ] Deployment succeeded (check Vercel dashboard)
+- [ ] Production site loads without errors
+- [ ] No console errors in browser
+- [ ] New features from milestone are visible
+- [ ] No regressions in existing features
+- [ ] Environment variables working correctly
+- [ ] SSL certificate active (HTTPS)
+
+### Milestone Deployment Status
+
+| Milestone                 | Status      | Deployed   | Deployment Date | Production URL  |
+| ------------------------- | ----------- | ---------- | --------------- | --------------- |
+| 1: Dev Environment ✅     | Complete    | ✅ Yes     | 2025-01-17      | [Vercel URL]    |
+| 2: Core Infrastructure    | Not Started | ⏸️ Pending | TBD             | TBD             |
+| 3: Beds24 Integration     | Not Started | ⏸️ Pending | TBD             | TBD             |
+| 4: Communication          | Not Started | ⏸️ Pending | TBD             | TBD             |
+| 5: Media & Content        | Not Started | ⏸️ Pending | TBD             | TBD             |
+| 6: Marketing Pages        | Not Started | ⏸️ Pending | TBD             | TBD             |
+| 7: Currency Investigation | Not Started | ⏸️ Pending | TBD             | TBD             |
+| 8: Testing & Quality      | Not Started | ⏸️ Pending | TBD             | TBD             |
+| 9: MVP Launch 🚀          | Not Started | ⏸️ Pending | TBD             | sumbasunset.com |
+
+---
+
 ## 📈 Milestones
 
 ### Milestone 1: Development Environment Setup ✅
@@ -179,6 +250,7 @@ _No blocked tasks_
 **Status:** Complete
 **Target Date:** 2025-01-17
 **Completed:** 2025-01-17
+**Deployed:** ✅ Yes (2025-01-17)
 
 **Tasks:**
 
@@ -186,6 +258,8 @@ _No blocked tasks_
 - [x] SS-2: Linting & Formatting Setup
 
 **Outcome:** Development environment fully configured with Next.js 15, TypeScript, Tailwind CSS, ESLint, Prettier, and Git hooks.
+
+**Deployment:** Automatic deployment to Vercel completed. Base Next.js app live in production.
 
 ---
 
@@ -205,6 +279,8 @@ _No blocked tasks_
 - [ ] SS-8: Monitoring setup (Sentry, GA4, UptimeRobot)
 
 **Outcome:** Core infrastructure ready for feature development with testing and monitoring in place (excluding Beds24 which has its own milestone).
+
+**Deployment:** After milestone completion, merge to main and deploy. Verify domain configuration, monitoring dashboards, and test framework in production.
 
 ---
 
@@ -229,6 +305,8 @@ _No blocked tasks_
 
 **Outcome:** Fully functional booking system with Beds24 widget integrated, payment processing configured, and automated email workflows set up. This is a complex, high-priority milestone due to Beds24's technical setup requirements (estimated 8-12 hours total).
 
+**Deployment:** After milestone completion, merge to main and deploy. **CRITICAL**: Test end-to-end booking flow in production with real Stripe test cards. Verify email automation triggers correctly.
+
 ---
 
 ### Milestone 4: Communication Features (Basic Placeholders)
@@ -246,6 +324,8 @@ _No blocked tasks_
 
 **Outcome:** Functional communication flows (contact form and WhatsApp) with basic placeholder pages. Validated and working after booking system is set up.
 
+**Deployment:** After milestone completion, merge to main and deploy. **CRITICAL**: Test contact form → Twilio → WhatsApp flow in production. Verify rate limiting works.
+
 ---
 
 ### Milestone 5: Media & Content (Basic Placeholders)
@@ -262,6 +342,8 @@ _No blocked tasks_
 - [ ] SS-22: Responsive images for mobile/desktop
 
 **Outcome:** Media systems functional with basic placeholder pages. Nice UI comes in Milestone 6.
+
+**Deployment:** After milestone completion, merge to main and deploy. Verify Vercel Blob image uploads work in production, test YouTube embeds, confirm responsive images load correctly.
 
 ---
 
@@ -282,41 +364,73 @@ _No blocked tasks_
 
 **Outcome:** All pages have polished, beautiful UI. Site looks professional and ready for users.
 
+**Deployment:** After milestone completion, merge to main and deploy. Perform comprehensive cross-browser and mobile device testing in production. Verify all pages render correctly.
+
 ---
 
-### Milestone 7: Testing & Quality
+### Milestone 7: Currency Investigation (USD → IDR)
 
 **Status:** Not Started
-**Target Date:** TBD
-**Dependencies:** Milestone 6 (Marketing Pages)
+**Target Date:** TBD (After Milestone 6)
+**Dependencies:** Milestone 6 (Marketing Pages & UI Polish)
+
+**Purpose:** Investigate switching from USD to IDR for local market optimization
 
 **Tasks:**
 
-- [ ] SS-29: Unit tests for utilities and validations
-- [ ] SS-30: Integration tests for forms and API routes
-- [ ] SS-31: Mobile device testing
-- [ ] SS-32: Performance optimization
-- [ ] SS-33: SEO optimization
+- [ ] SS-39: Currency Switch Spike - Investigate USD → IDR migration
+  - Research Indonesian market pricing expectations
+  - Analyze Beds24 currency change process (breaking or non-breaking?)
+  - Test impact on existing bookings and payment flow
+  - Evaluate conversion rate impact on Indonesian vs. international customers
+  - Document technical effort required (widget updates, pricing updates, etc.)
+  - Make go/no-go recommendation
+
+**Outcome:** Clear recommendation on whether to switch currency, with documented rationale and implementation plan if approved.
+
+**Note:** This is a **spike story** (investigation/research task), not full implementation. Implementation would be a follow-up task if spike recommends proceeding.
+
+**Deployment:** No deployment needed (research/documentation only). Results documented in planning doc for decision-making.
+
+---
+
+### Milestone 8: Testing & Quality
+
+**Status:** Not Started
+**Target Date:** TBD
+**Dependencies:** Milestone 7 (Currency Investigation)
+
+**Tasks:**
+
+- [ ] SS-40: Unit tests for utilities and validations
+- [ ] SS-41: Integration tests for forms and API routes
+- [ ] SS-42: Mobile device testing
+- [ ] SS-43: Performance optimization
+- [ ] SS-44: SEO optimization
 
 **Outcome:** Site is tested, optimized, and production-ready.
 
+**Deployment:** After milestone completion, merge to main and deploy. Run full test suite in production environment. Verify performance improvements (Lighthouse scores), confirm SEO meta tags, test on real mobile devices.
+
 ---
 
-### Milestone 8: MVP Launch
+### Milestone 9: MVP Launch
 
 **Status:** Not Started
 **Target Date:** TBD
-**Dependencies:** Milestone 7 (Testing & Quality)
+**Dependencies:** Milestone 8 (Testing & Quality)
 
 **Tasks:**
 
-- [ ] SS-34: Vercel deployment setup
-- [ ] SS-35: Custom domain configuration
-- [ ] SS-36: Environment variables configuration
-- [ ] SS-37: Pre-launch testing checklist
-- [ ] SS-38: Go live!
+- [ ] SS-45: Vercel deployment setup (production environment configuration)
+- [ ] SS-46: Custom domain configuration (sumbasunset.com final setup)
+- [ ] SS-47: Environment variables configuration (production keys)
+- [ ] SS-48: Pre-launch testing checklist (comprehensive QA)
+- [ ] SS-49: Go live! (official launch)
 
-**Outcome:** Fully functional, tested, and polished surf camp website live in production.
+**Outcome:** Fully functional, tested, and polished surf camp website live in production at sumbasunset.com.
+
+**Deployment:** Final production deployment with custom domain. This is the **official launch**. All previous milestones were deployed for validation; this milestone makes it public and announces to the world.
 
 ---
 
@@ -363,19 +477,22 @@ Milestone 6: Marketing Pages & UI Polish
 ├─ SS-27 (Polish contact/booking pages)
 └─ SS-28 (Mobile-first responsive - all pages)
        ↓
-Milestone 7: Testing & Quality
-├─ SS-29 (Unit tests)
-├─ SS-30 (Integration tests)
-├─ SS-31 (Mobile device testing)
-├─ SS-32 (Performance optimization)
-└─ SS-33 (SEO optimization)
+Milestone 7: Currency Investigation (USD → IDR)
+└─ SS-39 (Currency Switch Spike - Research & Recommendation)
        ↓
-Milestone 8: MVP Launch
-├─ SS-34 (Vercel deployment setup)
-├─ SS-35 (Custom domain verification)
-├─ SS-36 (Environment variables)
-├─ SS-37 (Pre-launch QA)
-└─ SS-38 (Go live! 🚀)
+Milestone 8: Testing & Quality
+├─ SS-40 (Unit tests)
+├─ SS-41 (Integration tests)
+├─ SS-42 (Mobile device testing)
+├─ SS-43 (Performance optimization)
+└─ SS-44 (SEO optimization)
+       ↓
+Milestone 9: MVP Launch
+├─ SS-45 (Vercel deployment setup)
+├─ SS-46 (Custom domain verification)
+├─ SS-47 (Environment variables)
+├─ SS-48 (Pre-launch QA)
+└─ SS-49 (Go live! 🚀)
        ↓
 Post-MVP: Booking Site Integrations
 ├─ Booking.com (via Beds24 channel manager)

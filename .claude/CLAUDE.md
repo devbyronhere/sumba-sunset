@@ -46,11 +46,24 @@ This file provides core guidance to Claude Code (claude.ai/code) when working wi
 
 ## Test-Driven Development Requirements
 
-**Claude MUST follow Test-Driven Development (TDD) for all work on this project:**
+**Claude MUST follow Test-Driven Development (TDD) for all feature development on this project:**
 
 1. **New Features**: First write tests to define AC. Run tests to ensure code quality and functionality before committing. Always write tests unless explicitly told not to.
 
-### Development Workflow
+**EXCEPTION: Infrastructure/Configuration Tasks**
+
+Infrastructure and configuration tasks (setup, deployment, DNS, credentials, etc.) do NOT require TDD tests:
+
+- **No unit/integration tests needed** for: DNS configuration, environment setup, account creation, API key generation, third-party service configuration
+- **Verification instead of tests**: These tasks use manual verification checklists in the planning document
+- **Examples**: SS-3 (Domain Config), SS-4 (Credentials), SS-5 (Beds24 Setup) - all use verification, not tests
+
+**Test Strategy Section in Planning Docs:**
+
+- **Feature tasks**: Must include comprehensive test strategy with unit/integration tests
+- **Infrastructure tasks**: Replace "Test Strategy" with "Verification Steps" or "Manual Testing Checklist"
+
+### Development Workflow (for Feature Development)
 
 1. **Understand Requirements**: Clarify what needs to be built or fixed
 2. **Write Tests First**: Create failing tests that define the expected behavior
@@ -88,7 +101,7 @@ The `.claude/planning/` directory is the single source of truth for all work. It
 
 **IMPORTANT: SS-X Planning Documents vs. Research Documents**
 
-- **SS-X docs (e.g., `ss-5-beds24-setup.md`)**: Implementation steps ONLY
+- **SS-X docs (e.g., `ss-13-beds24-setup.md`)**: Implementation steps ONLY
   - Focus on "how to implement" not "why we chose this"
   - Step-by-step instructions with checkboxes
   - Technical configuration details
@@ -195,6 +208,8 @@ Use these commands for planning workflows:
 1. Review PR and code changes
 2. Run manual testing checklist
 3. Approve and merge PR (or request changes)
+4. **Verify deployment** after merge to main (Vercel auto-deploys)
+5. **Perform smoke testing** on production after each milestone deployment
 
 ### Handling PR Review Delays
 
@@ -251,6 +266,65 @@ When a PR is waiting for review and blocking dependent work:
 - ✅ Mark urgent/blocking PRs in Planning Index
 - ⚠️ Avoid stacking for infrastructure changes (high risk)
 - ⚠️ Rebase requires clear communication
+
+---
+
+## Continuous Deployment Strategy
+
+**CRITICAL: Deploy after every milestone to avoid big issues at project end.**
+
+### Why Continuous Deployment?
+
+- **Early issue detection**: Catch deployment problems early, not at launch
+- **Incremental validation**: Each milestone is production-tested
+- **Reduced risk**: Small, frequent deployments are safer than one big bang
+- **Real environment testing**: Test integrations (Beds24, Twilio) in production
+- **Confidence building**: Progressive validation that everything works
+
+### Deployment Process (After Each Milestone)
+
+1. **Complete all tasks** in milestone
+2. **Pass all quality gates** (tests, linting, type-checking)
+3. **Create milestone PR** with comprehensive description
+4. **User reviews and approves** PR
+5. **Merge to main** → Vercel auto-deploys to production
+6. **Verify deployment** succeeds (check Vercel dashboard)
+7. **User performs smoke testing** on production site
+8. **Document deployment** in Planning Index milestone status table
+
+### Post-Deployment Checklist (User Required)
+
+After each milestone deployment, user must verify:
+
+- [ ] Deployment succeeded (check Vercel dashboard - no errors)
+- [ ] Production site loads without errors
+- [ ] No console errors in browser DevTools
+- [ ] New features from milestone are visible and functional
+- [ ] No regressions in existing features
+- [ ] Environment variables working correctly (if applicable)
+- [ ] SSL certificate active (HTTPS green padlock)
+- [ ] Mobile experience acceptable (test on real device)
+
+### Critical Milestone Deployments
+
+Some milestones require extra validation in production:
+
+- **Milestone 3 (Beds24)**: Test full booking flow with Stripe test cards
+- **Milestone 4 (Communication)**: Test contact form → Twilio → WhatsApp flow
+- **Milestone 5 (Media)**: Verify Vercel Blob uploads work in production
+- **Milestone 6 (UI Polish)**: Cross-browser and device testing
+- **Milestone 8 (Testing & Quality)**: Run performance audits (Lighthouse)
+
+### Rollback Strategy
+
+If deployment causes production issues:
+
+1. **Immediate**: Revert merge commit on main branch
+2. **Redeploy**: Vercel auto-deploys previous working version
+3. **Investigate**: Claude fixes issues in feature branch
+4. **Retry**: Create new PR when fixed
+
+**Note**: Small, frequent deployments make rollbacks simple and low-risk.
 
 ---
 

@@ -11,6 +11,8 @@ started: null
 completed: null
 related_docs: ['beds24-feasibility-research.md']
 infra_type: configuration
+currency_decision: USD
+currency_rationale: 'Start with USD for simplicity - most international surf travelers expect USD. After Milestone 6 completion, spike story (SS-39) will investigate USD→IDR currency switch for local market optimization.'
 ---
 
 [← Previous: SS-14 Beds24 Validation](./ss-14-beds24-validation.md) | [📋 Index](./index.md) | [Next: SS-15 Widget Integration →](./ss-15-beds24-widget.md)
@@ -112,7 +114,7 @@ Create and fully configure a Beds24 account for booking management, including pr
     - Phone number
     - Tax ID (if applicable in Indonesia)
   - **Time zone**: Asia/Makassar (WITA) - CRITICAL for Sumba
-  - **Default currency**: USD or IDR (choose based on target market, most surf travelers expect USD)
+  - **Default currency**: USD (firm decision - see frontmatter for rationale)
   - **Language**: English
 
 - [ ] **Step 1.5**: Set up billing information
@@ -129,7 +131,7 @@ Create and fully configure a Beds24 account for booking management, including pr
   - Address: [Full Sumba, Indonesia address]
   - Property type: Guest House / Surf Camp
   - GPS coordinates: [Latitude, Longitude] (for map display)
-  - Currency: USD (recommended - most surf travelers expect USD)
+  - Currency: USD (firm decision - see frontmatter for rationale)
 
 - [ ] **Step 2.2**: Upload property photos
   - **Essential Photos (10-15 minimum)**:
@@ -327,7 +329,7 @@ Create and fully configure a Beds24 account for booking management, including pr
        - Select "Manual" or "Cash"
        - Instructions for guest: "Remainder payment due in cash on arrival"
        - Add to booking confirmation email
-    4. **Currency**: USD (recommended)
+    4. **Currency**: USD (firm decision - see frontmatter for rationale)
     5. **Accepted Cards**: All major cards (Visa, Mastercard, Amex)
 
 - [ ] **Step 4.3**: Set up refund & cancellation policy
@@ -375,7 +377,7 @@ Create and fully configure a Beds24 account for booking management, including pr
     - **Date Picker** - Simpler, less visual
   - Configure widget settings:
     - Language: English (primary), add Indonesian if needed
-    - Currency: USD
+    - Currency: USD (firm decision - see frontmatter for rationale)
     - Date format: DD/MM/YYYY or MM/DD/YYYY
     - Show prices: Yes
     - Show availability: Yes
@@ -1135,7 +1137,7 @@ Files that need updating after this task:
 - **Email HTML** - May need to write custom HTML for professional look
 - **Payment rules** - Deposit model may be tricky to configure
 - **Time zone** - Verify Sumba time zone (WITA) configured correctly
-- **Currency** - Decide IDR vs. USD (most surf travelers expect USD)
+- **Currency** - USD confirmed (see frontmatter). Future spike story (SS-39) will investigate USD→IDR switch after Milestone 6
 
 **After Completion:**
 
@@ -1182,7 +1184,7 @@ _(Fill out after completion)_
 ### Configuration Decisions Made
 
 - **Pricing plan chosen**: (base or full-featured)
-- **Currency chosen**: (IDR or USD)
+- **Currency chosen**: USD (firm decision - see frontmatter for rationale)
 - **Min nights policy**: (X nights)
 - **Cancellation policy**: (description)
 - **Email frequency**: (how many days before arrival)
