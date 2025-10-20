@@ -1,6 +1,7 @@
 # Sumba Sunset - Planning Index
 
 > **Last Updated:** 2025-10-20
+> **Last Updated:** 2025-10-20
 > **Active Tasks:** 0
 > **Completed Tasks:** 2
 
@@ -40,7 +41,10 @@ This is the master planning document for the Sumba Sunset project. It replaces t
 
 - **Total Tasks:** 49 (SS-1 through SS-49)
 - **Completed:** 2 (4%)
+- **Total Tasks:** 49 (SS-1 through SS-49)
+- **Completed:** 2 (4%)
 - **In Progress:** 0
+- **Not Started:** 47
 - **Not Started:** 47
 - **Blocked:** 0
 
@@ -147,7 +151,11 @@ _No blocked tasks_
 - [ ] **SS-29**: Polish contact/booking pages
 - [ ] **SS-30**: Mobile-first responsive design
 
-### Phase 6: Testing & Quality (Not Started)
+### Phase 6: Currency Investigation (Not Started)
+
+- [ ] **SS-39**: Currency Switch Spike - Investigate USD → IDR migration
+
+### Phase 7: Testing & Quality (Not Started)
 
 - [ ] **SS-31**: Unit tests for utilities and validations
 - [ ] **SS-32**: Integration tests for forms and API routes
@@ -155,7 +163,7 @@ _No blocked tasks_
 - [ ] **SS-34**: Performance optimization
 - [ ] **SS-35**: SEO optimization
 
-### Phase 7: MVP Launch (Not Started)
+### Phase 8: MVP Launch (Not Started)
 
 - [ ] **SS-36**: Remove pre-launch banner (set NEXT_PUBLIC_PRE_LAUNCH=false)
 - [ ] **SS-37**: Update robots.txt to allow search engine indexing
@@ -253,6 +261,7 @@ After completing each milestone:
 **Status:** Complete
 **Target Date:** 2025-01-17
 **Completed:** 2025-01-17
+**Deployed:** ✅ Yes (2025-01-17)
 **Deployed:** ✅ Yes (2025-01-17)
 
 **Tasks:**
@@ -421,11 +430,11 @@ After completing each milestone:
 
 ---
 
-### Milestone 8: MVP Launch
+### Milestone 9: MVP Launch
 
 **Status:** Not Started
 **Target Date:** TBD
-**Dependencies:** Milestone 7 (Testing & Quality)
+**Dependencies:** Milestone 8 (Testing & Quality)
 
 **Tasks:**
 

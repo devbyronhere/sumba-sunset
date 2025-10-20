@@ -117,6 +117,7 @@ Create and fully configure a Beds24 account for booking management, including pr
     - Tax ID (if applicable in Indonesia)
   - **Time zone**: Asia/Makassar (WITA) - CRITICAL for Sumba
   - **Default currency**: USD (firm decision - see frontmatter for rationale)
+  - **Default currency**: USD (firm decision - see frontmatter for rationale)
   - **Language**: English
 
 - [ ] **Step 1.5**: Set up billing information
@@ -133,6 +134,7 @@ Create and fully configure a Beds24 account for booking management, including pr
   - Address: [Full Sumba, Indonesia address]
   - Property type: Guest House / Surf Camp
   - GPS coordinates: [Latitude, Longitude] (for map display)
+  - Currency: USD (firm decision - see frontmatter for rationale)
   - Currency: USD (firm decision - see frontmatter for rationale)
 
 - [ ] **Step 2.2**: Upload property photos
@@ -379,6 +381,7 @@ Create and fully configure a Beds24 account for booking management, including pr
     - **Date Picker** - Simpler, less visual
   - Configure widget settings:
     - Language: English (primary), add Indonesian if needed
+    - Currency: USD (firm decision - see frontmatter for rationale)
     - Currency: USD (firm decision - see frontmatter for rationale)
     - Date format: DD/MM/YYYY or MM/DD/YYYY
     - Show prices: Yes
@@ -1142,6 +1145,7 @@ Files that need updating after this task:
 - **Payment rules** - Deposit model may be tricky to configure
 - **Time zone** - Verify Sumba time zone (WITA) configured correctly
 - **Currency** - USD confirmed (see frontmatter). Future spike story (SS-39) will investigate USD→IDR switch after Milestone 6
+- **Currency** - USD confirmed (see frontmatter). Future spike story (SS-39) will investigate USD→IDR switch after Milestone 6
 
 **After Completion:**
 
@@ -1188,6 +1192,7 @@ _(Fill out after completion)_
 ### Configuration Decisions Made
 
 - **Pricing plan chosen**: (base or full-featured)
+- **Currency chosen**: USD (firm decision - see frontmatter for rationale)
 - **Currency chosen**: USD (firm decision - see frontmatter for rationale)
 - **Min nights policy**: (X nights)
 - **Cancellation policy**: (description)

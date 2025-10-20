@@ -47,8 +47,24 @@ This file provides core guidance to Claude Code (claude.ai/code) when working wi
 ## Test-Driven Development Requirements
 
 **Claude MUST follow Test-Driven Development (TDD) for all feature development on this project:**
+**Claude MUST follow Test-Driven Development (TDD) for all feature development on this project:**
 
 1. **New Features**: First write tests to define AC. Run tests to ensure code quality and functionality before committing. Always write tests unless explicitly told not to.
+
+**EXCEPTION: Infrastructure/Configuration Tasks**
+
+Infrastructure and configuration tasks (setup, deployment, DNS, credentials, etc.) do NOT require TDD tests:
+
+- **No unit/integration tests needed** for: DNS configuration, environment setup, account creation, API key generation, third-party service configuration
+- **Verification instead of tests**: These tasks use manual verification checklists in the planning document
+- **Examples**: SS-3 (Domain Config), SS-4 (Credentials), SS-5 (Beds24 Setup) - all use verification, not tests
+
+**Test Strategy Section in Planning Docs:**
+
+- **Feature tasks**: Must include comprehensive test strategy with unit/integration tests
+- **Infrastructure tasks**: Replace "Test Strategy" with "Verification Steps" or "Manual Testing Checklist"
+
+### Development Workflow (for Feature Development)
 
 **EXCEPTION: Infrastructure/Configuration Tasks**
 
@@ -101,6 +117,7 @@ The `.claude/planning/` directory is the single source of truth for all work. It
 
 **IMPORTANT: SS-X Planning Documents vs. Research Documents**
 
+- **SS-X docs (e.g., `ss-13-beds24-setup.md`)**: Implementation steps ONLY
 - **SS-X docs (e.g., `ss-13-beds24-setup.md`)**: Implementation steps ONLY
   - Focus on "how to implement" not "why we chose this"
   - Step-by-step instructions with checkboxes
@@ -210,6 +227,8 @@ Use these commands for planning workflows:
 3. Approve and merge PR (or request changes)
 4. **Verify deployment** after merge to main (Vercel auto-deploys)
 5. **Perform smoke testing** on production after each milestone deployment
+6. **Verify deployment** after merge to main (Vercel auto-deploys)
+7. **Perform smoke testing** on production after each milestone deployment
 
 ### Handling PR Review Delays
 
