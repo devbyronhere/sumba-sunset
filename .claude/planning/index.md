@@ -76,8 +76,8 @@ _No tasks currently in progress_
 | -------------------------------------- | ------------------------------------------------ | -------- | --------- | ------------ | -------------------------------------------------------------------------- |
 | [SS-3](./ss-3-domain-configuration.md) | Domain Configuration - Point Hostinger to Vercel | High     | 30min-48h | None         | Quick win! Configure DNS to connect custom domain                          |
 | [SS-4](./ss-4-credentials-setup.md)    | Third-Party Credentials & Access Setup           | High     | 1-2h      | SS-1, SS-2   | Setup .env.local and verify access to all third-party services             |
-| [SS-14](./ss-14-beds24-validation.md)  | Beds24 Integration Validation (Technical Spike)  | High     | 30-60 min | SS-1, SS-2   | Quick test to validate Beds24 widget works in Next.js 15 before full setup |
-| [SS-5](./ss-13-beds24-setup.md)        | Beds24 Account Setup & Configuration             | High     | 8-12h     | SS-4, SS-14  | Complex setup - booking platform configuration (human-led)                 |
+| [SS-9](./ss-9-beds24-validation.md)    | Beds24 Integration Validation (Technical Spike)  | High     | 30-60 min | SS-1, SS-2   | Quick test to validate Beds24 widget works in Next.js 15 before full setup |
+| [SS-10](./ss-10-beds24-setup.md)       | Beds24 Account Setup & Configuration             | High     | 8-12h     | SS-4, SS-9   | Complex setup - booking platform configuration (human-led)                 |
 
 ### ⏸️ Blocked
 
@@ -109,26 +109,26 @@ _No blocked tasks_
 
 - [ ] **SS-3**: Domain Configuration (Quick Win!)
 - [ ] **SS-4**: Third-Party Credentials & Access Setup
-- [ ] **SS-6**: shadcn/ui setup and base components
-- [ ] **SS-7**: Vitest testing setup
-- [ ] **SS-8**: Vercel Blob integration for images
-- [ ] **SS-9**: Monitoring setup (Sentry, GA4, UptimeRobot)
+- [ ] **SS-5**: shadcn/ui setup and base components
+- [ ] **SS-6**: Vitest testing setup
+- [ ] **SS-7**: Vercel Blob integration for images
+- [ ] **SS-8**: Monitoring setup (Sentry, GA4, UptimeRobot)
 
 ### Phase 2.5: Beds24 Setup & Integration (Not Started)
 
-- [ ] **SS-14**: Beds24 Integration Validation (30-60 min technical spike)
-- [ ] **SS-5**: Beds24 Account Setup & Configuration (8-12 hours, human-led)
-- [ ] **SS-15**: Beds24 widget integration
-- [ ] **SS-16**: Beds24 payment configuration (Stripe, deposits)
-- [ ] **SS-17**: Beds24 email templates
-- [ ] **SS-18**: Beds24 widget CSS customization
+- [ ] **SS-9**: Beds24 Integration Validation (30-60 min technical spike)
+- [ ] **SS-10**: Beds24 Account Setup & Configuration (8-12 hours, human-led)
+- [ ] **SS-11**: Beds24 widget integration
+- [ ] **SS-12**: Beds24 payment configuration (Stripe, deposits)
+- [ ] **SS-13**: Beds24 email templates
+- [ ] **SS-14**: Beds24 widget CSS customization
 
 ### Phase 3: Communication Features (Not Started)
 
-- [ ] **SS-10**: Contact form with React Hook Form + Zod
-- [ ] **SS-11**: Twilio integration (form → WhatsApp)
-- [ ] **SS-12**: WhatsApp Click-to-Chat button
-- [ ] **SS-13**: Rate limiting for contact form
+- [ ] **SS-15**: Contact form with React Hook Form + Zod
+- [ ] **SS-16**: Twilio integration (form → WhatsApp)
+- [ ] **SS-17**: WhatsApp Click-to-Chat button
+- [ ] **SS-18**: Rate limiting for contact form
 
 ### Phase 4: Media & Content (Not Started)
 
@@ -183,13 +183,13 @@ _No blocked tasks_
 **Tasks:**
 
 - [x] SS-1: Next.js Project Setup
-- [ ] SS-2: Linting & Formatting Setup
+- [x] SS-2: Linting & Formatting Setup
 
 **Outcome:** Development environment fully configured with Next.js 15, TypeScript, Tailwind CSS, ESLint, Prettier, and Git hooks.
 
 ---
 
-### Milestone 2: Core Infrastructure & Components
+### Milestone 2: Core Infrastructure
 
 **Status:** Not Started
 **Target Date:** TBD
@@ -208,28 +208,11 @@ _No blocked tasks_
 
 ---
 
-### Milestone 3: Communication Features (Basic Placeholders)
+### Milestone 3: Beds24 Setup & Integration
 
 **Status:** Not Started
 **Target Date:** TBD
-**Dependencies:** Milestone 2
-
-**Tasks:**
-
-- [ ] SS-9: Contact form with React Hook Form + Zod (basic placeholder page)
-- [ ] SS-10: Twilio integration (WhatsApp forwarding)
-- [ ] SS-11: WhatsApp Click-to-Chat button
-- [ ] SS-12: Rate limiting for contact form
-
-**Outcome:** Functional communication flows (contact form and WhatsApp) with basic placeholder pages. Validated and working before moving to booking system.
-
----
-
-### Milestone 4: Beds24 Setup & Integration
-
-**Status:** Not Started
-**Target Date:** TBD
-**Dependencies:** Milestone 2 (requires SS-4 credentials), Milestone 3 (communication system validated)
+**Dependencies:** Milestone 2 (requires SS-4 credentials)
 
 **📋 Research & Analysis:**
 
@@ -237,14 +220,31 @@ _No blocked tasks_
 
 **Tasks:**
 
-- [ ] SS-14: Beds24 Integration Validation (30-60 min technical spike)
-- [ ] SS-5: Beds24 Account Setup & Configuration (8-12 hours, human-led)
-- [ ] SS-15: Beds24 widget integration (basic placeholder booking page)
-- [ ] SS-16: Beds24 payment configuration (Stripe integration, 50% deposit model)
-- [ ] SS-17: Beds24 email templates (booking confirmation, pre-arrival, post-stay)
-- [ ] SS-18: Beds24 widget CSS customization (mobile-first responsive design)
+- [ ] SS-9: Beds24 Integration Validation (30-60 min technical spike)
+- [ ] SS-10: Beds24 Account Setup & Configuration (8-12 hours, human-led)
+- [ ] SS-11: Beds24 widget integration (basic placeholder booking page)
+- [ ] SS-12: Beds24 payment configuration (Stripe integration, 50% deposit model)
+- [ ] SS-13: Beds24 email templates (booking confirmation, pre-arrival, post-stay)
+- [ ] SS-14: Beds24 widget CSS customization (mobile-first responsive design)
 
-**Outcome:** Fully functional booking system with Beds24 widget integrated, payment processing configured, and automated email workflows set up. This is a complex, high-priority milestone due to Beds24's technical setup requirements (estimated 8-12 hours total). Completed sequentially after communication features are validated.
+**Outcome:** Fully functional booking system with Beds24 widget integrated, payment processing configured, and automated email workflows set up. This is a complex, high-priority milestone due to Beds24's technical setup requirements (estimated 8-12 hours total).
+
+---
+
+### Milestone 4: Communication Features (Basic Placeholders)
+
+**Status:** Not Started
+**Target Date:** TBD
+**Dependencies:** Milestone 3 (Beds24)
+
+**Tasks:**
+
+- [ ] SS-15: Contact form with React Hook Form + Zod (basic placeholder page)
+- [ ] SS-16: Twilio integration (WhatsApp forwarding)
+- [ ] SS-17: WhatsApp Click-to-Chat button
+- [ ] SS-18: Rate limiting for contact form
+
+**Outcome:** Functional communication flows (contact form and WhatsApp) with basic placeholder pages. Validated and working after booking system is set up.
 
 ---
 
@@ -252,7 +252,7 @@ _No blocked tasks_
 
 **Status:** Not Started
 **Target Date:** TBD
-**Dependencies:** Milestone 4 (Beds24)
+**Dependencies:** Milestone 4 (Communication Features)
 
 **Tasks:**
 
@@ -330,24 +330,24 @@ Milestone 1: Foundation ✅ COMPLETE
 Milestone 2: Core Infrastructure 🚧 NEXT
 ├─ SS-3 (Domain Configuration - Hostinger → Vercel)
 ├─ SS-4 (Third-Party Credentials & Access)
-├─ SS-6 (shadcn/ui setup)
-├─ SS-7 (Vitest setup)
-├─ SS-8 (Vercel Blob integration)
-└─ SS-9 (Monitoring: Sentry, GA4, UptimeRobot)
+├─ SS-5 (shadcn/ui setup)
+├─ SS-6 (Vitest setup)
+├─ SS-7 (Vercel Blob integration)
+└─ SS-8 (Monitoring: Sentry, GA4, UptimeRobot)
        ↓
-Milestone 3: Communication Features
-├─ SS-10 (Contact form)
-├─ SS-11 (Twilio → WhatsApp)
-├─ SS-12 (WhatsApp Click-to-Chat)
-└─ SS-13 (Rate limiting)
+Milestone 3: Beds24 Setup & Integration
+├─ SS-9 (Beds24 validation - 30-60 min spike)
+├─ SS-10 (Beds24 account setup)
+├─ SS-11 (Beds24 widget integration)
+├─ SS-12 (Payment config - Stripe, deposits)
+├─ SS-13 (Email templates)
+└─ SS-14 (Widget CSS customization)
        ↓
-Milestone 4: Beds24 Setup & Integration
-├─ SS-14 (Beds24 validation - 30-60 min spike)
-├─ SS-5 (Beds24 account setup)
-├─ SS-15 (Beds24 widget integration)
-├─ SS-16 (Payment config - Stripe, deposits)
-├─ SS-17 (Email templates)
-└─ SS-18 (Widget CSS customization)
+Milestone 4: Communication Features
+├─ SS-15 (Contact form)
+├─ SS-16 (Twilio → WhatsApp)
+├─ SS-17 (WhatsApp Click-to-Chat)
+└─ SS-18 (Rate limiting)
        ↓
 Milestone 5: Media & Content (Basic Placeholders)
 ├─ SS-19 (Image upload system)
@@ -386,8 +386,8 @@ Post-MVP: Booking Site Integrations
 **Key Strategy:**
 
 - **Sequential milestone completion**: Each system validated before starting the next
-- Milestone 3: Communication features tested and working
-- Milestone 4: Beds24 booking system (complex 8-12 hour setup done separately)
+- Milestone 3: Beds24 booking system (complex 8-12 hour setup - prioritized early)
+- Milestone 4: Communication features tested and working
 - Milestones 3-5: Build functional flows with **basic placeholder pages**
 - Milestone 6: Polish everything with **beautiful UI and marketing copy**
 - This allows early testing of each system before investing in design
@@ -485,7 +485,7 @@ If Beds24's UI becomes a conversion problem (users abandoning bookings):
 2. Second: Build custom booking form using Beds24 API backend
 3. Last resort: Migrate to Smoobu or similar if revenue justifies cost
 
-**Status:** 🚧 To be implemented in SS-5
+**Status:** 🚧 To be implemented in SS-10
 
 ---
 
@@ -500,7 +500,7 @@ If Beds24's UI becomes a conversion problem (users abandoning bookings):
 
 ### Project Documentation
 
-- [CLAUDE.md](..CLAUDE.md) - Claude Code instructions
+- [CLAUDE.md](../CLAUDE.md) - Claude Code instructions
 - [README.md](../../README.md) - Project overview
 
 ### Custom Slash Commands

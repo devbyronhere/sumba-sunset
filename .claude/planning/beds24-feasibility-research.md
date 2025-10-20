@@ -3,7 +3,7 @@
 > **Document Type:** Research & Decision Documentation
 > **Created:** 2025-01-20
 > **Status:** Active Reference
-> **Related Tasks:** [SS-5](./ss-5-beds24-setup.md), [SS-14](./ss-14-beds24-validation.md)
+> **Related Tasks:** [SS-9](./ss-9-beds24-validation.md), [SS-10](./ss-10-beds24-setup.md), [SS-11-14](./index.md#milestone-3-beds24-setup--integration) (Milestone 3)
 
 ---
 
@@ -430,7 +430,7 @@ Beds24's default widget has a dated appearance:
 
 ## Integration Approach
 
-### Phase 1: Validation (SS-14)
+### Phase 1: Validation (SS-9)
 
 **Goal:** Confirm Beds24 widget works in Next.js 15 before full implementation
 
@@ -447,7 +447,7 @@ Beds24's default widget has a dated appearance:
 **Time:** 30-60 minutes
 **Risk Mitigation:** If validation fails, pivot to Smoobu or custom solution
 
-### Phase 2: Account Setup (SS-5)
+### Phase 2: Account Setup (SS-10)
 
 **Goal:** Fully configure Beds24 account (human-led)
 
@@ -481,7 +481,7 @@ Beds24's default widget has a dated appearance:
 6. Monitor conversion rate and iterate
 
 **Time:** 2-3 hours (Claude-led)
-**Dependencies:** SS-5 complete, SS-14 validation successful
+**Dependencies:** SS-10 complete, SS-9 validation successful
 
 ---
 
@@ -573,7 +573,7 @@ Beds24's default widget has a dated appearance:
 
 ## Validation Strategy
 
-### SS-14: Technical Validation (30-60 minutes)
+### SS-9: Technical Validation (30-60 minutes)
 
 **Objective:** Prove Beds24 widget works in Next.js 15 before committing to full setup
 
@@ -667,13 +667,13 @@ Beds24's default widget has a dated appearance:
 
 1. **Cost savings**: $1,267/year vs. Smoobu justifies extra setup time
 2. **Technical feasibility**: Risks are low-to-medium and manageable
-3. **Validation strategy**: SS-14 will confirm feasibility early (30-60 min investment)
+3. **Validation strategy**: SS-9 will confirm feasibility early (30-60 min investment)
 4. **Fallback options**: Can pivot to Smoobu if validation fails
 5. **Future flexibility**: Full API access enables custom integrations
 
 **Conditions:**
 
-- ✅ Complete SS-14 validation successfully
+- ✅ Complete SS-9 validation successfully
 - ✅ Accept 8-12 hours setup time (human-led)
 - ✅ Budget 2-3 hours for CSS customization
 - ⚠️ Monitor conversion rate closely (track booking abandonment)
@@ -681,18 +681,19 @@ Beds24's default widget has a dated appearance:
 
 **Next Steps:**
 
-1. **Immediate**: Complete SS-14 validation (30-60 minutes)
-2. **If SS-14 succeeds**: Proceed to SS-5 (Beds24 account setup)
-3. **If SS-14 fails**: Reassess and consider Smoobu
+1. **Immediate**: Complete SS-9 validation (30-60 minutes)
+2. **If SS-9 succeeds**: Proceed to SS-10 (Beds24 account setup)
+3. **If SS-9 fails**: Reassess and consider Smoobu
 
-**Review Date:** After SS-14 validation complete
+**Review Date:** After SS-9 validation complete
 
 ---
 
 ## Related Documents
 
-- [SS-5: Beds24 Account Setup & Configuration](./ss-5-beds24-setup.md) - Implementation steps
-- [SS-14: Beds24 Integration Validation](./ss-14-beds24-validation.md) - Technical validation task
+- [SS-9: Beds24 Integration Validation](./ss-9-beds24-validation.md) - Technical validation task (30-60 min spike)
+- [SS-10: Beds24 Account Setup & Configuration](./ss-10-beds24-setup.md) - Implementation steps (8-12 hours)
+- [SS-11-14: Widget Integration, Payments, Emails, CSS](./index.md#milestone-3-beds24-setup--integration) - Full Milestone 3 breakdown
 - [Planning Index](./index.md) - Project roadmap
 - [CLAUDE.md](../.claude/CLAUDE.md) - Project guidelines
 

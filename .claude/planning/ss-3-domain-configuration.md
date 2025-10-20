@@ -3,8 +3,9 @@ task_id: ss-3
 title: '[Infrastructure] Domain Configuration - Point Hostinger Domain to Vercel'
 status: not_started
 priority: high
-estimated_time: '30 minutes - 48 hours (including DNS propagation)'
-actual_time: null
+estimated_time: '30 minutes active work (DNS propagation 5min-48h wait time)'
+actual_work_time: null # Track active work separately
+propagation_wait: null # Track propagation wait time separately
 dependencies: []
 created: 2025-01-19
 started: null
@@ -14,6 +15,8 @@ infra_type: configuration
 ---
 
 [← Previous: SS-2 Linting Setup](./ss-2-linting-setup.md) | [📋 Index](./index.md) | [Next: SS-4 Credentials Setup →](./ss-4-credentials-setup.md)
+
+**Milestone:** 2 - Core Infrastructure
 
 # [Infrastructure] Domain Configuration - Point Hostinger Domain to Vercel
 

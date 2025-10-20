@@ -27,7 +27,7 @@ Sumba Sunset is a surf camp website (mobile-first, marketing-focused, no databas
 
 - 📱 Mobile-first design (primary user device)
 - ⚡ Performance optimization (fast loading, optimized images)
-- 💬 Simple communication (WhatsApp, Smoobu widget)
+- 💬 Simple communication (WhatsApp, Beds24 widget)
 - 📄 Static content where possible (no database needed)
 
 **User Story:**

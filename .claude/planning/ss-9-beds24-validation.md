@@ -1,5 +1,5 @@
 ---
-task_id: ss-14
+task_id: ss-9
 title: '[Infrastructure] Beds24 Integration Validation - Technical Spike'
 status: not_started
 priority: high
@@ -11,11 +11,13 @@ started: null
 completed: null
 related_docs: ['beds24-feasibility-research.md']
 infra_type: validation
-branch: ss-14/infra/beds24-validation
+branch: ss-9/infra/beds24-validation
 pr_number: null
 ---
 
-[← Previous: SS-4 Credentials Setup](./ss-4-credentials-setup.md) | [📋 Index](./index.md) | [Next: SS-5 Beds24 Setup →](./ss-13-beds24-setup.md)
+[← Previous: SS-8 Monitoring Setup](./ss-8-monitoring-setup.md) | [📋 Index](./index.md) | [Next: SS-10 Beds24 Account Setup →](./ss-10-beds24-setup.md)
+
+**Milestone:** 3 - Beds24 Setup & Integration
 
 # [Infrastructure] Beds24 Integration Validation - Technical Spike
 
@@ -23,10 +25,10 @@ pr_number: null
 
 **Quick technical validation to confirm Beds24 widget works in Next.js 15 before committing to full account setup.**
 
-This is a **30-60 minute spike** to de-risk SS-5 (8-12 hour Beds24 account setup). We'll create a test page with a Beds24 demo widget to validate there are no CORS issues, hydration conflicts, or compatibility problems with Next.js 15.
+This is a **30-60 minute spike** to de-risk SS-10 (8-12 hour Beds24 account setup). We'll create a test page with a Beds24 demo widget to validate there are no CORS issues, hydration conflicts, or compatibility problems with Next.js 15.
 
 **Infrastructure Type:** Validation / Technical Spike
-**Impact:** De-risks SS-5 Beds24 setup (validates feasibility before time investment)
+**Impact:** De-risks SS-10 Beds24 account setup (validates feasibility before time investment)
 **Risk Level:** Low (temporary test code, will be deleted after validation)
 
 **⚠️ IMPORTANT: Read First**
@@ -78,7 +80,7 @@ This is a **technical spike**, not production code:
 
 ### Success Criteria
 
-✅ **Pass**: Widget loads, no errors, acceptable mobile UX → Proceed to SS-5
+✅ **Pass**: Widget loads, no errors, acceptable mobile UX → Proceed to SS-10
 ❌ **Fail**: CORS errors, hydration issues, or unusable mobile UX → Investigate or pivot
 
 ---
@@ -372,8 +374,8 @@ This is a **technical spike**, not production code:
 
 ### Mobile Experience
 
-**Device Tested:** **_ (e.g., iPhone 12, Samsung Galaxy S21)
-**Browser:** _** (e.g., Safari, Chrome)
+**Device Tested:** **\_ (e.g., iPhone 12, Samsung Galaxy S21)
+**Browser:** \_** (e.g., Safari, Chrome)
 
 **Layout:**
 
@@ -404,7 +406,7 @@ This is a **technical spike**, not production code:
 - ❌ / ✅ / Not tested (Circle one)
 - Notes: \_\_\_
 
-**Recommended method for SS-15:** \_\_\_
+**Recommended method for SS-11:** \_\_\_
 
 ---
 
@@ -418,7 +420,7 @@ This is a **technical spike**, not production code:
 
 **If GO:**
 
-- ✅ Proceed to SS-5 (Beds24 Account Setup)
+- ✅ Proceed to SS-10 (Beds24 Account Setup)
 - CSS customization needed? (Yes / No / Maybe)
 - Estimated CSS work: \_\_\_ hours
 
@@ -448,7 +450,7 @@ This is a **technical spike**, not production code:
 - [ ] Test code cleaned up (deleted)
 - [ ] Final recommendation provided (GO/NO-GO/INVESTIGATE)
 - [ ] Planning doc fully checked off
-- [ ] SS-5 unblocked (if validation passes)
+- [ ] SS-10 unblocked (if validation passes)
 
 ---
 
@@ -471,7 +473,7 @@ No rollback needed - test code is temporary and will be deleted.
 Files that need updating after this task:
 
 - [x] This file - Add validation results
-- [ ] [SS-5 Beds24 Setup](./ss-13-beds24-setup.md) - Unblock if validation passes
+- [ ] [SS-10 Beds24 Account Setup](./ss-10-beds24-setup.md) - Unblock if validation passes
 - [ ] [Planning Index](./index.md) - Update task status
 
 ---
@@ -485,8 +487,8 @@ Files that need updating after this task:
 
 **Blocks:**
 
-- [SS-5: Beds24 Account Setup](./ss-13-beds24-setup.md) - Cannot proceed without validation
-- [SS-15: Beds24 Widget Integration](./ss-15-beds24-widget.md) - Future implementation
+- [SS-10: Beds24 Account Setup](./ss-10-beds24-setup.md) - Cannot proceed without validation
+- [SS-11: Beds24 Widget Integration](./ss-11-beds24-widget.md) - Future implementation
 
 **Related:**
 
@@ -522,8 +524,8 @@ _(Fill out after completion)_
 
 ### Follow-up Tasks Created
 
-- [ ] SS-5: Beds24 Account Setup (if validation passes)
-- [ ] SS-17: Beds24 Widget CSS Customization (if mobile UX needs work)
+- [ ] SS-10: Beds24 Account Setup (if validation passes)
+- [ ] SS-14: Beds24 Widget CSS Customization (if mobile UX needs work)
 
 ---
 
@@ -542,8 +544,8 @@ _(Fill out after completion)_
 
 **Expected Outcome:**
 
-- **Most likely**: ✅ Widget works fine, proceed to SS-5
-- **Less likely**: ⚠️ CSS customization heavily needed (acceptable, plan for SS-17)
+- **Most likely**: ✅ Widget works fine, proceed to SS-10
+- **Less likely**: ⚠️ CSS customization heavily needed (acceptable, plan for SS-14)
 - **Unlikely**: ❌ CORS or hydration blockers (fallback to script or API integration)
 
 ---
