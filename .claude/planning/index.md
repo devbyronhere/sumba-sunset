@@ -500,7 +500,7 @@ If Beds24's UI becomes a conversion problem (users abandoning bookings):
 
 ### Project Documentation
 
-- [CLAUDE.md](..CLAUDE.md) - Claude Code instructions
+- [CLAUDE.md](../CLAUDE.md) - Claude Code instructions
 - [README.md](../../README.md) - Project overview
 
 ### Custom Slash Commands

@@ -27,7 +27,7 @@ Before enabling autonomous work with skip permissions, verify access to all thir
 
 **Business Value:**
 
-- Unblock development of third-party integrations (Twilio, Smoobu, Vercel Blob, etc.)
+- Unblock development of third-party integrations (Twilio, Beds24, Vercel Blob, etc.)
 - Enable testing of API integrations locally
 - Establish security best practices for credential management
 - Identify missing permissions or access before starting feature work
@@ -49,7 +49,7 @@ Before enabling autonomous work with skip permissions, verify access to all thir
 
 ### Pain Points
 
-- Cannot test third-party integrations (Twilio, Smoobu, Vercel Blob)
+- Cannot test third-party integrations (Twilio, Beds24, Vercel Blob)
 - May discover missing API keys mid-implementation
 - Unclear which services have sandbox/test environments
 - Don't know what permissions Claude should be granted
@@ -287,7 +287,7 @@ From `.env.example`, we need access to:
 - [ ] **Step 1.1**: Review `.env.example` to understand all required services
 - [ ] **Step 1.2**: Check which third-party accounts already exist:
   - [ ] Twilio account status: \***\*\_\_\_\*\***
-  - [ ] Smoobu account status: \***\*\_\_\_\*\***
+  - [ ] Beds24 account status: \***\*\_\_\_\*\***
   - [ ] Vercel account status: \***\*\_\_\_\*\***
   - [ ] Sentry account status: \***\*\_\_\_\*\***
   - [ ] Google Analytics account status: \***\*\_\_\_\*\***
@@ -315,7 +315,7 @@ From `.env.example`, we need access to:
   ```
 - [ ] **Step 2.3**: Fill in available credentials in `.env.local`:
   - [ ] Twilio credentials (if available)
-  - [ ] Smoobu API key (if available)
+  - [ ] Beds24 API keys (if available)
   - [ ] Vercel Blob token (if available)
   - [ ] Sentry DSN (if available)
   - [ ] Google Analytics ID (if available)
@@ -341,7 +341,7 @@ From `.env.example`, we need access to:
 | Service          | Status | Environment | Blocking Tasks            | Priority |
 | ---------------- | ------ | ----------- | ------------------------- | -------- |
 | Twilio           | **\_** | **\_**      | SS-9 (Twilio integration) | **\_**   |
-| Smoobu           | **\_** | **\_**      | SS-10 (Smoobu widget)     | **\_**   |
+| Beds24           | **\_** | **\_**      | SS-13 (Beds24 setup)      | **\_**   |
 | Vercel Blob      | **\_** | **\_**      | SS-6 (Image storage)      | **\_**   |
 | Sentry           | **\_** | **\_**      | SS-7 (Monitoring)         | **\_**   |
 | Google Analytics | **\_** | **\_**      | SS-7 (Analytics)          | **\_**   |
@@ -391,7 +391,7 @@ From `.env.example`, we need access to:
 
 **Note:** Production credentials should NEVER be in the codebase. They belong in Vercel Dashboard → Settings → Environment Variables.
 
-**Permission Decision:** ********\*\*\*\*********\_\_\_********\*\*\*\*********
+**Permission Decision:** **\*\*\*\***\*\*\*\***\*\*\*\***\_\_\_**\*\*\*\***\*\*\*\***\*\*\*\***
 
 **Permissions Checkpoint:** Claude Code permissions configured
 
@@ -607,7 +607,7 @@ Files that need updating after this task:
 - SS-6: Vercel Blob integration (needs BLOB_READ_WRITE_TOKEN)
 - SS-7: Monitoring setup (needs SENTRY_DSN, GA_MEASUREMENT_ID)
 - SS-9: Twilio integration (needs Twilio credentials)
-- SS-10: Smoobu widget integration (needs SMOOBU_API_KEY)
+- SS-13: Beds24 setup (needs BEDS24_API_KEY and BEDS24_PROP_KEY)
 
 **Enables:**
 
@@ -704,11 +704,11 @@ _(Fill out after completion)_
 ### Credentials Obtained
 
 - [x] **Twilio (production)**: Account upgraded, WhatsApp enabled, $20 USD credits, Number: (606) 755-8767
-- [x] **Hostinger (production)**: Domain sumbasunset.com, SSL certificate active
+- [x] **Hostinger (production)**: Domain sumbasunset.com (domain registrar ONLY - DNS points to Vercel)
 - [ ] **Beds24**: Not yet created - HIGH PRIORITY (blocks SS-10)
-- [ ] Vercel Blob: Not needed initially (using Hostinger)
-- [ ] Sentry: Still needed for error monitoring
-- [ ] Google Analytics: Still needed for analytics
+- [ ] **Vercel Blob**: Needed for image storage with CDN delivery (part of SS-8)
+- [ ] **Sentry**: Needed for error monitoring (can defer post-MVP)
+- [ ] **Google Analytics**: Needed for analytics (can defer post-MVP)
 
 ### Still Needed
 

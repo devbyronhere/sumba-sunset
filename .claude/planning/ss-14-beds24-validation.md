@@ -372,8 +372,8 @@ This is a **technical spike**, not production code:
 
 ### Mobile Experience
 
-**Device Tested:** **_ (e.g., iPhone 12, Samsung Galaxy S21)
-**Browser:** _** (e.g., Safari, Chrome)
+**Device Tested:** **\_ (e.g., iPhone 12, Samsung Galaxy S21)
+**Browser:** \_** (e.g., Safari, Chrome)
 
 **Layout:**
 

@@ -189,8 +189,16 @@ See [`.claude/planning/`](./.claude/planning/) for task management and planning 
 
 ### Project Documentation
 
-- [CLAUDE.md](./.claude/CLAUDE.md) - Development guidelines for Claude Code
-- [Planning Index](./.claude/planning/index.md) - Project roadmap and task tracking
+**Core Documentation:**
+
+- **[CLAUDE.md](./.claude/CLAUDE.md)** - Development workflow guidelines for Claude Code
+- **[Planning Index](./.claude/planning/index.md)** - Project roadmap and task tracking
+
+**Technical References:**
+
+- **[Architecture](./.claude/docs/architecture.md)** - Technical architecture, services, and integrations
+- **[Coding Standards](./.claude/docs/coding-standards.md)** - Code conventions, patterns, and examples
+- **[Deployment](./.claude/docs/deployment.md)** - Deployment process, environment, and CI/CD
 
 ## License
 
