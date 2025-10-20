@@ -9,7 +9,6 @@ dependencies: []
 created: YYYY-MM-DD
 started: null
 completed: null
-assigned_to: claude
 related_docs: []
 branch: ss-X/feat/short-description
 pr_number: null

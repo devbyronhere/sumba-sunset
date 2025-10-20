@@ -9,7 +9,6 @@ dependencies: []
 created: YYYY-MM-DD
 started: null
 completed: null
-assigned_to: claude
 related_docs: []
 infra_type: tooling | ci_cd | build | deployment | configuration
 ---

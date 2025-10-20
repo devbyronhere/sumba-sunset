@@ -9,12 +9,11 @@ dependencies: [ss-1]
 created: 2025-01-17
 started: 2025-01-17
 completed: 2025-01-17
-assigned_to: claude
 related_docs: []
 infra_type: tooling
 ---
 
-[← Previous: SS-1 Next.js Setup](./ss-1-nextjs-setup.md) | [📋 Index](./index.md)
+[← Previous: SS-1 Next.js Setup](./ss-1-nextjs-setup.md) | [📋 Index](./index.md) | [Next: SS-3 Credentials Setup →](./ss-3-credentials-setup.md)
 
 # [Infrastructure] Linting & Formatting Setup
 

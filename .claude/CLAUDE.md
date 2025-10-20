@@ -4,6 +4,35 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Working with Claude on This Project
 
+### Roles & Responsibilities
+
+**User's Role:**
+
+- Create detailed implementation plans in "SS-X-..." planning documents
+- Guide Claude during the planning phase with requirements and clarifications
+- Set up third-party accounts and services (Twilio, Beds24, Vercel, etc.)
+- Handle tasks that require external access or permissions
+- Verify completed tasks before moving to the next one
+- Review PRs and approve merges
+
+**Claude's Role:**
+
+- Implement ALL code, tests, and technical work as specified in planning documents
+- Follow TDD workflow for all features
+- Update planning documents in real-time during implementation
+- Run all quality gates (tests, linting, type-checking)
+- Create commits, branches, and pull requests
+- Ask clarifying questions when requirements are unclear
+- Report blockers (missing API keys, permission issues, etc.) to user
+
+**Collaborative Workflow:**
+
+1. User creates/guides planning document creation
+2. Claude implements the task following the plan
+3. Claude reports completion and provides manual testing checklist
+4. User verifies the implementation
+5. User merges PR, then instructs Claude to proceed to next task
+
 ### Test-Driven Development Requirements
 
 **Claude MUST follow Test-Driven Development (TDD) for all work on this project:**
@@ -43,6 +72,24 @@ The `.claude/planning/` directory is the single source of truth for all work. It
    - Implementation Steps with checkboxes
    - Quality Gates checklist
    - Post-implementation verification steps
+
+**IMPORTANT: SS-X Planning Documents vs. Research Documents**
+
+- **SS-X docs (e.g., `ss-5-beds24-setup.md`)**: Implementation steps ONLY
+  - Focus on "how to implement" not "why we chose this"
+  - Step-by-step instructions with checkboxes
+  - Technical configuration details
+  - Quality gates and testing steps
+
+- **Research/Feasibility docs (e.g., `beds24-feasibility-research.md`)**: Analysis and decisions
+  - Why we chose a technology/service
+  - Technical concerns and risk analysis
+  - Cost-benefit analysis
+  - Alternatives considered
+  - Decision records
+
+- **Rule**: If content is about "why" or "what if", it belongs in a research doc, not an SS-X doc
+- **Reference**: SS-X docs should link to related research docs in frontmatter `related_docs` field
 
 **During Implementation:**
 
@@ -90,7 +137,6 @@ dependencies: [ss-Y, ss-Z]
 created: YYYY-MM-DD
 started: null
 completed: null
-assigned_to: claude | human | pair
 related_docs: []
 ---
 
@@ -473,7 +519,7 @@ yarn build
 yarn start
 ```
 
-**Hosting:** Vercel (automatic deployment from GitHub)
+**Hosting:** Vercel (domain purchased from Hostinger: sumbasunset.com)
 
 ---
 
@@ -481,15 +527,15 @@ yarn start
 
 ### Project Purpose
 
-**Sumba Sunset** is a surf camp website for a property in Sumba, Indonesia. The site is primarily **marketing and informational**, with booking handled through the Smoobu widget integration.
+**Sumba Sunset** is a surf camp website for a property in Sumba, Indonesia. The site is primarily **marketing and informational**, with booking handled through the Beds24 widget integration.
 
-**Live Site:** https://sumba-sunset-m96okb7l6-byrons-projects-a07d9676.vercel.app/
+**Domain:** sumbasunset.com (purchased from Hostinger, hosted on Vercel)
 
 **Key Characteristics:**
 
 - Mobile-first design (most users browse on phones)
 - Static content heavy (pages, images, videos)
-- No database needed (Smoobu handles bookings, Vercel Blob for images)
+- No database needed (Beds24 handles bookings)
 - Simple communication flow (contact forms → WhatsApp)
 - Focus on visual appeal and ease of use
 
@@ -513,19 +559,34 @@ yarn start
 
 - **Hosting**: Vercel
   - Automatic deployments from GitHub
-  - Serverless functions for API routes
-  - Edge network for fast global delivery
+  - Edge network with CDN
+  - Automatic SSL certificates
+  - Built-in CI/CD pipeline
 
-- **Booking & Payments**: Smoobu
+- **Domain Registrar**: Hostinger
+  - Domain: sumbasunset.com
+  - DNS configured to point to Vercel
+  - Domain management only (not hosting)
+
+- **Booking & Payments**: Beds24
+  - **PAID SERVICE** - £3.50/month (~$4.50/month) base plan OR $40-50/month for full-featured plan
   - Booking management system
-  - Payment gateway through Stripe
-  - Deposits: 50% upfront, remainder cash on arrival
+  - Payment gateway through Stripe (requires configuration)
+  - Deposits: 50% upfront, remainder cash on arrival (configurable)
   - Widget embedded on site for live availability
+  - **Includes channel manager** for Airbnb, Booking.com, Agoda sync
+  - **Note:** More technical setup required vs. Smoobu (3-5 days vs. 1-2 days)
+
+- **Communication**: Twilio
+  - Upgraded account with WhatsApp enabled
+  - $20 USD credits purchased
+  - Number: (606) 755-8767
+  - Purpose: Contact form → WhatsApp forwarding
 
 - **Media Storage**: Vercel Blob
-  - Image storage and optimization
-  - Pre-upload optimization required
-  - No database needed for static assets
+  - Integrated image storage with Vercel
+  - Automatic optimization and CDN delivery
+  - Pre-optimization before upload recommended
 
 - **Video**: YouTube (embedded)
   - Loop videos to prevent suggestions
@@ -533,24 +594,25 @@ yarn start
   - No background music
 
 - **Communication**:
-  - **Pre-booking**: Contact form → Twilio → Staff WhatsApp
-  - **During booking**: Smoobu widget with special requests
-  - **Post-booking**: Smoobu automated confirmation emails
-  - **Post-stay**: Smoobu thank you & review request
+  - **Pre-booking**: Contact form → Twilio (606-755-8767) → Staff WhatsApp
+  - **During booking**: Beds24 widget with special requests
+  - **Post-booking**: Beds24 automated confirmation emails
+  - **Post-stay**: Beds24 thank you emails (review automation requires manual setup)
   - **Direct contact**: WhatsApp Click-to-Chat button
 
-#### Monitoring & Analytics
+#### Monitoring & Analytics (To Be Configured)
 
-- **Uptime Monitoring**: UptimeRobot
-- **Performance**: Vercel Speed Insights
-- **Analytics**: Google Analytics 4
-- **Error Tracking**: Sentry (free tier)
+- **Uptime Monitoring**: UptimeRobot (not yet configured)
+- **Analytics**: Google Analytics 4 (account not yet created)
+- **Error Tracking**: Sentry (account not yet created - can defer until post-MVP)
 
-#### Future Integrations (Post-MVP)
+#### Future Integrations (Post-MVP - via Beds24 Channel Manager)
 
-- Booking.com listing
-- Airbnb listing
-- Agoda listing
+- Booking.com listing (configured in Beds24 dashboard)
+- Airbnb listing (configured in Beds24 dashboard)
+- Agoda listing (configured in Beds24 dashboard)
+
+**Note:** These are configured within Beds24's channel manager, not as separate website integrations. Calendar sync is automatic once connected.
 
 ---
 
@@ -558,10 +620,11 @@ yarn start
 
 **No Database Needed:**
 
-- Smoobu handles all booking data
-- Vercel Blob handles media assets
+- Beds24 handles all booking data
+- Vercel hosts the application with edge network
+- Vercel Blob handles media storage
 - Site is primarily static content (pages, layouts, images)
-- Dynamic data comes from Smoobu API/widget
+- Dynamic data comes from Beds24 API/widget
 
 **Mobile-First:**
 
@@ -573,17 +636,77 @@ yarn start
 **Performance-First:**
 
 - Static generation where possible (Next.js SSG)
-- Image optimization via Vercel
+- Image optimization via Vercel Blob with CDN
 - Minimal JavaScript bundle
-- Edge caching via Vercel CDN
+- Vercel edge network with automatic SSL
 
 **Simple Communication Flow:**
 
 ```
-User → Contact Form → Twilio → Staff WhatsApp
-User → Smoobu Widget → Booking Confirmation
+User → Contact Form → Twilio (606-755-8767) → Staff WhatsApp
+User → Beds24 Widget → Booking Confirmation → Automated Emails
 User → WhatsApp Button → Direct Chat
 ```
+
+### Beds24 Integration Notes
+
+**Setup Complexity:** Higher than Smoobu - expect 3-5 days for full setup vs. 1-2 days
+
+**Key Differences from Smoobu:**
+
+- **Dated UI**: Less intuitive dashboard, more technical
+- **Widget Customization**: Requires CSS knowledge to match brand
+- **API Structure**: Two-tier API key system (account + property)
+- **Channel Manager**: Built-in, but configuration is more manual
+- **Mobile Experience**: Widget is functional but requires CSS optimization
+- **Email Templates**: Basic templates, need HTML customization for professional look
+
+**Widget Integration Steps:**
+
+1. Create account at beds24.com
+2. Add property with room details, pricing, availability rules
+3. Generate property-specific API key (Property → Settings → API Key)
+4. Embed widget code in Next.js booking page
+5. Customize widget CSS for mobile-first responsive design
+6. Test booking flow thoroughly on mobile devices
+7. Configure Stripe payment integration
+8. Set up deposit payment rules (50% upfront model)
+9. Create automated email templates (booking confirmation, pre-arrival, check-in, post-stay)
+
+**Widget Customization:**
+The Beds24 widget requires significant CSS customization to:
+
+- Match Sumba Sunset brand colors and fonts
+- Optimize for mobile (most users browse on phones)
+- Ensure touch-friendly interactions
+- Display pricing clearly
+- Show availability with visual calendar
+
+Budget 2-3 hours for widget styling vs. minimal styling needed for Smoobu.
+
+**Testing Strategy:**
+
+- Test booking flow on iOS Safari (primary user device)
+- Test on Android Chrome
+- Test desktop browsers (secondary)
+- Verify payment processing with test credit card
+- Test automated email delivery
+- Verify calendar sync if using OTA channels
+
+**Cost Consideration:**
+
+- Monthly cost: £3.50/month (~$4.50) base plan OR $40-50/month for full features
+- No booking commission fees (unlike Smoobu's 0.9%)
+- Annual savings: ~$1,267/year vs. Smoobu at $128.56/month + 0.9% fees
+
+**When to Upgrade/Change:**
+If Beds24's dated UI becomes a conversion problem (users abandoning bookings), consider:
+
+1. Heavily customizing CSS to modernize appearance
+2. Building custom booking form that uses Beds24 API backend
+3. Switching to more modern platform if revenue justifies higher cost
+
+---
 
 ### Critical Coding Standards & Conventions
 
@@ -875,7 +998,7 @@ sumba-sunset/
 **What to Test:**
 
 - Contact form submission flow
-- Smoobu widget integration
+- Beds24 widget integration
 - WhatsApp button behavior
 - Form validation with Zod
 - API route handlers (contact form → Twilio)
@@ -886,7 +1009,7 @@ sumba-sunset/
 
 **What to Test (Post-MVP):**
 
-- Full booking flow with Smoobu widget
+- Full booking flow with Beds24 widget
 - Contact form to WhatsApp journey
 - Mobile navigation and interactions
 - Image loading and optimization
@@ -907,35 +1030,39 @@ sumba-sunset/
 
 ### Environment Variables
 
-**Required (Production):**
+**Required (Production - Vercel):**
 
 ```bash
-# Twilio (Contact form → WhatsApp)
-TWILIO_ACCOUNT_SID=your_account_sid
-TWILIO_AUTH_TOKEN=your_auth_token
-TWILIO_WHATSAPP_NUMBER=whatsapp:+1234567890
-STAFF_WHATSAPP_NUMBER=whatsapp:+1234567890
+# Twilio (Contact form → WhatsApp) ✅ READY
+TWILIO_ACCOUNT_SID=your_account_sid  # Obtain from Twilio console
+TWILIO_AUTH_TOKEN=your_auth_token    # Obtain from Twilio console
+TWILIO_WHATSAPP_NUMBER=whatsapp:+16067558767  # Purchased number
+STAFF_WHATSAPP_NUMBER=whatsapp:+1234567890     # Staff number TBD
 
-# Smoobu (Optional - if using API)
-SMOOBU_API_KEY=your_api_key
+# Beds24 (Booking widget integration)
+BEDS24_API_KEY=your_api_key        # Obtain from Beds24: Account → Settings → API
+BEDS24_PROP_KEY=your_property_key  # Obtain from Beds24: Property → Settings → API Key
 
-# Vercel Blob (Media storage)
-BLOB_READ_WRITE_TOKEN=your_blob_token
+**IMPORTANT:** Beds24 requires TWO API keys:
+1. **Account-level API key** (BEDS24_API_KEY) - for account-wide API access
+2. **Property-level key** (BEDS24_PROP_KEY) - for embedding the booking widget
 
-# Analytics & Monitoring
-NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
-SENTRY_DSN=your_sentry_dsn
-SENTRY_AUTH_TOKEN=your_auth_token
+Both are required for full functionality. Widget may work with PROP_KEY only, but API integration needs both.
 
-# Site Configuration
-NEXT_PUBLIC_SITE_URL=https://sumba-sunset.com
+# Analytics & Monitoring (NOT YET CONFIGURED)
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX  # Create GA4 property
+SENTRY_DSN=your_sentry_dsn                  # Create Sentry project (optional)
+SENTRY_AUTH_TOKEN=your_auth_token           # Create Sentry project (optional)
+
+# Site Configuration ✅ READY
+NEXT_PUBLIC_SITE_URL=https://sumbasunset.com
 ```
 
 **Local Development:**
 
-- Create `.env.local` (gitignored)
-- Copy from `.env.example` template
-- Use test/sandbox credentials for Twilio and Smoobu
+- Create `.env.local` (gitignored) - see `.env.example` template
+- Use production credentials for Twilio (already upgraded with credits)
+- Use production credentials for Beds24 (paid service)
 
 ### Build Process
 
@@ -956,7 +1083,7 @@ yarn test
 yarn build
 ```
 
-**Vercel Build Settings:**
+**Build Settings:**
 
 - Build Command: `yarn build`
 - Output Directory: `.next`
@@ -965,32 +1092,71 @@ yarn build
 
 ### Hosting Platform
 
-**Vercel:**
+**Vercel:** ✅ ACTIVE
 
-- Automatic deployments from `main` branch
-- Preview deployments for PRs
-- Edge network for fast global delivery
-- Serverless functions for API routes
-- Built-in image optimization
-- Environment variable management
+- **Hosting**: Vercel edge network with CDN
+- **Domain**: sumbasunset.com (purchased from Hostinger, DNS pointing to Vercel)
+- **SSL**: Automatic, managed by Vercel
+- **Deployment Method**: Automatic from GitHub main branch
+- **Environment Variables**: Configure in Vercel dashboard
+- **Static Assets**: Vercel Blob for images and media
 
-**Custom Domain:**
+**Deployment Strategy:**
 
-- Configure DNS to point to Vercel
-- SSL certificate automatically provisioned
-- CDN caching for static assets
+Vercel provides automatic CI/CD:
+
+- Push to `main` branch → Automatic deployment
+- Preview deployments for all pull requests
+- Automatic builds with Next.js optimization
+- Edge network deployment worldwide
+- Zero configuration required
+
+**Domain Configuration (Manual Setup Required):**
+
+See [SS-3.5 Domain Configuration Task](./.claude/planning/ss-3.5-domain-setup.md) for detailed steps:
+
+1. **In Vercel Dashboard**:
+   - Add domain `sumbasunset.com` to project
+   - Vercel provides DNS records (A, CNAME, or nameservers)
+
+2. **In Hostinger DNS Settings**:
+   - Update DNS records to point to Vercel
+   - Add A/CNAME records provided by Vercel
+   - OR update nameservers to Vercel's nameservers
+
+3. **Wait for DNS Propagation**:
+   - Can take up to 48 hours
+   - Usually completes in 5-30 minutes
+   - Verify with `dig sumbasunset.com` or online DNS checkers
 
 ### CI/CD Pipeline
 
-**GitHub Actions (Automatic via Vercel):**
+**Vercel Automatic Deployments:** ✅ ACTIVE
 
-1. Push to branch → Vercel creates preview deployment
-2. Open PR → Vercel comment with preview URL
-3. Merge to `main` → Vercel deploys to production
-4. Git hooks run pre-commit and pre-push checks locally
+Vercel provides built-in CI/CD:
 
-**Manual Checks (Local):**
+1. **On Push to `main`**:
+   - Automatic build triggered
+   - Runs `yarn build`
+   - Deploys to production
+   - SSL certificate auto-renewed
 
-- Pre-commit: Type-check + lint-staged
-- Pre-push: Full lint + format check
-- All checks must pass before push succeeds
+2. **On Pull Request**:
+   - Creates preview deployment
+   - Unique URL for testing
+   - Comments PR with deployment link
+
+3. **Git Hooks (Local)**:
+   - Pre-commit: Type-check + lint-staged
+   - Pre-push: Full lint + format check
+   - All checks must pass before push succeeds
+
+**Manual Deployment** (if needed):
+
+```bash
+# Install Vercel CLI
+yarn global add vercel
+
+# Deploy manually
+vercel --prod
+```

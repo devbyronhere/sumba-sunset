@@ -9,7 +9,6 @@ dependencies: []
 created: 2025-01-17
 started: 2025-01-17
 completed: 2025-01-17
-assigned_to: claude
 related_docs: []
 infra_type: tooling
 ---

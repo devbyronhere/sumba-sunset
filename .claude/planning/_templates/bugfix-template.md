@@ -9,7 +9,6 @@ dependencies: []
 created: YYYY-MM-DD
 started: null
 completed: null
-assigned_to: claude
 related_docs: []
 severity: critical | high | medium | low
 bug_type: functional | performance | security | ui | data

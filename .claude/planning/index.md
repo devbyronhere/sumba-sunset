@@ -10,7 +10,7 @@ This is the master planning document for the Sumba Sunset project. It replaces t
 
 ## 🏄 Project Overview
 
-**Sumba Sunset** is a surf camp website for a property in Sumba, Indonesia. The site is primarily **marketing and informational**, with booking handled through Smoobu widget integration.
+**Sumba Sunset** is a surf camp website for a property in Sumba, Indonesia. The site is primarily **marketing and informational**, with booking handled through Beds24 widget integration.
 
 **Live Site:** https://sumba-sunset-m96okb7l6-byrons-projects-a07d9676.vercel.app/ (We will but a domain at a later stage)
 
@@ -18,7 +18,7 @@ This is the master planning document for the Sumba Sunset project. It replaces t
 
 - 📱 Mobile-first design (primary user device)
 - 🏖️ Static content (pages, images, videos)
-- 📅 Smoobu widget for bookings & payments
+- 📅 Beds24 widget for bookings & payments
 - 💬 Contact form → Twilio → Staff WhatsApp
 - 🖼️ Image hosting via Vercel Blob
 - 📊 Analytics & monitoring (GA4, Sentry, UptimeRobot)
@@ -30,25 +30,25 @@ This is the master planning document for the Sumba Sunset project. It replaces t
 - **Forms**: React Hook Form + Zod
 - **Testing**: Vitest
 - **Hosting**: Vercel
-- **External Services**: Smoobu (bookings), Twilio (WhatsApp), Vercel Blob (images)
+- **External Services**: Beds24 (bookings), Twilio (WhatsApp), Vercel Blob (images)
 
-**No Database Needed:** Smoobu handles bookings, Vercel Blob handles images, site is mostly static content.
+**No Database Needed:** Beds24 handles bookings, Vercel Blob handles images, site is mostly static content.
 
 ---
 
 ## 📊 Project Status Overview
 
-- **Total Tasks:** 31 (SS-1 through SS-31)
-- **Completed:** 2 (6%)
+- **Total Tasks:** 38 (SS-1 through SS-38)
+- **Completed:** 2 (5%)
 - **In Progress:** 0
-- **Not Started:** 29
+- **Not Started:** 36
 - **Blocked:** 0
 
 ---
 
 ## 🎯 Current Sprint Focus
 
-_No active tasks - ready for new work_
+**Next Up:** SS-3 - Domain Configuration (Quick Win!)
 
 ---
 
@@ -72,12 +72,12 @@ _No tasks currently in progress_
 
 ### 📝 Not Started
 
-_No tasks currently planned_
-
-**Template:**
-| ID | Task | Priority | Est. Time | Dependencies | Notes |
-|----|------|----------|-----------|--------------|-------|
-| Example | Example Task | Medium | 2-3h | None | Ready to start |
+| ID                                     | Task                                             | Priority | Est. Time | Dependencies | Notes                                                                      |
+| -------------------------------------- | ------------------------------------------------ | -------- | --------- | ------------ | -------------------------------------------------------------------------- |
+| [SS-3](./ss-3-domain-configuration.md) | Domain Configuration - Point Hostinger to Vercel | High     | 30min-48h | None         | Quick win! Configure DNS to connect custom domain                          |
+| [SS-4](./ss-4-credentials-setup.md)    | Third-Party Credentials & Access Setup           | High     | 1-2h      | SS-1, SS-2   | Setup .env.local and verify access to all third-party services             |
+| [SS-14](./ss-14-beds24-validation.md)  | Beds24 Integration Validation (Technical Spike)  | High     | 30-60 min | SS-1, SS-2   | Quick test to validate Beds24 widget works in Next.js 15 before full setup |
+| [SS-5](./ss-13-beds24-setup.md)        | Beds24 Account Setup & Configuration             | High     | 8-12h     | SS-4, SS-14  | Complex setup - booking platform configuration (human-led)                 |
 
 ### ⏸️ Blocked
 
@@ -107,53 +107,68 @@ _No blocked tasks_
 
 ### Phase 2: Core Infrastructure (Not Started)
 
-- [ ] shadcn/ui setup and base components
-- [ ] Vitest testing setup
-- [ ] Vercel Blob integration for images
-- [ ] Sentry error monitoring setup
-- [ ] Google Analytics 4 integration
-- [ ] UptimeRobot monitoring setup
+- [ ] **SS-3**: Domain Configuration (Quick Win!)
+- [ ] **SS-4**: Third-Party Credentials & Access Setup
+- [ ] **SS-6**: shadcn/ui setup and base components
+- [ ] **SS-7**: Vitest testing setup
+- [ ] **SS-8**: Vercel Blob integration for images
+- [ ] **SS-9**: Monitoring setup (Sentry, GA4, UptimeRobot)
 
-### Phase 3: Communication & Booking (Not Started)
+### Phase 2.5: Beds24 Setup & Integration (Not Started)
 
-- [ ] Contact form with React Hook Form + Zod
-- [ ] Twilio integration (form → WhatsApp)
-- [ ] WhatsApp Click-to-Chat button
-- [ ] Smoobu widget integration (booking & payments)
-- [ ] Rate limiting for contact form
+- [ ] **SS-14**: Beds24 Integration Validation (30-60 min technical spike)
+- [ ] **SS-5**: Beds24 Account Setup & Configuration (8-12 hours, human-led)
+- [ ] **SS-15**: Beds24 widget integration
+- [ ] **SS-16**: Beds24 payment configuration (Stripe, deposits)
+- [ ] **SS-17**: Beds24 email templates
+- [ ] **SS-18**: Beds24 widget CSS customization
+
+### Phase 3: Communication Features (Not Started)
+
+- [ ] **SS-10**: Contact form with React Hook Form + Zod
+- [ ] **SS-11**: Twilio integration (form → WhatsApp)
+- [ ] **SS-12**: WhatsApp Click-to-Chat button
+- [ ] **SS-13**: Rate limiting for contact form
 
 ### Phase 4: Media & Content (Not Started)
 
-- [ ] Image upload system (Vercel Blob with pre-optimization)
-- [ ] YouTube video embeds (loop, no ads)
-- [ ] Image gallery component
-- [ ] Responsive images for mobile/desktop
+- [ ] **SS-19**: Image upload system (Vercel Blob with pre-optimization)
+- [ ] **SS-20**: YouTube video embeds (loop, no ads)
+- [ ] **SS-21**: Image gallery component
+- [ ] **SS-22**: Responsive images for mobile/desktop
 
-### Phase 5: Marketing Pages (Not Started)
+### Phase 5: Marketing Pages & UI Polish (Not Started)
 
-- [ ] Homepage (hero, features, gallery, CTA)
-- [ ] About page (surf camp story, team)
-- [ ] Rooms & Accommodation page
-- [ ] Activities & Surf Info page
-- [ ] Mobile-first responsive design
+- [ ] **SS-23**: Homepage (hero, features, gallery, CTA)
+- [ ] **SS-24**: About page (surf camp story, team)
+- [ ] **SS-25**: Rooms & Accommodation page
+- [ ] **SS-26**: Activities & Surf Info page
+- [ ] **SS-27**: Polish contact/booking pages
+- [ ] **SS-28**: Mobile-first responsive design
 
 ### Phase 6: Testing & Quality (Not Started)
 
-- [ ] Unit tests for utilities and validations
-- [ ] Integration tests for forms and API routes
-- [ ] Mobile device testing
-- [ ] Performance optimization
-- [ ] SEO optimization
+- [ ] **SS-29**: Unit tests for utilities and validations
+- [ ] **SS-30**: Integration tests for forms and API routes
+- [ ] **SS-31**: Mobile device testing
+- [ ] **SS-32**: Performance optimization
+- [ ] **SS-33**: SEO optimization
 
-### Phase 7: Launch & Post-MVP (Not Started)
+### Phase 7: MVP Launch (Not Started)
 
-- [ ] Vercel deployment setup
-- [ ] Custom domain configuration
-- [ ] Environment variables configuration
-- [ ] Pre-launch testing checklist
-- [ ] Booking.com listing integration (future)
-- [ ] Airbnb listing integration (future)
-- [ ] Agoda listing integration (future)
+- [ ] **SS-34**: Vercel deployment setup
+- [ ] **SS-35**: Custom domain configuration
+- [ ] **SS-36**: Environment variables configuration
+- [ ] **SS-37**: Pre-launch testing checklist
+- [ ] **SS-38**: Go live!
+
+### Post-MVP: OTA Channel Integrations (Future)
+
+- [ ] Booking.com listing via Beds24 channel manager
+- [ ] Airbnb listing via Beds24 channel manager
+- [ ] Agoda listing via Beds24 channel manager
+
+**Note:** Beds24 includes built-in channel manager - OTA integrations are configured within Beds24 dashboard, not as separate site integrations.
 
 ---
 
@@ -168,7 +183,7 @@ _No blocked tasks_
 **Tasks:**
 
 - [x] SS-1: Next.js Project Setup
-- [x] SS-2: Linting & Formatting Setup
+- [ ] SS-2: Linting & Formatting Setup
 
 **Outcome:** Development environment fully configured with Next.js 15, TypeScript, Tailwind CSS, ESLint, Prettier, and Git hooks.
 
@@ -182,16 +197,18 @@ _No blocked tasks_
 
 **Tasks:**
 
-- [ ] SS-3: shadcn/ui setup with base components
-- [ ] SS-4: Vitest testing framework setup
-- [ ] SS-5: Vercel Blob integration for images
-- [ ] SS-6: Monitoring setup (Sentry, GA4, UptimeRobot)
+- [ ] SS-3: Domain Configuration (Quick!)
+- [ ] SS-4: Third-Party Credentials & Access Setup
+- [ ] SS-5: shadcn/ui setup with base components
+- [ ] SS-6: Vitest testing framework setup
+- [ ] SS-7: Vercel Blob integration for images
+- [ ] SS-8: Monitoring setup (Sentry, GA4, UptimeRobot)
 
-**Outcome:** Core infrastructure ready for feature development with testing and monitoring in place.
+**Outcome:** Core infrastructure ready for feature development with testing and monitoring in place (excluding Beds24 which has its own milestone).
 
 ---
 
-### Milestone 3: Communication & Booking (Basic Placeholders)
+### Milestone 3: Communication Features (Basic Placeholders)
 
 **Status:** Not Started
 **Target Date:** TBD
@@ -199,83 +216,105 @@ _No blocked tasks_
 
 **Tasks:**
 
-- [ ] SS-7: Contact form with React Hook Form + Zod (basic placeholder page)
-- [ ] SS-8: Twilio integration (WhatsApp forwarding)
-- [ ] SS-9: Smoobu widget integration (basic placeholder page)
-- [ ] SS-10: WhatsApp Click-to-Chat button
-- [ ] SS-11: Rate limiting for contact form
+- [ ] SS-9: Contact form with React Hook Form + Zod (basic placeholder page)
+- [ ] SS-10: Twilio integration (WhatsApp forwarding)
+- [ ] SS-11: WhatsApp Click-to-Chat button
+- [ ] SS-12: Rate limiting for contact form
 
-**Outcome:** Functional communication and booking flows with basic placeholder pages. UI polish comes later in Milestone 5.
-
----
-
-### Milestone 4: Media & Content (Basic Placeholders)
-
-**Status:** Not Started
-**Target Date:** TBD
-**Dependencies:** Milestone 3
-
-**Tasks:**
-
-- [ ] SS-12: Image upload system (Vercel Blob with pre-optimization)
-- [ ] SS-13: YouTube video embeds (loop, no ads)
-- [ ] SS-14: Image gallery component (basic version)
-- [ ] SS-15: Responsive images for mobile/desktop
-
-**Outcome:** Media systems functional with basic placeholder pages. Nice UI comes in Milestone 5.
+**Outcome:** Functional communication flows (contact form and WhatsApp) with basic placeholder pages. Validated and working before moving to booking system.
 
 ---
 
-### Milestone 5: Marketing Pages & UI Polish
+### Milestone 4: Beds24 Setup & Integration
 
 **Status:** Not Started
 **Target Date:** TBD
-**Dependencies:** Milestone 4
+**Dependencies:** Milestone 2 (requires SS-4 credentials), Milestone 3 (communication system validated)
+
+**📋 Research & Analysis:**
+
+- [Beds24 Feasibility Research](./beds24-feasibility-research.md) - Technical analysis, risk assessment, and decision rationale for choosing Beds24 over alternatives (Smoobu, custom solution). Covers CORS concerns, Next.js 15 compatibility, hydration issues, and cost-benefit analysis. **Read this first** to understand the "why" before implementation.
 
 **Tasks:**
 
-- [ ] SS-16: Homepage with hero, features, gallery, CTA (polished UI)
-- [ ] SS-17: About page (surf camp story, team)
-- [ ] SS-18: Rooms & Accommodation page (polished UI)
-- [ ] SS-19: Activities & Surf Info page (polished UI)
-- [ ] SS-20: Polish contact/booking pages with nice UI
-- [ ] SS-21: Mobile-first responsive design across all pages
+- [ ] SS-14: Beds24 Integration Validation (30-60 min technical spike)
+- [ ] SS-5: Beds24 Account Setup & Configuration (8-12 hours, human-led)
+- [ ] SS-15: Beds24 widget integration (basic placeholder booking page)
+- [ ] SS-16: Beds24 payment configuration (Stripe integration, 50% deposit model)
+- [ ] SS-17: Beds24 email templates (booking confirmation, pre-arrival, post-stay)
+- [ ] SS-18: Beds24 widget CSS customization (mobile-first responsive design)
+
+**Outcome:** Fully functional booking system with Beds24 widget integrated, payment processing configured, and automated email workflows set up. This is a complex, high-priority milestone due to Beds24's technical setup requirements (estimated 8-12 hours total). Completed sequentially after communication features are validated.
+
+---
+
+### Milestone 5: Media & Content (Basic Placeholders)
+
+**Status:** Not Started
+**Target Date:** TBD
+**Dependencies:** Milestone 4 (Beds24)
+
+**Tasks:**
+
+- [ ] SS-19: Image upload system (Vercel Blob with pre-optimization)
+- [ ] SS-20: YouTube video embeds (loop, no ads)
+- [ ] SS-21: Image gallery component (basic version)
+- [ ] SS-22: Responsive images for mobile/desktop
+
+**Outcome:** Media systems functional with basic placeholder pages. Nice UI comes in Milestone 6.
+
+---
+
+### Milestone 6: Marketing Pages & UI Polish
+
+**Status:** Not Started
+**Target Date:** TBD
+**Dependencies:** Milestone 5 (Media & Content)
+
+**Tasks:**
+
+- [ ] SS-23: Homepage with hero, features, gallery, CTA (polished UI)
+- [ ] SS-24: About page (surf camp story, team)
+- [ ] SS-25: Rooms & Accommodation page (polished UI)
+- [ ] SS-26: Activities & Surf Info page (polished UI)
+- [ ] SS-27: Polish contact/booking pages with nice UI
+- [ ] SS-28: Mobile-first responsive design across all pages
 
 **Outcome:** All pages have polished, beautiful UI. Site looks professional and ready for users.
 
 ---
 
-### Milestone 6: Testing & Quality
+### Milestone 7: Testing & Quality
 
 **Status:** Not Started
 **Target Date:** TBD
-**Dependencies:** Milestone 5
+**Dependencies:** Milestone 6 (Marketing Pages)
 
 **Tasks:**
 
-- [ ] SS-22: Unit tests for utilities and validations
-- [ ] SS-23: Integration tests for forms and API routes
-- [ ] SS-24: Mobile device testing
-- [ ] SS-25: Performance optimization
-- [ ] SS-26: SEO optimization
+- [ ] SS-29: Unit tests for utilities and validations
+- [ ] SS-30: Integration tests for forms and API routes
+- [ ] SS-31: Mobile device testing
+- [ ] SS-32: Performance optimization
+- [ ] SS-33: SEO optimization
 
 **Outcome:** Site is tested, optimized, and production-ready.
 
 ---
 
-### Milestone 7: MVP Launch
+### Milestone 8: MVP Launch
 
 **Status:** Not Started
 **Target Date:** TBD
-**Dependencies:** Milestone 6
+**Dependencies:** Milestone 7 (Testing & Quality)
 
 **Tasks:**
 
-- [ ] SS-27: Vercel deployment setup
-- [ ] SS-28: Custom domain configuration
-- [ ] SS-29: Environment variables configuration
-- [ ] SS-30: Pre-launch testing checklist
-- [ ] SS-31: Go live!
+- [ ] SS-34: Vercel deployment setup
+- [ ] SS-35: Custom domain configuration
+- [ ] SS-36: Environment variables configuration
+- [ ] SS-37: Pre-launch testing checklist
+- [ ] SS-38: Go live!
 
 **Outcome:** Fully functional, tested, and polished surf camp website live in production.
 
@@ -288,58 +327,70 @@ Milestone 1: Foundation ✅ COMPLETE
 ├─ SS-1 (Next.js Setup)
 └─ SS-2 (Linting Setup)
        ↓
-Milestone 2: Core Infrastructure
-├─ SS-3 (shadcn/ui setup)
-├─ SS-4 (Vitest setup)
-├─ SS-5 (Vercel Blob integration)
-└─ SS-6 (Monitoring: Sentry, GA4, UptimeRobot)
+Milestone 2: Core Infrastructure 🚧 NEXT
+├─ SS-3 (Domain Configuration - Hostinger → Vercel)
+├─ SS-4 (Third-Party Credentials & Access)
+├─ SS-6 (shadcn/ui setup)
+├─ SS-7 (Vitest setup)
+├─ SS-8 (Vercel Blob integration)
+└─ SS-9 (Monitoring: Sentry, GA4, UptimeRobot)
        ↓
-Milestone 3: Communication & Booking (Basic Placeholders)
-├─ SS-7 (Contact form - basic page)
-├─ SS-8 (Twilio → WhatsApp)
-├─ SS-9 (Smoobu widget - basic page)
-├─ SS-10 (WhatsApp Click-to-Chat)
-└─ SS-11 (Rate limiting)
+Milestone 3: Communication Features
+├─ SS-10 (Contact form)
+├─ SS-11 (Twilio → WhatsApp)
+├─ SS-12 (WhatsApp Click-to-Chat)
+└─ SS-13 (Rate limiting)
        ↓
-Milestone 4: Media & Content (Basic Placeholders)
-├─ SS-12 (Image upload system)
-├─ SS-13 (YouTube embeds)
-├─ SS-14 (Image gallery - basic)
-└─ SS-15 (Responsive images)
+Milestone 4: Beds24 Setup & Integration
+├─ SS-14 (Beds24 validation - 30-60 min spike)
+├─ SS-5 (Beds24 account setup)
+├─ SS-15 (Beds24 widget integration)
+├─ SS-16 (Payment config - Stripe, deposits)
+├─ SS-17 (Email templates)
+└─ SS-18 (Widget CSS customization)
        ↓
-Milestone 5: Marketing Pages & UI Polish
-├─ SS-16 (Homepage - polished UI)
-├─ SS-17 (About page - polished UI)
-├─ SS-18 (Rooms page - polished UI)
-├─ SS-19 (Activities page - polished UI)
-├─ SS-20 (Polish contact/booking pages)
-└─ SS-21 (Mobile-first responsive - all pages)
+Milestone 5: Media & Content (Basic Placeholders)
+├─ SS-19 (Image upload system)
+├─ SS-20 (YouTube embeds)
+├─ SS-21 (Image gallery - basic)
+└─ SS-22 (Responsive images)
        ↓
-Milestone 6: Testing & Quality
-├─ SS-22 (Unit tests)
-├─ SS-23 (Integration tests)
-├─ SS-24 (Mobile device testing)
-├─ SS-25 (Performance optimization)
-└─ SS-26 (SEO optimization)
+Milestone 6: Marketing Pages & UI Polish
+├─ SS-23 (Homepage - polished UI)
+├─ SS-24 (About page - polished UI)
+├─ SS-25 (Rooms page - polished UI)
+├─ SS-26 (Activities page - polished UI)
+├─ SS-27 (Polish contact/booking pages)
+└─ SS-28 (Mobile-first responsive - all pages)
        ↓
-Milestone 7: MVP Launch
-├─ SS-27 (Vercel deployment setup)
-├─ SS-28 (Custom domain)
-├─ SS-29 (Environment variables)
-├─ SS-30 (Pre-launch QA)
-└─ SS-31 (Go live! 🚀)
+Milestone 7: Testing & Quality
+├─ SS-29 (Unit tests)
+├─ SS-30 (Integration tests)
+├─ SS-31 (Mobile device testing)
+├─ SS-32 (Performance optimization)
+└─ SS-33 (SEO optimization)
+       ↓
+Milestone 8: MVP Launch
+├─ SS-34 (Vercel deployment setup)
+├─ SS-35 (Custom domain verification)
+├─ SS-36 (Environment variables)
+├─ SS-37 (Pre-launch QA)
+└─ SS-38 (Go live! 🚀)
        ↓
 Post-MVP: Booking Site Integrations
-├─ Booking.com
-├─ Airbnb
-└─ Agoda
+├─ Booking.com (via Beds24 channel manager)
+├─ Airbnb (via Beds24 channel manager)
+└─ Agoda (via Beds24 channel manager)
 ```
 
 **Key Strategy:**
 
-- Milestones 3-4: Build functional flows with **basic placeholder pages**
-- Milestone 5: Polish everything with **beautiful UI and marketing copy**
-- This allows early testing of functionality before investing in design
+- **Sequential milestone completion**: Each system validated before starting the next
+- Milestone 3: Communication features tested and working
+- Milestone 4: Beds24 booking system (complex 8-12 hour setup done separately)
+- Milestones 3-5: Build functional flows with **basic placeholder pages**
+- Milestone 6: Polish everything with **beautiful UI and marketing copy**
+- This allows early testing of each system before investing in design
 
 ---
 
@@ -397,6 +448,44 @@ Post-MVP: Booking Site Integrations
 - Integrates with Claude Code workflow
 
 **Status:** ✅ Active system
+
+---
+
+### Decision 4: Use Beds24 Instead of Smoobu for Booking Management
+
+**Date:** 2025-01-19
+**Context:** Need booking management system with payment processing and channel manager
+**Decision:** Use Beds24 (£3.50/month or $40-50/month) instead of Smoobu ($128.56/month + 0.9% booking fees)
+**Rationale:**
+
+- **Cost savings**: ~$1,267/year (Beds24 base plan vs Smoobu with fees)
+- **No booking commission**: Beds24 has flat monthly fee, Smoobu charges 0.9% per booking
+- **Built-in channel manager**: Syncs with Booking.com, Airbnb, Agoda (same as Smoobu)
+- **Stripe integration**: Supports 50% deposit model required by client
+- **Adequate features**: All required functionality present despite dated UI
+
+**Trade-offs Accepted:**
+
+- **Dated UI**: Less modern interface than Smoobu (mitigated with CSS customization)
+- **Longer setup time**: 3-5 days vs 1-2 days for Smoobu (acceptable for cost savings)
+- **More technical**: Requires CSS knowledge for widget customization (Claude can handle)
+- **Manual configuration**: Channel manager setup less automated (one-time setup cost)
+
+**Alternatives Considered:**
+
+- Smoobu (rejected: 3x more expensive, booking fees add up)
+- Building custom system (rejected: too complex, payment processing difficult)
+- Manual calendar management (rejected: no payment processing, error-prone)
+
+**Migration Strategy:**
+
+If Beds24's UI becomes a conversion problem (users abandoning bookings):
+
+1. First: Heavily customize CSS to modernize widget appearance
+2. Second: Build custom booking form using Beds24 API backend
+3. Last resort: Migrate to Smoobu or similar if revenue justifies cost
+
+**Status:** 🚧 To be implemented in SS-5
 
 ---
 
