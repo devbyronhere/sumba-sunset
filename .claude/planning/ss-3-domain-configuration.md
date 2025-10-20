@@ -12,9 +12,10 @@ started: null
 completed: null
 related_docs: []
 infra_type: configuration
+branch: ss-3/infra/domain-config
 ---
 
-[← Previous: SS-2 Linting Setup](./ss-2-linting-setup.md) | [📋 Index](./index.md) | [Next: SS-4 Pre-Launch Privacy Controls →](./ss-4-pre-launch-privacy.md)
+[← Previous: SS-2 Linting Setup](./ss-2-linting-setup.md) | [📋 Index](./index.md) | [Next: SS-4 Credentials Setup →](./ss-4-credentials-setup.md)
 
 **Milestone:** 2 - Core Infrastructure
 

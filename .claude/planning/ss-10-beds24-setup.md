@@ -1,21 +1,22 @@
 ---
-task_id: ss-11
+task_id: ss-10
 title: '[Infrastructure] Beds24 Account Setup & Configuration'
 status: not_started
 priority: high
 estimated_time: '8-12 hours'
 actual_time: null
-dependencies: [ss-4, ss-14]
+dependencies: [ss-4, ss-9]
 created: 2025-01-19
 started: null
 completed: null
 related_docs: ['beds24-feasibility-research.md']
 infra_type: configuration
+branch: ss-10/infra/beds24-setup
 currency_decision: USD
 currency_rationale: 'Start with USD for simplicity - most international surf travelers expect USD. SS-16 (in this milestone) will investigate USD→IDR currency switch BEFORE building marketing pages to avoid rework.'
 ---
 
-[← Previous: SS-10 Beds24 Validation](./ss-10-beds24-validation.md) | [📋 Index](./index.md) | [Next: SS-12 Widget Integration →](./ss-12-beds24-widget.md)
+[← Previous: SS-9 Beds24 Validation](./ss-9-beds24-validation.md) | [📋 Index](./index.md) | [Next: SS-11 Beds24 Widget Integration →](./ss-11-beds24-widget.md)
 
 # [Infrastructure] Beds24 Account Setup & Configuration
 
