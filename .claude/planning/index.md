@@ -1,6 +1,6 @@
 # Sumba Sunset - Planning Index
 
-> **Last Updated:** 2025-01-17
+> **Last Updated:** 2025-10-20
 > **Active Tasks:** 0
 > **Completed Tasks:** 2
 
@@ -38,10 +38,10 @@ This is the master planning document for the Sumba Sunset project. It replaces t
 
 ## 📊 Project Status Overview
 
-- **Total Tasks:** 38 (SS-1 through SS-38)
-- **Completed:** 2 (5%)
+- **Total Tasks:** 49 (SS-1 through SS-49)
+- **Completed:** 2 (4%)
 - **In Progress:** 0
-- **Not Started:** 36
+- **Not Started:** 47
 - **Blocked:** 0
 
 ---
@@ -116,51 +116,51 @@ _No blocked tasks_
 
 ### Phase 2.5: Beds24 Setup & Integration (Not Started)
 
-- [ ] **SS-9**: Beds24 Integration Validation (30-60 min technical spike)
-- [ ] **SS-10**: Beds24 Account Setup & Configuration (8-12 hours, human-led)
-- [ ] **SS-11**: Beds24 widget integration
-- [ ] **SS-12**: Beds24 payment configuration (Stripe, deposits)
-- [ ] **SS-13**: Beds24 email templates
-- [ ] **SS-14**: Beds24 widget CSS customization
+- [ ] **SS-10**: Beds24 Integration Validation (30-60 min technical spike)
+- [ ] **SS-11**: Beds24 Account Setup & Configuration (8-12 hours, human-led)
+- [ ] **SS-12**: Beds24 widget integration
+- [ ] **SS-13**: Beds24 payment configuration (Stripe, deposits)
+- [ ] **SS-14**: Beds24 email templates
+- [ ] **SS-15**: Beds24 widget CSS customization
+- [ ] **SS-16**: Currency Switch Spike - Investigate USD → IDR migration
 
 ### Phase 3: Communication Features (Not Started)
 
-- [ ] **SS-15**: Contact form with React Hook Form + Zod
-- [ ] **SS-16**: Twilio integration (form → WhatsApp)
-- [ ] **SS-17**: WhatsApp Click-to-Chat button
-- [ ] **SS-18**: Rate limiting for contact form
+- [ ] **SS-17**: Contact form with React Hook Form + Zod
+- [ ] **SS-18**: Twilio integration (form → WhatsApp to +27 78 778 7591)
+- [ ] **SS-19**: WhatsApp Click-to-Chat button
+- [ ] **SS-20**: Rate limiting for contact form
 
 ### Phase 4: Media & Content (Not Started)
 
-- [ ] **SS-19**: Image upload system (Vercel Blob with pre-optimization)
-- [ ] **SS-20**: YouTube video embeds (loop, no ads)
-- [ ] **SS-21**: Image gallery component
-- [ ] **SS-22**: Responsive images for mobile/desktop
+- [ ] **SS-21**: Image upload system (Vercel Blob with pre-optimization)
+- [ ] **SS-22**: YouTube video embeds (loop, no ads)
+- [ ] **SS-23**: Image gallery component
+- [ ] **SS-24**: Responsive images for mobile/desktop
 
 ### Phase 5: Marketing Pages & UI Polish (Not Started)
 
-- [ ] **SS-23**: Homepage (hero, features, gallery, CTA)
-- [ ] **SS-24**: About page (surf camp story, team)
-- [ ] **SS-25**: Rooms & Accommodation page
-- [ ] **SS-26**: Activities & Surf Info page
-- [ ] **SS-27**: Polish contact/booking pages
-- [ ] **SS-28**: Mobile-first responsive design
+- [ ] **SS-25**: Homepage (hero, features, gallery, CTA)
+- [ ] **SS-26**: About page (surf camp story, team)
+- [ ] **SS-27**: Rooms & Accommodation page
+- [ ] **SS-28**: Activities & Surf Info page
+- [ ] **SS-29**: Polish contact/booking pages
+- [ ] **SS-30**: Mobile-first responsive design
 
 ### Phase 6: Testing & Quality (Not Started)
 
-- [ ] **SS-29**: Unit tests for utilities and validations
-- [ ] **SS-30**: Integration tests for forms and API routes
-- [ ] **SS-31**: Mobile device testing
-- [ ] **SS-32**: Performance optimization
-- [ ] **SS-33**: SEO optimization
+- [ ] **SS-31**: Unit tests for utilities and validations
+- [ ] **SS-32**: Integration tests for forms and API routes
+- [ ] **SS-33**: Mobile device testing
+- [ ] **SS-34**: Performance optimization
+- [ ] **SS-35**: SEO optimization
 
 ### Phase 7: MVP Launch (Not Started)
 
-- [ ] **SS-34**: Vercel deployment setup
-- [ ] **SS-35**: Custom domain configuration
-- [ ] **SS-36**: Environment variables configuration
-- [ ] **SS-37**: Pre-launch testing checklist
-- [ ] **SS-38**: Go live!
+- [ ] **SS-36**: Remove pre-launch banner (set NEXT_PUBLIC_PRE_LAUNCH=false)
+- [ ] **SS-37**: Update robots.txt to allow search engine indexing
+- [ ] **SS-38**: Final pre-launch checklist (comprehensive QA)
+- [ ] **SS-39**: Go live announcement! (social media, press, etc.)
 
 ### Post-MVP: OTA Channel Integrations (Future)
 
@@ -172,6 +172,80 @@ _No blocked tasks_
 
 ---
 
+## 🚀 Continuous Deployment Strategy
+
+**IMPORTANT: Deploy after every milestone completion to avoid big issues at project end.**
+
+### Deployment Workflow
+
+After completing each milestone:
+
+1. **Verify all quality gates pass** (tests, linting, type-checking)
+2. **Create Pull Request** for milestone branch
+3. **User reviews and approves** PR
+4. **Merge to main** branch
+5. **Vercel automatically deploys** to production (via GitHub integration)
+6. **Verify deployment successful** at production URL
+7. **User performs smoke testing** on production site
+8. **Document any deployment issues** in retrospective
+
+### Why Continuous Deployment?
+
+- **Early issue detection**: Catch deployment problems early, not at launch
+- **Incremental validation**: Each milestone is production-tested
+- **Reduced risk**: Small, frequent deployments are safer than one big bang
+- **Real environment testing**: Test integrations (Beds24, Twilio) in production
+- **Confidence building**: Progressive validation that everything works
+- **Rollback simplicity**: Easy to revert small changes vs. large releases
+
+### Vercel Deployment Process
+
+**Automatic Deployments:**
+
+- Every push to `main` → Production deployment
+- Every PR branch → Preview deployment
+- GitHub integration handles all automation
+
+**What Gets Deployed:**
+
+- Next.js application build
+- Environment variables (configured in Vercel Dashboard)
+- Static assets
+- API routes
+
+**Deployment Strategy:**
+
+- Deploy to **live domain (sumbasunset.com)** after each milestone merge
+- Use `robots.txt` and "under construction" banner for pre-launch privacy
+- Zero cutover risk at official launch (just remove banner)
+- Catch DNS/SSL/domain issues early in development
+
+**Post-Deployment Checklist (After Each Milestone):**
+
+- [ ] Deployment succeeded (check Vercel dashboard)
+- [ ] Production site loads at https://sumbasunset.com
+- [ ] SSL certificate active (HTTPS green padlock)
+- [ ] No console errors in browser DevTools
+- [ ] New features from milestone are visible and functional
+- [ ] No regressions in existing features
+- [ ] Environment variables working correctly (if applicable)
+- [ ] Mobile experience acceptable (test on real device)
+
+### Milestone Deployment Status
+
+| Milestone                     | Status      | Deployed   | Deployment Date | Production URL              |
+| ----------------------------- | ----------- | ---------- | --------------- | --------------------------- |
+| 1: Dev Environment ✅         | Complete    | ✅ Yes     | 2025-01-17      | sumbasunset.com             |
+| 2: Core Infrastructure        | Not Started | ⏸️ Pending | TBD             | sumbasunset.com             |
+| 3: Beds24 + Currency Decision | Not Started | ⏸️ Pending | TBD             | sumbasunset.com             |
+| 4: Communication              | Not Started | ⏸️ Pending | TBD             | sumbasunset.com             |
+| 5: Media & Content            | Not Started | ⏸️ Pending | TBD             | sumbasunset.com             |
+| 6: Marketing Pages            | Not Started | ⏸️ Pending | TBD             | sumbasunset.com             |
+| 7: Testing & Quality          | Not Started | ⏸️ Pending | TBD             | sumbasunset.com             |
+| 8: MVP Launch 🚀              | Not Started | ⏸️ Pending | TBD             | sumbasunset.com (🎉 Public) |
+
+---
+
 ## 📈 Milestones
 
 ### Milestone 1: Development Environment Setup ✅
@@ -179,6 +253,7 @@ _No blocked tasks_
 **Status:** Complete
 **Target Date:** 2025-01-17
 **Completed:** 2025-01-17
+**Deployed:** ✅ Yes (2025-01-17)
 
 **Tasks:**
 
@@ -186,6 +261,8 @@ _No blocked tasks_
 - [x] SS-2: Linting & Formatting Setup
 
 **Outcome:** Development environment fully configured with Next.js 15, TypeScript, Tailwind CSS, ESLint, Prettier, and Git hooks.
+
+**Deployment:** Automatic deployment to Vercel completed. Base Next.js app live. Domain will be configured in Milestone 2 (SS-3).
 
 ---
 
@@ -197,22 +274,31 @@ _No blocked tasks_
 
 **Tasks:**
 
-- [ ] SS-3: Domain Configuration (Quick!)
-- [ ] SS-4: Third-Party Credentials & Access Setup
-- [ ] SS-5: shadcn/ui setup with base components
-- [ ] SS-6: Vitest testing framework setup
-- [ ] SS-7: Vercel Blob integration for images
-- [ ] SS-8: Monitoring setup (Sentry, GA4, UptimeRobot)
+- [ ] SS-3: Domain Configuration (Point sumbasunset.com to Vercel)
+- [ ] SS-4: Pre-Launch Privacy Controls (robots.txt + banner + env var)
+- [ ] SS-5: Third-Party Credentials & Access Setup
+- [ ] SS-6: shadcn/ui setup with base components
+- [ ] SS-7: Vitest testing framework setup
+- [ ] SS-8: Vercel Blob integration for images
+- [ ] SS-9: Monitoring setup (Sentry, GA4, UptimeRobot)
 
-**Outcome:** Core infrastructure ready for feature development with testing and monitoring in place (excluding Beds24 which has its own milestone).
+**Outcome:** Core infrastructure ready for feature development with testing and monitoring in place. Domain configured and pointing to live site with pre-launch privacy controls active.
+
+**Deployment:** After milestone completion, merge to main and deploy to **sumbasunset.com**. Verify:
+
+- DNS resolves to Vercel
+- SSL certificate active (HTTPS)
+- "Under construction" banner displays
+- robots.txt blocks search engines
+- Monitoring dashboards receiving data
 
 ---
 
-### Milestone 3: Beds24 Setup & Integration
+### Milestone 3: Beds24 Setup & Integration + Currency Decision
 
 **Status:** Not Started
 **Target Date:** TBD
-**Dependencies:** Milestone 2 (requires SS-4 credentials)
+**Dependencies:** Milestone 2 (requires SS-5 credentials)
 
 **📋 Research & Analysis:**
 
@@ -220,14 +306,25 @@ _No blocked tasks_
 
 **Tasks:**
 
-- [ ] SS-9: Beds24 Integration Validation (30-60 min technical spike)
-- [ ] SS-10: Beds24 Account Setup & Configuration (8-12 hours, human-led)
-- [ ] SS-11: Beds24 widget integration (basic placeholder booking page)
-- [ ] SS-12: Beds24 payment configuration (Stripe integration, 50% deposit model)
-- [ ] SS-13: Beds24 email templates (booking confirmation, pre-arrival, post-stay)
-- [ ] SS-14: Beds24 widget CSS customization (mobile-first responsive design)
+- [ ] SS-10: Beds24 Integration Validation (30-60 min technical spike)
+- [ ] SS-11: Beds24 Account Setup & Configuration (USER creates account, 8-12 hours)
+- [ ] SS-12: Beds24 widget integration (basic placeholder booking page)
+- [ ] SS-13: Beds24 payment configuration (Stripe integration, 50% deposit model)
+- [ ] SS-14: Beds24 email templates (booking confirmation, pre-arrival, post-stay)
+- [ ] SS-15: Beds24 widget CSS customization (mobile-first responsive design)
+- [ ] SS-16: Currency Switch Spike - Investigate USD → IDR migration
 
-**Outcome:** Fully functional booking system with Beds24 widget integrated, payment processing configured, and automated email workflows set up. This is a complex, high-priority milestone due to Beds24's technical setup requirements (estimated 8-12 hours total).
+**Outcome:** Fully functional booking system with Beds24 widget integrated, payment processing configured, and automated email workflows set up. **Currency decision made** before building marketing pages (avoids rework if switching from USD to IDR).
+
+**Note:** User will create Beds24 account at start of this milestone. Claude will guide through configuration steps in SS-11 planning doc.
+
+**Why Currency Decision Here?** Making the USD vs. IDR decision NOW (before Milestone 5-6 marketing pages) means:
+
+- If you choose IDR, we build all pricing displays with IDR from the start
+- No rework needed to update currency formatting in already-built pages
+- Beds24 currency is set correctly before any content references it
+
+**Deployment:** After milestone completion, merge to main and deploy. **CRITICAL**: Test end-to-end booking flow in production with real Stripe test cards. Verify email automation triggers correctly. Document currency decision for all future work.
 
 ---
 
@@ -235,16 +332,18 @@ _No blocked tasks_
 
 **Status:** Not Started
 **Target Date:** TBD
-**Dependencies:** Milestone 3 (Beds24)
+**Dependencies:** Milestone 3 (Beds24 + Currency Decision)
 
 **Tasks:**
 
-- [ ] SS-15: Contact form with React Hook Form + Zod (basic placeholder page)
-- [ ] SS-16: Twilio integration (WhatsApp forwarding)
-- [ ] SS-17: WhatsApp Click-to-Chat button
-- [ ] SS-18: Rate limiting for contact form
+- [ ] SS-17: Contact form with React Hook Form + Zod (basic placeholder page)
+- [ ] SS-18: Twilio integration (WhatsApp forwarding to +27 78 778 7591)
+- [ ] SS-19: WhatsApp Click-to-Chat button
+- [ ] SS-20: Rate limiting for contact form
 
-**Outcome:** Functional communication flows (contact form and WhatsApp) with basic placeholder pages. Validated and working after booking system is set up.
+**Outcome:** Functional communication flows (contact form and WhatsApp) with basic placeholder pages. Validated and working after booking system and currency decision are complete.
+
+**Deployment:** After milestone completion, merge to main and deploy. **CRITICAL**: Test contact form → Twilio → WhatsApp flow in production. Verify rate limiting works.
 
 ---
 
@@ -256,12 +355,21 @@ _No blocked tasks_
 
 **Tasks:**
 
-- [ ] SS-19: Image upload system (Vercel Blob with pre-optimization)
-- [ ] SS-20: YouTube video embeds (loop, no ads)
-- [ ] SS-21: Image gallery component (basic version)
-- [ ] SS-22: Responsive images for mobile/desktop
+- [ ] SS-21: Image upload system (Vercel Blob with pre-optimization)
+- [ ] SS-22: YouTube video embeds (loop, no ads)
+- [ ] SS-23: Image gallery component (basic version)
+- [ ] SS-24: Responsive images for mobile/desktop
 
 **Outcome:** Media systems functional with basic placeholder pages. Nice UI comes in Milestone 6.
+
+**Content Strategy:**
+
+- **Images**: Use placeholder images (stock photos or AI-generated mockups) for initial launch
+- **Post-Launch**: Professional photographer will visit property and replace placeholders with real photos
+- **Copy**: User will provide copy during Milestone 6 (knows property intimately)
+- **Currency**: Use currency decided in Milestone 3 for any pricing displays
+
+**Deployment:** After milestone completion, merge to main and deploy. Verify Vercel Blob image uploads work in production, test YouTube embeds, confirm responsive images load correctly.
 
 ---
 
@@ -273,14 +381,23 @@ _No blocked tasks_
 
 **Tasks:**
 
-- [ ] SS-23: Homepage with hero, features, gallery, CTA (polished UI)
-- [ ] SS-24: About page (surf camp story, team)
-- [ ] SS-25: Rooms & Accommodation page (polished UI)
-- [ ] SS-26: Activities & Surf Info page (polished UI)
-- [ ] SS-27: Polish contact/booking pages with nice UI
-- [ ] SS-28: Mobile-first responsive design across all pages
+- [ ] SS-25: Homepage with hero, features, gallery, CTA (polished UI)
+- [ ] SS-26: About page (surf camp story, team)
+- [ ] SS-27: Rooms & Accommodation page (polished UI)
+- [ ] SS-28: Activities & Surf Info page (polished UI)
+- [ ] SS-29: Polish contact/booking pages with nice UI
+- [ ] SS-30: Mobile-first responsive design across all pages
 
-**Outcome:** All pages have polished, beautiful UI. Site looks professional and ready for users.
+**Outcome:** All pages have polished, beautiful UI. Site looks professional and ready for users. **Currency from M3 decision is already integrated** throughout all pricing displays.
+
+**Content Workflow:**
+
+- User provides copy for each page as we build it (knows property and area intimately)
+- Claude implements UI with user-provided content
+- Placeholder images used until professional photography available post-launch
+- All pricing displays use currency decided in Milestone 3
+
+**Deployment:** After milestone completion, merge to main and deploy. Perform comprehensive cross-browser and mobile device testing in production. Verify all pages render correctly and currency displays consistently.
 
 ---
 
@@ -288,17 +405,19 @@ _No blocked tasks_
 
 **Status:** Not Started
 **Target Date:** TBD
-**Dependencies:** Milestone 6 (Marketing Pages)
+**Dependencies:** Milestone 6 (Marketing Pages & UI Polish)
 
 **Tasks:**
 
-- [ ] SS-29: Unit tests for utilities and validations
-- [ ] SS-30: Integration tests for forms and API routes
-- [ ] SS-31: Mobile device testing
-- [ ] SS-32: Performance optimization
-- [ ] SS-33: SEO optimization
+- [ ] SS-31: Unit tests for utilities and validations
+- [ ] SS-32: Integration tests for forms and API routes
+- [ ] SS-33: Mobile device testing
+- [ ] SS-34: Performance optimization
+- [ ] SS-35: SEO optimization
 
-**Outcome:** Site is tested, optimized, and production-ready.
+**Outcome:** Site is tested, optimized, and production-ready. All features work correctly with the currency chosen in Milestone 3.
+
+**Deployment:** After milestone completion, merge to main and deploy. Run full test suite in production environment. Verify performance improvements (Lighthouse scores), confirm SEO meta tags, test on real mobile devices.
 
 ---
 
@@ -310,13 +429,20 @@ _No blocked tasks_
 
 **Tasks:**
 
-- [ ] SS-34: Vercel deployment setup
-- [ ] SS-35: Custom domain configuration
-- [ ] SS-36: Environment variables configuration
-- [ ] SS-37: Pre-launch testing checklist
-- [ ] SS-38: Go live!
+- [ ] SS-36: Remove pre-launch banner (set NEXT_PUBLIC_PRE_LAUNCH=false)
+- [ ] SS-37: Update robots.txt to allow search engine indexing
+- [ ] SS-38: Final pre-launch checklist (comprehensive QA)
+- [ ] SS-39: Go live announcement! (social media, press, etc.)
 
-**Outcome:** Fully functional, tested, and polished surf camp website live in production.
+**Outcome:** Fully functional, tested, and polished surf camp website publicly launched at sumbasunset.com with chosen currency (USD or IDR from M3 decision).
+
+**Deployment:** This milestone **does NOT require new deployment** - the site is already live on sumbasunset.com from previous milestones. This milestone simply:
+
+1. Removes privacy controls (banner + robots.txt)
+2. Performs final QA
+3. Makes public announcement
+
+The site has been production-tested throughout development with the correct currency. Launch is just flipping the "public" switch.
 
 ---
 
@@ -335,47 +461,47 @@ Milestone 2: Core Infrastructure 🚧 NEXT
 ├─ SS-7 (Vercel Blob integration)
 └─ SS-8 (Monitoring: Sentry, GA4, UptimeRobot)
        ↓
-Milestone 3: Beds24 Setup & Integration
-├─ SS-9 (Beds24 validation - 30-60 min spike)
-├─ SS-10 (Beds24 account setup)
-├─ SS-11 (Beds24 widget integration)
-├─ SS-12 (Payment config - Stripe, deposits)
-├─ SS-13 (Email templates)
-└─ SS-14 (Widget CSS customization)
+Milestone 3: Beds24 Setup & Integration + Currency Decision
+├─ SS-10 (Beds24 validation - 30-60 min spike)
+├─ SS-11 (Beds24 account setup)
+├─ SS-12 (Beds24 widget integration)
+├─ SS-13 (Payment config - Stripe, deposits)
+├─ SS-14 (Email templates)
+├─ SS-15 (Widget CSS customization)
+└─ SS-16 (Currency Switch Spike - USD vs IDR decision)
        ↓
 Milestone 4: Communication Features
-├─ SS-15 (Contact form)
-├─ SS-16 (Twilio → WhatsApp)
-├─ SS-17 (WhatsApp Click-to-Chat)
-└─ SS-18 (Rate limiting)
+├─ SS-17 (Contact form)
+├─ SS-18 (Twilio → WhatsApp)
+├─ SS-19 (WhatsApp Click-to-Chat)
+└─ SS-20 (Rate limiting)
        ↓
 Milestone 5: Media & Content (Basic Placeholders)
-├─ SS-19 (Image upload system)
-├─ SS-20 (YouTube embeds)
-├─ SS-21 (Image gallery - basic)
-└─ SS-22 (Responsive images)
+├─ SS-21 (Image upload system)
+├─ SS-22 (YouTube embeds)
+├─ SS-23 (Image gallery - basic)
+└─ SS-24 (Responsive images)
        ↓
 Milestone 6: Marketing Pages & UI Polish
-├─ SS-23 (Homepage - polished UI)
-├─ SS-24 (About page - polished UI)
-├─ SS-25 (Rooms page - polished UI)
-├─ SS-26 (Activities page - polished UI)
-├─ SS-27 (Polish contact/booking pages)
-└─ SS-28 (Mobile-first responsive - all pages)
+├─ SS-25 (Homepage - polished UI)
+├─ SS-26 (About page - polished UI)
+├─ SS-27 (Rooms page - polished UI)
+├─ SS-28 (Activities page - polished UI)
+├─ SS-29 (Polish contact/booking pages)
+└─ SS-30 (Mobile-first responsive - all pages)
        ↓
 Milestone 7: Testing & Quality
-├─ SS-29 (Unit tests)
-├─ SS-30 (Integration tests)
-├─ SS-31 (Mobile device testing)
-├─ SS-32 (Performance optimization)
-└─ SS-33 (SEO optimization)
+├─ SS-31 (Unit tests)
+├─ SS-32 (Integration tests)
+├─ SS-33 (Mobile device testing)
+├─ SS-34 (Performance optimization)
+└─ SS-35 (SEO optimization)
        ↓
 Milestone 8: MVP Launch
-├─ SS-34 (Vercel deployment setup)
-├─ SS-35 (Custom domain verification)
-├─ SS-36 (Environment variables)
-├─ SS-37 (Pre-launch QA)
-└─ SS-38 (Go live! 🚀)
+├─ SS-36 (Remove pre-launch banner)
+├─ SS-37 (Update robots.txt)
+├─ SS-38 (Final pre-launch QA)
+└─ SS-39 (Go live announcement! 🚀)
        ↓
 Post-MVP: Booking Site Integrations
 ├─ Booking.com (via Beds24 channel manager)
@@ -386,11 +512,11 @@ Post-MVP: Booking Site Integrations
 **Key Strategy:**
 
 - **Sequential milestone completion**: Each system validated before starting the next
-- Milestone 3: Beds24 booking system (complex 8-12 hour setup - prioritized early)
-- Milestone 4: Communication features tested and working
-- Milestones 3-5: Build functional flows with **basic placeholder pages**
-- Milestone 6: Polish everything with **beautiful UI and marketing copy**
-- This allows early testing of each system before investing in design
+- **Milestone 3**: Beds24 booking system + **Currency decision** (USD vs IDR) - decided BEFORE building marketing pages to avoid rework
+- **Milestone 4-5**: Communication and media features with basic placeholder pages
+- **Milestone 6**: Polish everything with beautiful UI using currency from M3 decision
+- **Milestone 7-8**: Testing, quality, and launch
+- **Currency decision early**: By choosing currency in M3, all pricing displays in M5-6 are built correctly from the start
 
 ---
 

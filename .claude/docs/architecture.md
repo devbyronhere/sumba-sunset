@@ -186,7 +186,7 @@ Budget 2-3 hours for widget styling to achieve a polished, mobile-first design.
 
 ### Cost Structure
 
-- Monthly cost: £3.50/month (~$4.50) base plan OR $40-50/month for full features
+- Monthly cost: $40-50/month for full features
 - No booking commission fees (flat monthly fee only)
 - Cost-effective for small-to-medium booking volumes
 

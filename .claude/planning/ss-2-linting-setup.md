@@ -13,7 +13,7 @@ related_docs: []
 infra_type: tooling
 ---
 
-[← Previous: SS-1 Next.js Setup](./ss-1-nextjs-setup.md) | [📋 Index](./index.md) | [Next: SS-3 Credentials Setup →](./ss-3-credentials-setup.md)
+[← Previous: SS-1 Next.js Setup](./ss-1-nextjs-setup.md) | [📋 Index](./index.md) | [Next: SS-3 Domain Configuration →](./ss-3-domain-configuration.md)
 
 # [Infrastructure] Linting & Formatting Setup
 

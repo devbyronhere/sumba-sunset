@@ -1,5 +1,5 @@
 ---
-task_id: ss-4
+task_id: ss-5
 title: '[Infrastructure] Third-Party Credentials & Access Setup'
 status: not_started
 priority: high
@@ -13,7 +13,7 @@ related_docs: []
 infra_type: configuration
 ---
 
-[← Previous: SS-3 Domain Configuration](./ss-3-domain-configuration.md) | [📋 Index](./index.md) | [Next: SS-5 shadcn/ui Setup →](./ss-5-shadcn-setup.md)
+[← Previous: SS-4 Pre-Launch Privacy Controls](./ss-4-pre-launch-privacy.md) | [📋 Index](./index.md) | [Next: SS-6 shadcn/ui Setup →](./ss-6-shadcn-setup.md)
 
 **Milestone:** 2 - Core Infrastructure
 

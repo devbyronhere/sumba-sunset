@@ -1,5 +1,5 @@
 ---
-task_id: ss-5
+task_id: ss-11
 title: '[Infrastructure] Beds24 Account Setup & Configuration'
 status: not_started
 priority: high
@@ -11,9 +11,11 @@ started: null
 completed: null
 related_docs: ['beds24-feasibility-research.md']
 infra_type: configuration
+currency_decision: USD
+currency_rationale: 'Start with USD for simplicity - most international surf travelers expect USD. SS-16 (in this milestone) will investigate USD→IDR currency switch BEFORE building marketing pages to avoid rework.'
 ---
 
-[← Previous: SS-14 Beds24 Validation](./ss-14-beds24-validation.md) | [📋 Index](./index.md) | [Next: SS-15 Widget Integration →](./ss-15-beds24-widget.md)
+[← Previous: SS-10 Beds24 Validation](./ss-10-beds24-validation.md) | [📋 Index](./index.md) | [Next: SS-12 Widget Integration →](./ss-12-beds24-widget.md)
 
 # [Infrastructure] Beds24 Account Setup & Configuration
 
@@ -42,11 +44,13 @@ Create and fully configure a Beds24 account for booking management, including pr
 7. **Email Automation** - Booking confirmation, pre-arrival, check-in, post-stay
 8. **API Keys** - Obtain account + property keys for integration
 
+**⚠️ Currency Decision:** This task sets up Beds24 with USD initially. **SS-16 (Currency Investigation)** in this same milestone will investigate switching to IDR. If you decide on IDR, you'll update the Beds24 currency setting before completing this milestone. This ensures marketing pages (M5-6) are built with the correct currency from the start.
+
 ---
 
 ## Prerequisites/Dependencies
 
-- [x] SS-4: Credentials setup document exists
+- [x] SS-5: Credentials setup document exists
 - [ ] Budget approved for Beds24 ($40-50/month for 9-room property)
 - [ ] Stripe account ready (for payment gateway connection)
 - [ ] Property details documented (rooms, capacity, amenities, photos)
@@ -112,7 +116,7 @@ Create and fully configure a Beds24 account for booking management, including pr
     - Phone number
     - Tax ID (if applicable in Indonesia)
   - **Time zone**: Asia/Makassar (WITA) - CRITICAL for Sumba
-  - **Default currency**: USD or IDR (choose based on target market, most surf travelers expect USD)
+  - **Default currency**: USD (firm decision - see frontmatter for rationale)
   - **Language**: English
 
 - [ ] **Step 1.5**: Set up billing information
@@ -129,7 +133,7 @@ Create and fully configure a Beds24 account for booking management, including pr
   - Address: [Full Sumba, Indonesia address]
   - Property type: Guest House / Surf Camp
   - GPS coordinates: [Latitude, Longitude] (for map display)
-  - Currency: USD (recommended - most surf travelers expect USD)
+  - Currency: USD (firm decision - see frontmatter for rationale)
 
 - [ ] **Step 2.2**: Upload property photos
   - **Essential Photos (10-15 minimum)**:
@@ -327,7 +331,7 @@ Create and fully configure a Beds24 account for booking management, including pr
        - Select "Manual" or "Cash"
        - Instructions for guest: "Remainder payment due in cash on arrival"
        - Add to booking confirmation email
-    4. **Currency**: USD (recommended)
+    4. **Currency**: USD (firm decision - see frontmatter for rationale)
     5. **Accepted Cards**: All major cards (Visa, Mastercard, Amex)
 
 - [ ] **Step 4.3**: Set up refund & cancellation policy
@@ -375,7 +379,7 @@ Create and fully configure a Beds24 account for booking management, including pr
     - **Date Picker** - Simpler, less visual
   - Configure widget settings:
     - Language: English (primary), add Indonesian if needed
-    - Currency: USD
+    - Currency: USD (firm decision - see frontmatter for rationale)
     - Date format: DD/MM/YYYY or MM/DD/YYYY
     - Show prices: Yes
     - Show availability: Yes
@@ -1053,7 +1057,7 @@ If Beds24 setup fails or is not suitable:
 
 Files that need updating after this task:
 
-- [x] `.claude/planning/ss-4-credentials-setup.md` - Mark Beds24 as "Ready"
+- [x] `.claude/planning/ss-5-credentials-setup.md` - Mark Beds24 as "Ready"
 - [x] `.env.example` - Already updated with Beds24 variables
 - [ ] `.env.local` - Add actual Beds24 API keys (USER)
 - [ ] `.claude/planning/index.md` - Unblock SS-10, update status
@@ -1065,11 +1069,13 @@ Files that need updating after this task:
 
 **Depends On:**
 
-- [SS-4: Credentials Setup](./ss-4-credentials-setup.md) - Environment variables documented
+- [SS-5: Credentials Setup](./ss-5-credentials-setup.md) - Environment variables documented
+- [SS-10: Beds24 Validation](./ss-10-beds24-validation.md) - Technical feasibility validated
 
 **Blocks:**
 
-- SS-10: Beds24 Widget Integration - Cannot implement until account configured
+- SS-12: Beds24 Widget Integration - Cannot implement until account configured
+- SS-16: Currency Investigation - Needs Beds24 account to test currency switch
 
 **Enables:**
 
@@ -1135,7 +1141,7 @@ Files that need updating after this task:
 - **Email HTML** - May need to write custom HTML for professional look
 - **Payment rules** - Deposit model may be tricky to configure
 - **Time zone** - Verify Sumba time zone (WITA) configured correctly
-- **Currency** - Decide IDR vs. USD (most surf travelers expect USD)
+- **Currency** - USD confirmed (see frontmatter). Future spike story (SS-39) will investigate USD→IDR switch after Milestone 6
 
 **After Completion:**
 
@@ -1182,7 +1188,7 @@ _(Fill out after completion)_
 ### Configuration Decisions Made
 
 - **Pricing plan chosen**: (base or full-featured)
-- **Currency chosen**: (IDR or USD)
+- **Currency chosen**: USD (firm decision - see frontmatter for rationale)
 - **Min nights policy**: (X nights)
 - **Cancellation policy**: (description)
 - **Email frequency**: (how many days before arrival)

@@ -13,7 +13,7 @@ This document provides detailed information about deploying the Sumba Sunset app
 TWILIO_ACCOUNT_SID=your_account_sid  # Obtain from Twilio console
 TWILIO_AUTH_TOKEN=your_auth_token    # Obtain from Twilio console
 TWILIO_WHATSAPP_NUMBER=whatsapp:+16067558767  # Purchased number
-STAFF_WHATSAPP_NUMBER=whatsapp:+1234567890     # Staff number TBD
+STAFF_WHATSAPP_NUMBER=whatsapp:+27787787591   # Dev number (change to staff post-deployment)
 
 # Beds24 (Booking widget integration)
 BEDS24_API_KEY=your_api_key        # Obtain from Beds24: Account → Settings → API
@@ -35,6 +35,7 @@ SENTRY_AUTH_TOKEN=your_auth_token           # Create Sentry project (optional)
 
 # Site Configuration ✅ READY
 NEXT_PUBLIC_SITE_URL=https://sumbasunset.com
+NEXT_PUBLIC_PRE_LAUNCH=true  # Set to 'false' on official launch day
 ```
 
 ### Local Development
@@ -88,13 +89,96 @@ yarn build
 
 ### Deployment Strategy
 
-Vercel provides automatic CI/CD:
+**Live Domain Deployment (Continuous Deployment Approach)**
 
-- Push to `main` branch → Automatic deployment
-- Preview deployments for all pull requests
+Deploy to production domain (sumbasunset.com) after every milestone:
+
+- **Why Live Domain?** Catch DNS/SSL/domain-specific issues early, test third-party integrations (Beds24, Twilio) in real environment, zero cutover risk at launch
+- **Pre-Launch Privacy**: Use "under construction" banner or `robots.txt` to block search engines until official launch
+- **Milestone Flow**: Complete milestone → Merge PR → Auto-deploy to sumbasunset.com → Smoke test → Move to next milestone
+- **Official Launch**: Simply remove banner/unblock search engines (no technical deployment needed)
+
+**Vercel Automatic CI/CD:**
+
+- Push to `main` branch → Automatic deployment to sumbasunset.com
+- Preview deployments for all pull requests (testing only, not milestone deployments)
 - Automatic builds with Next.js optimization
 - Edge network deployment worldwide
 - Zero configuration required
+
+---
+
+## Pre-Launch Privacy Controls
+
+Since we deploy to the live domain (sumbasunset.com) after each milestone, we need to control public visibility until official launch.
+
+### Option 1: Under Construction Banner (Recommended)
+
+Add a banner component that displays during pre-launch:
+
+```typescript
+// In root layout or header component
+const isPreLaunch = process.env.NEXT_PUBLIC_PRE_LAUNCH === 'true';
+
+{isPreLaunch && (
+  <div className="bg-yellow-500 text-black text-center py-2 text-sm font-medium">
+    🚧 Site under development - Official launch coming soon
+  </div>
+)}
+```
+
+**Environment Variable:**
+
+```bash
+# Add to Vercel environment variables
+NEXT_PUBLIC_PRE_LAUNCH=true  # Set to 'false' on official launch day
+```
+
+**Pros:** Site is functional and testable, clear messaging to visitors, easy to toggle on/off
+
+**Cons:** Site is still indexed by search engines (may want this for SEO head start)
+
+### Option 2: Block Search Engines with robots.txt
+
+Prevent search engine indexing until launch:
+
+```txt
+# public/robots.txt (during pre-launch)
+User-agent: *
+Disallow: /
+
+# Sitemap: https://sumbasunset.com/sitemap.xml (uncomment on launch)
+```
+
+On launch day, update to:
+
+```txt
+# public/robots.txt (after launch)
+User-agent: *
+Allow: /
+
+Sitemap: https://sumbasunset.com/sitemap.xml
+```
+
+**Pros:** Site not indexed by Google, full privacy during development
+
+**Cons:** Delays SEO benefits, requires file change on launch day
+
+### Recommended Approach
+
+**Use both strategies:**
+
+1. Block search engines with `robots.txt` (prevents indexing)
+2. Show banner to visitors (clear messaging if someone finds the site)
+3. On launch day:
+   - Update `robots.txt` to allow indexing
+   - Set `NEXT_PUBLIC_PRE_LAUNCH=false` in Vercel
+   - Redeploy (or let auto-deploy handle it)
+
+**Implementation Timeline:**
+
+- **Milestone 2 (SS-4)**: Add banner component and `robots.txt` blocking
+- **Milestone 8 (Launch)**: Remove banner and unblock search engines
 
 ---
 
@@ -162,29 +246,67 @@ vercel --prod
 
 ## Deployment Checklist
 
-Before deploying to production, ensure:
+### Per-Milestone Deployment (After Each Milestone)
 
-- [ ] All environment variables configured in Vercel dashboard
-- [ ] Domain configured and DNS propagated
-- [ ] SSL certificate active (automatic via Vercel)
+Before merging PR to trigger deployment:
+
+- [ ] All milestone tasks completed and checked off in planning doc
 - [ ] Build succeeds locally: `yarn build`
 - [ ] All tests pass: `yarn test`
 - [ ] Type checking passes: `yarn type-check`
 - [ ] Linting passes: `yarn lint`
-- [ ] Twilio WhatsApp integration tested
-- [ ] Beds24 widget embedded and tested
-- [ ] Images optimized and uploaded to Vercel Blob
+- [ ] Feature branch tested locally
+- [ ] Quality gates checklist completed in planning doc
+- [ ] PR created with manual testing checklist
+- [ ] User has reviewed and approved PR
+
+After merge to main (auto-deploys to sumbasunset.com):
+
+- [ ] Verify deployment succeeded (check Vercel dashboard)
+- [ ] Run post-deployment smoke tests (see below)
+- [ ] Update planning doc with deployment timestamp
+- [ ] Verify no regressions in previously deployed features
+
+### Final Deployment Checklist (Official Launch)
+
+Additional checks before removing "under construction" and announcing:
+
+- [ ] All 8 milestones completed and deployed
+- [ ] All environment variables configured in Vercel dashboard
+- [ ] Domain configured and DNS propagated
+- [ ] SSL certificate active (automatic via Vercel)
+- [ ] Twilio WhatsApp integration tested end-to-end
+- [ ] Beds24 widget embedded and tested with real bookings
+- [ ] All images optimized and uploaded to Vercel Blob
 - [ ] Analytics configured (GA4, Sentry)
 - [ ] Contact form tested end-to-end
+- [ ] Performance audit completed (Lighthouse score > 90)
+- [ ] Cross-browser testing completed (Chrome, Safari, Firefox)
+- [ ] Mobile testing on real devices (iOS Safari, Android Chrome)
+- [ ] Remove pre-launch banner or update `robots.txt`
 
 ---
 
 ## Post-Deployment Verification
 
-After deploying to production:
+### After Each Milestone Deployment
+
+Quick smoke tests to verify deployment succeeded:
 
 1. **Verify site loads**: Visit https://sumbasunset.com
-2. **Test contact form**: Submit form and verify WhatsApp message received
+2. **Verify SSL**: Confirm HTTPS and valid certificate (green padlock)
+3. **Check console errors**: Open browser DevTools and verify no errors
+4. **Test new features**: Verify milestone features work as expected
+5. **Regression check**: Verify previous milestone features still work
+6. **Mobile check**: Quick test on mobile device (if milestone affects mobile)
+7. **Review Vercel logs**: Check for any deployment warnings or errors
+
+### Comprehensive Verification (Final Launch)
+
+Full end-to-end testing before official launch:
+
+1. **Verify site loads**: Visit https://sumbasunset.com
+2. **Test contact form**: Submit form and verify WhatsApp message received (+27 78 778 7591)
 3. **Test booking widget**: Verify Beds24 widget loads and displays availability
 4. **Check mobile experience**: Test on iOS Safari and Android Chrome
 5. **Verify SSL**: Confirm HTTPS and valid certificate
@@ -192,7 +314,9 @@ After deploying to production:
 7. **Check console errors**: Open browser DevTools and verify no errors
 8. **Monitor analytics**: Confirm GA4 tracking events
 9. **Test WhatsApp button**: Verify click-to-chat opens correctly
-10. **Review Vercel logs**: Check for any deployment warnings or errors
+10. **Performance test**: Run Lighthouse audit (target: 90+ score)
+11. **Cross-browser test**: Test in Chrome, Safari, Firefox
+12. **Review Vercel logs**: Check for any deployment warnings or errors
 
 ---
 
@@ -279,7 +403,8 @@ vercel rollback
 - Verify TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN are correct
 - Check Twilio console for error logs
 - Ensure WhatsApp is enabled on Twilio number
-- Verify STAFF_WHATSAPP_NUMBER format: `whatsapp:+1234567890`
+- Verify STAFF_WHATSAPP_NUMBER format: `whatsapp:+27787787591`
+- **Note**: Currently using dev number; update to staff number post-deployment
 
 ### Beds24 Widget Not Loading
 

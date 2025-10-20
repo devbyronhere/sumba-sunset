@@ -46,11 +46,24 @@ This file provides core guidance to Claude Code (claude.ai/code) when working wi
 
 ## Test-Driven Development Requirements
 
-**Claude MUST follow Test-Driven Development (TDD) for all work on this project:**
+**Claude MUST follow Test-Driven Development (TDD) for all feature development on this project:**
 
 1. **New Features**: First write tests to define AC. Run tests to ensure code quality and functionality before committing. Always write tests unless explicitly told not to.
 
-### Development Workflow
+**EXCEPTION: Infrastructure/Configuration Tasks**
+
+Infrastructure and configuration tasks (setup, deployment, DNS, credentials, etc.) do NOT require TDD tests:
+
+- **No unit/integration tests needed** for: DNS configuration, environment setup, account creation, API key generation, third-party service configuration
+- **Verification instead of tests**: These tasks use manual verification checklists in the planning document
+- **Examples**: SS-3 (Domain Config), SS-4 (Credentials), SS-5 (Beds24 Setup) - all use verification, not tests
+
+**Test Strategy Section in Planning Docs:**
+
+- **Feature tasks**: Must include comprehensive test strategy with unit/integration tests
+- **Infrastructure tasks**: Replace "Test Strategy" with "Verification Steps" or "Manual Testing Checklist"
+
+### Development Workflow (for Feature Development)
 
 1. **Understand Requirements**: Clarify what needs to be built or fixed
 2. **Write Tests First**: Create failing tests that define the expected behavior
@@ -88,7 +101,7 @@ The `.claude/planning/` directory is the single source of truth for all work. It
 
 **IMPORTANT: SS-X Planning Documents vs. Research Documents**
 
-- **SS-X docs (e.g., `ss-5-beds24-setup.md`)**: Implementation steps ONLY
+- **SS-X docs (e.g., `ss-13-beds24-setup.md`)**: Implementation steps ONLY
   - Focus on "how to implement" not "why we chose this"
   - Step-by-step instructions with checkboxes
   - Technical configuration details
@@ -195,6 +208,8 @@ Use these commands for planning workflows:
 1. Review PR and code changes
 2. Run manual testing checklist
 3. Approve and merge PR (or request changes)
+4. **Verify deployment** after merge to main (Vercel auto-deploys)
+5. **Perform smoke testing** on production after each milestone deployment
 
 ### Handling PR Review Delays
 
@@ -251,6 +266,78 @@ When a PR is waiting for review and blocking dependent work:
 - ✅ Mark urgent/blocking PRs in Planning Index
 - ⚠️ Avoid stacking for infrastructure changes (high risk)
 - ⚠️ Rebase requires clear communication
+
+---
+
+## Continuous Deployment Strategy
+
+**CRITICAL: Deploy to live domain (sumbasunset.com) after every milestone to avoid big issues at project end.**
+
+### Why Deploy to Live Domain Early?
+
+- **Early issue detection**: Catch DNS/SSL/domain-specific problems early, not at launch
+- **Incremental validation**: Each milestone is production-tested on real domain
+- **Reduced risk**: Small, frequent deployments are safer than one big bang
+- **Real environment testing**: Test integrations (Beds24, Twilio) with actual domain
+- **Zero cutover risk**: No "switch to production domain" step at launch - it's already live
+- **Third-party services**: Some services (webhooks, APIs) work better with stable domain
+- **Confidence building**: Progressive validation that everything works in real environment
+
+### Pre-Launch Privacy
+
+Since we deploy to the live domain during development, we control public visibility:
+
+1. **robots.txt blocking**: Prevent search engine indexing until official launch
+2. **"Under construction" banner**: Clear messaging to any visitors who find the site
+3. **Easy launch**: Simply remove banner and unblock search engines (no deployment needed)
+
+**Implementation**: Milestone 2 (SS-4) adds banner and robots.txt blocking
+
+### Deployment Process (After Each Milestone)
+
+1. **Complete all tasks** in milestone
+2. **Pass all quality gates** (tests, linting, type-checking)
+3. **Create milestone PR** with comprehensive description
+4. **User reviews and approves** PR
+5. **Merge to main** → Vercel auto-deploys to sumbasunset.com
+6. **Verify deployment** succeeds (check Vercel dashboard)
+7. **User performs smoke testing** on https://sumbasunset.com
+8. **Document deployment** in Planning Index milestone status table
+
+### Post-Deployment Checklist (User Required)
+
+After each milestone deployment, user must verify:
+
+- [ ] Deployment succeeded (check Vercel dashboard - no errors)
+- [ ] Production site loads at https://sumbasunset.com
+- [ ] SSL certificate active (HTTPS green padlock)
+- [ ] No console errors in browser DevTools
+- [ ] New features from milestone are visible and functional
+- [ ] No regressions in existing features
+- [ ] Environment variables working correctly (if applicable)
+- [ ] Mobile experience acceptable (test on real device)
+
+### Critical Milestone Deployments
+
+Some milestones require extra validation in production:
+
+- **Milestone 2 (Domain Setup)**: Verify DNS resolves, SSL works, banner displays
+- **Milestone 3 (Beds24)**: Test booking widget loads on real domain
+- **Milestone 4 (Communication)**: Test contact form → Twilio → WhatsApp flow (real webhooks)
+- **Milestone 5 (Media)**: Verify Vercel Blob uploads work in production
+- **Milestone 6 (UI Polish)**: Cross-browser and device testing
+- **Milestone 8 (Launch)**: Remove banner, unblock search engines, announce
+
+### Rollback Strategy
+
+If deployment causes production issues:
+
+1. **Immediate**: Revert merge commit on main branch
+2. **Redeploy**: Vercel auto-deploys previous working version
+3. **Investigate**: Claude fixes issues in feature branch
+4. **Retry**: Create new PR when fixed
+
+**Note**: Small, frequent deployments to live domain make rollbacks simple and low-risk. No DNS changes needed for rollback.
 
 ---
 
