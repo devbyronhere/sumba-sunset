@@ -1,9 +1,8 @@
 # Sumba Sunset - Planning Index
 
-> **Last Updated:** 2025-10-20
-> **Last Updated:** 2025-10-20
+> **Last Updated:** 2025-10-25
 > **Active Tasks:** 0
-> **Completed Tasks:** 2
+> **Completed Tasks:** 3 (SS-1, SS-2, SS-3)
 
 This is the master planning document for the Sumba Sunset project. It replaces traditional task management systems (Jira, Trello) and serves as the single source of truth for all work.
 
@@ -13,7 +12,7 @@ This is the master planning document for the Sumba Sunset project. It replaces t
 
 **Sumba Sunset** is a surf camp website for a property in Sumba, Indonesia. The site is primarily **marketing and informational**, with booking handled through Beds24 widget integration.
 
-**Live Site:** https://sumba-sunset-m96okb7l6-byrons-projects-a07d9676.vercel.app/ (We will but a domain at a later stage)
+**Live Site:** [https://sumbasunset.com] ✅
 
 **Key Features:**
 
@@ -40,19 +39,16 @@ This is the master planning document for the Sumba Sunset project. It replaces t
 ## 📊 Project Status Overview
 
 - **Total Tasks:** 49 (SS-1 through SS-49)
-- **Completed:** 2 (4%)
-- **Total Tasks:** 49 (SS-1 through SS-49)
-- **Completed:** 2 (4%)
+- **Completed:** 3 (6%)
 - **In Progress:** 0
-- **Not Started:** 47
-- **Not Started:** 47
+- **Not Started:** 46
 - **Blocked:** 0
 
 ---
 
 ## 🎯 Current Sprint Focus
 
-**Next Up:** SS-3 - Domain Configuration (Quick Win!)
+**Next Up:** SS-4 - Third-Party Credentials & Access Setup (Now that domain is live, time to configure credentials)
 
 ---
 
@@ -60,10 +56,11 @@ This is the master planning document for the Sumba Sunset project. It replaces t
 
 ### ✅ Completed
 
-| ID                              | Task                       | Priority | Est. Time | Actual Time | Completed  | PR  | Dependencies |
-| ------------------------------- | -------------------------- | -------- | --------- | ----------- | ---------- | --- | ------------ |
-| [SS-1](./ss-1-nextjs-setup.md)  | Next.js Project Setup      | High     | 1-2h      | 1.5h        | 2025-01-17 | N/A | None         |
-| [SS-2](./ss-2-linting-setup.md) | Linting & Formatting Setup | High     | 2-3h      | 2.5h        | 2025-01-17 | N/A | SS-1         |
+| ID                                     | Task                                             | Priority | Est. Time | Actual Time | Completed  | PR  | Dependencies |
+| -------------------------------------- | ------------------------------------------------ | -------- | --------- | ----------- | ---------- | --- | ------------ |
+| [SS-1](./ss-1-nextjs-setup.md)         | Next.js Project Setup                            | High     | 1-2h      | 1.5h        | 2025-01-17 | N/A | None         |
+| [SS-2](./ss-2-linting-setup.md)        | Linting & Formatting Setup                       | High     | 2-3h      | 2.5h        | 2025-01-17 | N/A | SS-1         |
+| [SS-3](./ss-3-domain-configuration.md) | Domain Configuration - Point Hostinger to Vercel | High     | 30min-48h | 45min       | 2025-10-25 | N/A | None         |
 
 ### 🚧 In Progress
 
@@ -76,12 +73,11 @@ _No tasks currently in progress_
 
 ### 📝 Not Started
 
-| ID                                     | Task                                             | Priority | Est. Time | Dependencies | Notes                                                                      |
-| -------------------------------------- | ------------------------------------------------ | -------- | --------- | ------------ | -------------------------------------------------------------------------- |
-| [SS-3](./ss-3-domain-configuration.md) | Domain Configuration - Point Hostinger to Vercel | High     | 30min-48h | None         | Quick win! Configure DNS to connect custom domain                          |
-| [SS-4](./ss-4-credentials-setup.md)    | Third-Party Credentials & Access Setup           | High     | 1-2h      | SS-1, SS-2   | Setup .env.local and verify access to all third-party services             |
-| [SS-9](./ss-9-beds24-validation.md)    | Beds24 Integration Validation (Technical Spike)  | High     | 30-60 min | SS-1, SS-2   | Quick test to validate Beds24 widget works in Next.js 15 before full setup |
-| [SS-10](./ss-10-beds24-setup.md)       | Beds24 Account Setup & Configuration             | High     | 8-12h     | SS-4, SS-9   | Complex setup - booking platform configuration (human-led)                 |
+| ID                                  | Task                                            | Priority | Est. Time | Dependencies | Notes                                                                      |
+| ----------------------------------- | ----------------------------------------------- | -------- | --------- | ------------ | -------------------------------------------------------------------------- |
+| [SS-4](./ss-4-credentials-setup.md) | Third-Party Credentials & Access Setup          | High     | 1-2h      | SS-1, SS-2   | Setup .env.local and verify access to all third-party services             |
+| [SS-9](./ss-9-beds24-validation.md) | Beds24 Integration Validation (Technical Spike) | High     | 30-60 min | SS-1, SS-2   | Quick test to validate Beds24 widget works in Next.js 15 before full setup |
+| [SS-10](./ss-10-beds24-setup.md)    | Beds24 Account Setup & Configuration            | High     | 8-12h     | SS-4, SS-9   | Complex setup - booking platform configuration (human-led)                 |
 
 ### ⏸️ Blocked
 
@@ -111,7 +107,7 @@ _No blocked tasks_
 
 ### Phase 2: Core Infrastructure (Not Started)
 
-- [ ] **SS-3**: Domain Configuration (Quick Win!)
+- [x] **SS-3**: Domain Configuration ✅
 - [ ] **SS-4**: Third-Party Credentials & Access Setup
 - [ ] **SS-5**: shadcn/ui setup and base components
 - [ ] **SS-6**: Vitest testing setup

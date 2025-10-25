@@ -495,7 +495,11 @@ yarn build            # Build for production
 yarn start            # Start production server locally
 ```
 
-**Hosting:** Vercel (domain: sumbasunset.com)
+**Hosting:** Vercel
+**Production Domain:** [sumbasunset.com](https://sumbasunset.com) (live and configured ✅)
+**DNS Management:** Vercel nameservers (ns1.vercel-dns.com, ns2.vercel-dns.com)
+**SSL:** Automatic via Let's Encrypt
+**Status:** Domain configured and verified (as of 2025-10-25)
 
 ---
 

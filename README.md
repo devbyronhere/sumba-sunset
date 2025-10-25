@@ -2,7 +2,7 @@
 
 A surf camp website for a property in Sumba, Indonesia. Mobile-first design with integrated booking and communication systems.
 
-**Live Site:** https://sumba-sunset-m96okb7l6-byrons-projects-a07d9676.vercel.app/
+**Live Site:** [https://sumbasunset.com](https://sumbasunset.com) ✅
 
 ## Tech Stack
 
@@ -11,7 +11,8 @@ A surf camp website for a property in Sumba, Indonesia. Mobile-first design with
 - **UI Components:** shadcn/ui
 - **Forms:** React Hook Form + Zod validation
 - **Testing:** Vitest
-- **Hosting:** Vercel (domain: sumbasunset.com via Hostinger)
+- **Hosting:** Vercel
+- **Domain:** sumbasunset.com (DNS managed by Vercel nameservers)
 - **External Services:** Beds24 (bookings), Twilio (WhatsApp), Vercel Blob (images)
 
 ## Getting Started
