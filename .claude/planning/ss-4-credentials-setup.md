@@ -31,7 +31,6 @@ Before enabling autonomous work with skip permissions, verify access to all thir
 **Business Value:**
 
 - Unblock development of third-party integrations (Twilio, Beds24, Vercel Blob, etc.)
-- Unblock development of third-party integrations (Twilio, Beds24, Vercel Blob, etc.)
 - Enable testing of API integrations locally
 - Establish security best practices for credential management
 - Identify missing permissions or access before starting feature work

@@ -38,10 +38,10 @@ This is the master planning document for the Sumba Sunset project. It replaces t
 
 ## 📊 Project Status Overview
 
-- **Total Tasks:** 49 (SS-1 through SS-49)
+- **Total Tasks:** 50 (SS-1 through SS-40, plus post-MVP OTA integrations)
 - **Completed:** 3 (6%)
 - **In Progress:** 0
-- **Not Started:** 46
+- **Not Started:** 47
 - **Blocked:** 0
 
 ---
@@ -161,10 +161,11 @@ _No blocked tasks_
 
 ### Phase 8: MVP Launch (Not Started)
 
-- [ ] **SS-36**: Remove pre-launch banner (set NEXT_PUBLIC_PRE_LAUNCH=false)
-- [ ] **SS-37**: Update robots.txt to allow search engine indexing
-- [ ] **SS-38**: Final pre-launch checklist (comprehensive QA)
-- [ ] **SS-39**: Go live announcement! (social media, press, etc.)
+- [ ] **SS-36**: Upgrade Twilio WhatsApp to production number
+- [ ] **SS-37**: Remove pre-launch banner (set NEXT_PUBLIC_PRE_LAUNCH=false)
+- [ ] **SS-38**: Update robots.txt to allow search engine indexing
+- [ ] **SS-39**: Final pre-launch checklist (comprehensive QA)
+- [ ] **SS-40**: Go live announcement! (social media, press, etc.)
 
 ### Post-MVP: OTA Channel Integrations (Future)
 
@@ -342,11 +343,13 @@ After completing each milestone:
 **Tasks:**
 
 - [ ] SS-17: Contact form with React Hook Form + Zod (basic placeholder page)
-- [ ] SS-18: Twilio integration (WhatsApp forwarding to +27 78 778 7591)
+- [ ] SS-18: Twilio integration (WhatsApp forwarding to staff WhatsApp - uses sandbox initially)
 - [ ] SS-19: WhatsApp Click-to-Chat button
 - [ ] SS-20: Rate limiting for contact form
 
 **Outcome:** Functional communication flows (contact form and WhatsApp) with basic placeholder pages. Validated and working after booking system and currency decision are complete.
+
+**Note:** SS-18 will use Twilio Sandbox (`whatsapp:+14155238886`) for testing. Production WhatsApp number upgrade happens in Milestone 8 before launch.
 
 **Deployment:** After milestone completion, merge to main and deploy. **CRITICAL**: Test contact form → Twilio → WhatsApp flow in production. Verify rate limiting works.
 
@@ -426,28 +429,37 @@ After completing each milestone:
 
 ---
 
-### Milestone 9: MVP Launch
+### Milestone 8: MVP Launch
 
 **Status:** Not Started
 **Target Date:** TBD
-**Dependencies:** Milestone 8 (Testing & Quality)
+**Dependencies:** Milestone 7 (Testing & Quality)
 
 **Tasks:**
 
-- [ ] SS-36: Remove pre-launch banner (set NEXT_PUBLIC_PRE_LAUNCH=false)
-- [ ] SS-37: Update robots.txt to allow search engine indexing
-- [ ] SS-38: Final pre-launch checklist (comprehensive QA)
-- [ ] SS-39: Go live announcement! (social media, press, etc.)
+- [ ] SS-36: Upgrade Twilio WhatsApp to production number (purchase WhatsApp-enabled Twilio number, update environment variables)
+- [ ] SS-37: Remove pre-launch banner (set NEXT_PUBLIC_PRE_LAUNCH=false)
+- [ ] SS-38: Update robots.txt to allow search engine indexing
+- [ ] SS-39: Final pre-launch checklist (comprehensive QA)
+- [ ] SS-40: Go live announcement! (social media, press, etc.)
 
-**Outcome:** Fully functional, tested, and polished surf camp website publicly launched at sumbasunset.com with chosen currency (USD or IDR from M3 decision).
+**Outcome:** Fully functional, tested, and polished surf camp website publicly launched at sumbasunset.com with chosen currency (USD or IDR from M3 decision) and production WhatsApp integration.
+
+**Pre-Launch Upgrade (SS-36):**
+
+- Purchase WhatsApp-enabled Twilio number (~$1-2/month)
+- Complete Facebook Business verification for WhatsApp
+- Update ONLY `TWILIO_WHATSAPP_NUMBER` in `.env.local` and Vercel (all other credentials stay the same)
+- Test end-to-end contact form flow with production number
 
 **Deployment:** This milestone **does NOT require new deployment** - the site is already live on sumbasunset.com from previous milestones. This milestone simply:
 
-1. Removes privacy controls (banner + robots.txt)
-2. Performs final QA
-3. Makes public announcement
+1. Upgrades Twilio to production WhatsApp number
+2. Removes privacy controls (banner + robots.txt)
+3. Performs final QA
+4. Makes public announcement
 
-The site has been production-tested throughout development with the correct currency. Launch is just flipping the "public" switch.
+The site has been production-tested throughout development with the correct currency and Twilio sandbox. Launch requires only upgrading the WhatsApp number and flipping the "public" switch.
 
 ---
 
@@ -503,10 +515,11 @@ Milestone 7: Testing & Quality
 └─ SS-35 (SEO optimization)
        ↓
 Milestone 8: MVP Launch
-├─ SS-36 (Remove pre-launch banner)
-├─ SS-37 (Update robots.txt)
-├─ SS-38 (Final pre-launch QA)
-└─ SS-39 (Go live announcement! 🚀)
+├─ SS-36 (Upgrade Twilio WhatsApp to production)
+├─ SS-37 (Remove pre-launch banner)
+├─ SS-38 (Update robots.txt)
+├─ SS-39 (Final pre-launch QA)
+└─ SS-40 (Go live announcement! 🚀)
        ↓
 Post-MVP: Booking Site Integrations
 ├─ Booking.com (via Beds24 channel manager)

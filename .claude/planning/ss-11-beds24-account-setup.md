@@ -478,6 +478,47 @@ Based on Milestone 3 currency decision (SS-16):
 - If USD: Keep all pricing in USD throughout
 - If IDR: Convert all pricing to IDR, update currency setting
 
+### Items Intentionally Left Incomplete (To Be Updated Later)
+
+**Note:** The following items are not filled out in the initial setup and will be updated as the property becomes operational:
+
+1. **Permit ID**
+   - Location: Property Settings → Legal Information
+   - Status: Left blank (local business permit may not be required yet)
+   - To update: When/if Indonesian tourism permit is obtained
+
+2. **Contact Person Details**
+   - Location: Property Settings → Contact Information
+   - Current: Owner's details (Byron's information)
+   - To update: Change to staff contact details once on-site staff are hired
+   - Includes: Name, phone, email of primary property manager
+
+3. **Property Features** (Detailed amenities)
+   - Location: Property Settings → Features & Amenities
+   - Status: Basic amenities added, comprehensive list to be completed
+   - To update: Add specific features as property is finalized (surf equipment, yoga facilities, etc.)
+
+4. **Property Templates** (Template variables for messaging)
+   - Location: Property Settings → Templates
+   - Purpose: Variables like `[PROPERTYTEMPLATE1]` for dynamic email/message content
+   - Status: Left blank for now
+   - To update: During SS-14 (Email Templates) when we customize guest communication
+   - Examples: Custom check-in instructions, WiFi passwords, directions
+
+**Why Leave These Incomplete?**
+
+- Property is still being set up physically
+- Staff not yet hired (using owner contact temporarily)
+- Template variables are better defined when building email templates (SS-14)
+- These can be updated anytime without affecting core booking functionality
+
+**When to Update:**
+
+- Permit ID: When required by Indonesian authorities
+- Contact Person: Before launch (SS-40) or when staff hired
+- Property Features: During marketing page creation (SS-25-SS-28)
+- Property Templates: During email template setup (SS-14)
+
 ---
 
 **Completion Date:** \***\*\_\_\_\*\***
