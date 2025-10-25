@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allowedCommands": [
+      "git checkout:*",
+      "git branch:*",
+      "git push:*",
+      "git status:*",
+      "git diff:*",
+      "gh pr create:*",
+      "gh pr view:*",
+      "gh pr list:*"
+    ],
+    "blockedCommands": [
+      "git push --force:*",
+      "git push -f:*",
+      "git reset --hard:*",
+      "git rebase:*"
+    ],
+    "allowedPaths": [],
+    "blockedPaths": []
+  },
+  "preferences": {
+    "autoCommit": false,
+    "testingRequired": true
+  }
+}
