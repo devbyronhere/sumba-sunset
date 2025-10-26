@@ -347,7 +347,7 @@ From `.env.example`, we need access to:
 | Service          | Status | Environment | Blocking Tasks                          | Priority |
 | ---------------- | ------ | ----------- | --------------------------------------- | -------- |
 | Twilio           | **\_** | **\_**      | SS-15 (Contact form/Twilio integration) | **\_**   |
-| Beds24           | **\_** | **\_**      | SS-9, SS-10 (Beds24 - Milestone 3)      | **\_**   |
+| Beds24           | **\_** | **\_**      | SS-10, SS-11 (Beds24 - Milestone 3)     | **\_**   |
 | Vercel Blob      | **\_** | **\_**      | SS-7 (Vercel Blob - Milestone 2)        | **\_**   |
 | Sentry           | **\_** | **\_**      | SS-8 (Monitoring - Milestone 2)         | **\_**   |
 | Google Analytics | **\_** | **\_**      | SS-8 (Analytics - Milestone 2)          | **\_**   |
@@ -613,7 +613,7 @@ Files that need updating after this task:
 
 - SS-7: Vercel Blob integration (needs BLOB_READ_WRITE_TOKEN) - Milestone 2
 - SS-8: Monitoring setup (needs SENTRY_DSN, GA_MEASUREMENT_ID) - Milestone 2
-- SS-10: Beds24 Account Setup (needs BEDS24_API_KEY and BEDS24_PROP_KEY) - Milestone 3
+- SS-11: Beds24 Account Setup (needs BEDS24_API_KEY and BEDS24_PROP_KEY) - Milestone 3
 - SS-15: Contact form with Twilio integration (needs Twilio credentials) - Milestone 4
 
 **Enables:**
@@ -630,8 +630,8 @@ Files that need updating after this task:
 
 | Service          | Status          | Account Exists?     | Credentials Available? | Environment   | Blocking Tasks | Priority | Notes                                                                                                                                        |
 | ---------------- | --------------- | ------------------- | ---------------------- | ------------- | -------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Twilio**       | ✅ Ready        | ☑ Yes              | ✅ Yes                 | ☑ Production | SS-9           | High     | **COMPLETE** - Account upgraded, WhatsApp enabled, $20 USD credits, Number: (606) 755-8767. All credentials added to .env.local ✅           |
-| **Beds24**       | ⏸️ Setup Needed | ☐ No                | ☐ No                   | N/A           | SS-10          | High     | **PAID SERVICE** - £3.50-50/month. Need to: 1) Create account, 2) Add property, 3) Obtain API keys (Account + Property), 4) Configure widget |
+| **Twilio**       | ✅ Ready        | ☑ Yes              | ✅ Yes                 | ☑ Production | SS-18          | High     | **COMPLETE** - Account upgraded, WhatsApp enabled, $20 USD credits, Number: (606) 755-8767. All credentials added to .env.local ✅           |
+| **Beds24**       | ⏸️ Setup Needed | ☐ No                | ☐ No                   | N/A           | SS-10, SS-11   | High     | **PAID SERVICE** - £3.50-50/month. Need to: 1) Create account, 2) Add property, 3) Obtain API keys (Account + Property), 4) Configure widget |
 | **Hostinger**    | ✅ Ready        | ☑ Yes              | ⏸️ Pending             | ☑ Production | SS-3           | High     | Domain: sumbasunset.com. **Domain registrar ONLY** - DNS points to Vercel. Need DNS configuration for SS-3                                   |
 | **Vercel**       | ✅ Ready        | ☑ Yes              | ☑ Yes                 | ☑ Production | SS-3, SS-6     | High     | Hosting platform (automatic deployments from GitHub). Free tier includes hosting + automatic SSL                                             |
 | Vercel Blob      | ⏸️ Setup Needed | ☑ Yes (via Vercel) | ☐ No                   | N/A           | SS-6           | Medium   | Image storage via Vercel. Need to create blob store and obtain BLOB_READ_WRITE_TOKEN                                                         |
@@ -643,8 +643,8 @@ Files that need updating after this task:
 - **Ready to Use:** 5 services (Twilio ✅, Hostinger domain, Vercel hosting, Sentry ✅, Google Analytics ✅)
 - **Need Credentials:** Vercel Blob (token)
 - **Need Account Creation:** 1 service (Beds24) - HIGH priority
-- **Can Proceed With:** SS-3 (Domain → Vercel), SS-9 (Twilio ✅), SS-6 (Vercel Blob), SS-7 (Monitoring - Sentry ✅, GA4 ✅)
-- **Blocked:** SS-10 (Beds24 widget) until account created and configured
+- **Can Proceed With:** SS-3 (Domain → Vercel), SS-18 (Twilio ✅), SS-6 (Vercel Blob), SS-7 (Monitoring - Sentry ✅, GA4 ✅)
+- **Blocked:** SS-10, SS-11 (Beds24) until account created and configured
 
 ---
 
@@ -713,7 +713,7 @@ _(Fill out after completion)_
 - [x] **Hostinger (production)**: Domain sumbasunset.com (domain registrar ONLY - DNS points to Vercel)
 - [x] **Sentry (development)**: Account created, project configured, DSN and Auth Token obtained. **VERIFIED** via test error at /sentry-example-page ✅
 - [x] **Google Analytics (production)**: GA4 property created, Measurement ID: G-VTSTRR8XEZ. **COMPONENT INTEGRATED** in root layout ✅
-- [ ] **Beds24**: Not yet created - HIGH PRIORITY (blocks SS-10)
+- [ ] **Beds24**: Not yet created - HIGH PRIORITY (blocks SS-10, SS-11)
 - [ ] **Vercel Blob**: Needed for image storage with CDN delivery (part of SS-6)
 
 ### Still Needed
