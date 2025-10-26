@@ -12,7 +12,7 @@ completed: 2025-10-26
 related_docs:
   ['.claude/docs/architecture.md', '.claude/docs/coding-standards.md']
 branch: ss-5/infra/shadcn-setup
-pr_number: null
+pr_number: 2
 ---
 
 [← Previous: SS-4 Credentials Setup](./ss-4-credentials-setup.md) | [📋 Index](./index.md) | [Next: SS-6 Vitest Setup →](./ss-6-vitest-setup.md)
