@@ -1,20 +1,20 @@
 ---
-task_id: ss-23
+task_id: ss-24
 title: '[Feature] Image Gallery Component'
 status: not_started
 priority: medium
 estimated_time: '4-5 hours'
 actual_time: null
-dependencies: [ss-21]
+dependencies: [ss-22]
 created: 2025-01-20
 started: null
 completed: null
 related_docs: []
-branch: ss-23/feat/image-gallery-component
+branch: ss-24/feat/image-gallery-component
 pr_number: null
 ---
 
-[← Previous: SS-22 YouTube Video Embeds](./ss-22-youtube-video-embeds.md) | [📋 Index](./index.md) | [Next: SS-24 Responsive Images →](./ss-24-responsive-images.md)
+[← Previous: SS-23 YouTube Video Embeds](./ss-23-youtube-video-embeds.md) | [📋 Index](./index.md) | [Next: SS-25 Responsive Images →](./ss-25-responsive-images.md)
 
 # [Feature] Image Gallery Component
 
@@ -46,9 +46,9 @@ As a potential guest, I want to browse property photos in a beautiful gallery so
 
 ## Prerequisites/Dependencies
 
-- [x] SS-21: Image Upload System (images must be uploaded and available)
+- [x] SS-22: Image Upload System (images must be uploaded and available)
 - [ ] Images uploaded to Vercel Blob storage
-- [ ] OptimizedImage component available from SS-21
+- [ ] OptimizedImage component available from SS-22
 - [ ] shadcn/ui Dialog component installed (for lightbox)
 
 ---
@@ -349,17 +349,17 @@ Files that need updating after this task:
 
 **Depends On:**
 
-- [SS-21: Image Upload System](./ss-21-image-upload-system.md) - Gallery needs uploaded images
+- [SS-22: Image Upload System](./ss-22-image-upload-system.md) - Gallery needs uploaded images
 
 **Blocks:**
 
-- [SS-25: Homepage](./ss-25-homepage.md) - Homepage includes photo gallery
-- [SS-27: Rooms Page](./ss-27-rooms-page.md) - Rooms page uses gallery for room photos
-- [SS-28: Activities Page](./ss-28-activities-page.md) - Activities page uses gallery
+- [SS-26: Homepage](./ss-26-homepage.md) - Homepage includes photo gallery
+- [SS-28: Rooms Page](./ss-28-rooms-page.md) - Rooms page uses gallery for room photos
+- [SS-29: Activities Page](./ss-29-activities-page.md) - Activities page uses gallery
 
 **Related:**
 
-- [SS-24: Responsive Images](./ss-24-responsive-images.md) - Responsive images enhance gallery performance
+- [SS-25: Responsive Images](./ss-25-responsive-images.md) - Responsive images enhance gallery performance
 
 ---
 

@@ -1,20 +1,20 @@
 ---
-task_id: ss-27
+task_id: ss-28
 title: '[Feature] Rooms & Accommodation Page'
 status: not_started
 priority: high
 estimated_time: '5-6 hours'
 actual_time: null
-dependencies: [ss-25, ss-16]
+dependencies: [ss-26, ss-16]
 created: 2025-01-20
 started: null
 completed: null
 related_docs: []
-branch: ss-27/feat/rooms-page
+branch: ss-28/feat/rooms-page
 pr_number: null
 ---
 
-[← Previous: SS-26 About Page](./ss-26-about-page.md) | [📋 Index](./index.md) | [Next: SS-28 Activities & Surf Info Page →](./ss-28-activities-page.md)
+[← Previous: SS-27 About Page](./ss-27-about-page.md) | [📋 Index](./index.md) | [Next: SS-29 Activities & Surf Info Page →](./ss-29-activities-page.md)
 
 # [Feature] Rooms & Accommodation Page
 
@@ -39,10 +39,10 @@ As a potential guest, I want to compare room options and see what's included so 
 
 ## Prerequisites/Dependencies
 
-- [x] SS-25: Homepage (design patterns)
+- [x] SS-26: Homepage (design patterns)
 - [x] SS-16: Currency decision (USD vs IDR)
-- [ ] SS-23: Image Gallery Component
-- [ ] SS-24: Responsive Images
+- [ ] SS-24: Image Gallery Component
+- [ ] SS-25: Responsive Images
 - [ ] Room details from user (names, photos, amenities, pricing)
 
 ---
@@ -116,7 +116,7 @@ As a potential guest, I want to compare room options and see what's included so 
   - "Book Now" button → `/booking`
 - [ ] **Step 2.4**: Verify RoomCard tests pass (AC2, AC3, AC5)
 - [ ] **Step 2.5**: Create RoomGallery component (AC6)
-  - Integrate ImageGallery from SS-23
+  - Integrate ImageGallery from SS-24
   - Show 6-8 photos per room
 - [ ] **Step 2.6**: Build rooms page `src/app/rooms/page.tsx`
   - Hero section with headline
@@ -213,7 +213,7 @@ As a potential guest, I want to compare room options and see what's included so 
 
 **Depends On:**
 
-- [SS-25: Homepage](./ss-25-homepage.md)
+- [SS-26: Homepage](./ss-26-homepage.md)
 - [SS-16: Currency Decision](./ss-16-currency-decision.md)
 
 **Related:**

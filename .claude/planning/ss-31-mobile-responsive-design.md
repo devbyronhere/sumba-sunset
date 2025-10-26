@@ -1,20 +1,20 @@
 ---
-task_id: ss-30
+task_id: ss-31
 title: '[Feature] Mobile-First Responsive Design Across All Pages'
 status: not_started
 priority: high
 estimated_time: '6-8 hours'
 actual_time: null
-dependencies: [ss-25, ss-26, ss-27, ss-28, ss-29]
+dependencies: [ss-26, ss-27, ss-28, ss-29, ss-30]
 created: 2025-01-20
 started: null
 completed: null
 related_docs: []
-branch: ss-30/feat/mobile-responsive-design
+branch: ss-31/feat/mobile-responsive-design
 pr_number: null
 ---
 
-[← Previous: SS-29 Polish Contact/Booking Pages](./ss-29-polish-pages.md) | [📋 Index](./index.md) | [Next: SS-31 Unit Tests →](./ss-31-unit-tests.md)
+[← Previous: SS-30 Polish Contact/Booking Pages](./ss-30-polish-pages.md) | [📋 Index](./index.md) | [Next: SS-32 Unit Tests →](./ss-32-unit-tests.md)
 
 # [Feature] Mobile-First Responsive Design Across All Pages
 
@@ -39,11 +39,11 @@ As a potential guest browsing on mobile, I want every page to look beautiful and
 
 ## Prerequisites/Dependencies
 
-- [x] SS-25: Homepage complete
-- [x] SS-26: About page complete
-- [x] SS-27: Rooms page complete
-- [x] SS-28: Activities page complete
-- [x] SS-29: Contact/booking pages polished
+- [x] SS-26: Homepage complete
+- [x] SS-27: About page complete
+- [x] SS-28: Rooms page complete
+- [x] SS-29: Activities page complete
+- [x] SS-30: Contact/booking pages polished
 - [ ] All pages rendered and accessible
 
 ---
@@ -332,16 +332,16 @@ As a potential guest browsing on mobile, I want every page to look beautiful and
 
 **Depends On:**
 
-- [SS-25: Homepage](./ss-25-homepage.md)
-- [SS-26: About Page](./ss-26-about-page.md)
-- [SS-27: Rooms Page](./ss-27-rooms-page.md)
-- [SS-28: Activities Page](./ss-28-activities-page.md)
-- [SS-29: Polish Contact/Booking](./ss-29-polish-pages.md)
+- [SS-26: Homepage](./ss-26-homepage.md)
+- [SS-27: About Page](./ss-27-about-page.md)
+- [SS-28: Rooms Page](./ss-28-rooms-page.md)
+- [SS-29: Activities Page](./ss-29-activities-page.md)
+- [SS-30: Polish Contact/Booking](./ss-30-polish-pages.md)
 
 **Blocks:**
 
-- [SS-31: Unit Tests](./ss-31-unit-tests.md) - Can proceed in parallel
-- [SS-34: Performance Optimization](./ss-34-performance-optimization.md) - Further optimizations
+- [SS-32: Unit Tests](./ss-32-unit-tests.md) - Can proceed in parallel
+- [SS-35: Performance Optimization](./ss-35-performance-optimization.md) - Further optimizations
 
 ---
 

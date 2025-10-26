@@ -133,39 +133,40 @@ _No blocked tasks_
 
 ### Phase 4: Media & Content (Not Started)
 
-- [ ] **SS-21**: Image upload system (Vercel Blob with pre-optimization)
-- [ ] **SS-22**: YouTube video embeds (loop, no ads)
-- [ ] **SS-23**: Image gallery component
-- [ ] **SS-24**: Responsive images for mobile/desktop
+- [ ] **SS-21**: Protect admin routes with admin password
+- [ ] **SS-22**: Image upload system (Vercel Blob with pre-optimization)
+- [ ] **SS-23**: YouTube video embeds (loop, no ads)
+- [ ] **SS-24**: Image gallery component
+- [ ] **SS-25**: Responsive images for mobile/desktop
 
 ### Phase 5: Marketing Pages & UI Polish (Not Started)
 
-- [ ] **SS-25**: Homepage (hero, features, gallery, CTA)
-- [ ] **SS-26**: About page (surf camp story, team)
-- [ ] **SS-27**: Rooms & Accommodation page
-- [ ] **SS-28**: Activities & Surf Info page
-- [ ] **SS-29**: Polish contact/booking pages
-- [ ] **SS-30**: Mobile-first responsive design
+- [ ] **SS-26**: Homepage (hero, features, gallery, CTA)
+- [ ] **SS-27**: About page (surf camp story, team)
+- [ ] **SS-28**: Rooms & Accommodation page
+- [ ] **SS-29**: Activities & Surf Info page
+- [ ] **SS-30**: Polish contact/booking pages
+- [ ] **SS-31**: Mobile-first responsive design
 
 ### Phase 6: Currency Investigation (Not Started)
 
-- [ ] **SS-39**: Currency Switch Spike - Investigate USD → IDR migration
+- [ ] **SS-32**: Currency Switch Spike - Investigate USD → IDR migration
 
 ### Phase 7: Testing & Quality (Not Started)
 
-- [ ] **SS-31**: Unit tests for utilities and validations
-- [ ] **SS-32**: Integration tests for forms and API routes
-- [ ] **SS-33**: Mobile device testing
-- [ ] **SS-34**: Performance optimization
-- [ ] **SS-35**: SEO optimization
+- [ ] **SS-33**: Unit tests for utilities and validations
+- [ ] **SS-34**: Integration tests for forms and API routes
+- [ ] **SS-35**: Mobile device testing
+- [ ] **SS-36**: Performance optimization
+- [ ] **SS-37**: SEO optimization
 
 ### Phase 8: MVP Launch (Not Started)
 
-- [ ] **SS-36**: Upgrade Twilio WhatsApp to production number
-- [ ] **SS-37**: Remove pre-launch banner (set NEXT_PUBLIC_PRE_LAUNCH=false)
-- [ ] **SS-38**: Update robots.txt to allow search engine indexing
-- [ ] **SS-39**: Final pre-launch checklist (comprehensive QA)
-- [ ] **SS-40**: Go live announcement! (social media, press, etc.)
+- [ ] **SS-38**: Upgrade Twilio WhatsApp to production number
+- [ ] **SS-39**: Remove pre-launch banner (set NEXT_PUBLIC_PRE_LAUNCH=false)
+- [ ] **SS-40**: Update robots.txt to allow search engine indexing
+- [ ] **SS-41**: Final pre-launch checklist (comprehensive QA)
+- [ ] **SS-42**: Go live announcement! (social media, press, etc.)
 
 ### Post-MVP: OTA Channel Integrations (Future)
 

@@ -1,20 +1,20 @@
 ---
-task_id: ss-28
+task_id: ss-29
 title: '[Feature] Activities & Surf Info Page'
 status: not_started
 priority: medium
 estimated_time: '4-5 hours'
 actual_time: null
-dependencies: [ss-25]
+dependencies: [ss-26]
 created: 2025-01-20
 started: null
 completed: null
 related_docs: []
-branch: ss-28/feat/activities-page
+branch: ss-29/feat/activities-page
 pr_number: null
 ---
 
-[← Previous: SS-27 Rooms & Accommodation Page](./ss-27-rooms-page.md) | [📋 Index](./index.md) | [Next: SS-29 Polish Contact/Booking Pages →](./ss-29-polish-pages.md)
+[← Previous: SS-28 Rooms & Accommodation Page](./ss-28-rooms-page.md) | [📋 Index](./index.md) | [Next: SS-30 Polish Contact/Booking Pages →](./ss-30-polish-pages.md)
 
 # [Feature] Activities & Surf Info Page
 
@@ -39,9 +39,9 @@ As a potential guest, I want to see what activities are available so that I can 
 
 ## Prerequisites/Dependencies
 
-- [x] SS-25: Homepage (design patterns)
-- [ ] SS-22: YouTube Video Embeds (surf footage)
-- [ ] SS-23: Image Gallery Component
+- [x] SS-26: Homepage (design patterns)
+- [ ] SS-23: YouTube Video Embeds (surf footage)
+- [ ] SS-24: Image Gallery Component
 - [ ] Activity content from user (descriptions, photos, videos)
 
 ---
@@ -117,8 +117,8 @@ As a potential guest, I want to see what activities are available so that I can 
   - Hero section with headline and surf video/image
   - Surf spot information section
   - Grid of ActivityCard components
-  - Embedded surf footage video (YouTubeEmbed from SS-22)
-  - Photo gallery section (ImageGallery from SS-23)
+  - Embedded surf footage video (YouTubeEmbed from SS-23)
+  - Photo gallery section (ImageGallery from SS-24)
   - Final CTA section
   - SEO metadata
 - [ ] **Step 2.6**: Verify activities page tests pass (AC1, AC5-AC10)
@@ -201,8 +201,8 @@ As a potential guest, I want to see what activities are available so that I can 
 
 **Depends On:**
 
-- [SS-25: Homepage](./ss-25-homepage.md)
-- [SS-22: YouTube Video Embeds](./ss-22-youtube-video-embeds.md)
+- [SS-26: Homepage](./ss-26-homepage.md)
+- [SS-23: YouTube Video Embeds](./ss-23-youtube-video-embeds.md)
 
 ---
 

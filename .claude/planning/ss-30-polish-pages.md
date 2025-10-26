@@ -1,5 +1,5 @@
 ---
-task_id: ss-29
+task_id: ss-30
 title: '[Feature] Polish Contact/Booking Pages with Nice UI'
 status: not_started
 priority: high
@@ -10,11 +10,11 @@ created: 2025-01-20
 started: null
 completed: null
 related_docs: []
-branch: ss-29/feat/polish-pages
+branch: ss-30/feat/polish-pages
 pr_number: null
 ---
 
-[← Previous: SS-28 Activities & Surf Info Page](./ss-28-activities-page.md) | [📋 Index](./index.md) | [Next: SS-30 Mobile-First Responsive Design →](./ss-30-mobile-responsive-design.md)
+[← Previous: SS-29 Activities & Surf Info Page](./ss-29-activities-page.md) | [📋 Index](./index.md) | [Next: SS-31 Mobile-First Responsive Design →](./ss-31-mobile-responsive-design.md)
 
 # [Feature] Polish Contact/Booking Pages with Nice UI
 
@@ -41,7 +41,7 @@ As a potential guest ready to book, I want a seamless, trustworthy booking exper
 
 - [x] SS-17: Contact form implemented (basic version)
 - [x] SS-12: Beds24 widget integrated (basic version)
-- [x] SS-25: Homepage design patterns established
+- [x] SS-26: Homepage design patterns established
 - [ ] Polished UI components from homepage
 
 ---
@@ -271,7 +271,7 @@ As a potential guest ready to book, I want a seamless, trustworthy booking exper
 - [SS-17: Contact Form](./ss-17-contact-form.md)
 - [SS-12: Beds24 Widget](./ss-12-beds24-widget-integration.md)
 - [SS-19: WhatsApp Button](./ss-19-whatsapp-button.md)
-- [SS-25: Homepage](./ss-25-homepage.md) - Design patterns
+- [SS-26: Homepage](./ss-26-homepage.md) - Design patterns
 
 ---
 

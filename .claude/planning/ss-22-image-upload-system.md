@@ -1,20 +1,20 @@
 ---
-task_id: ss-21
+task_id: ss-22
 title: '[Feature] Image Upload System with Vercel Blob'
 status: not_started
 priority: high
 estimated_time: '4-6 hours'
 actual_time: null
-dependencies: [ss-7]
+dependencies: [ss-7, ss-21]
 created: 2025-01-20
 started: null
 completed: null
 related_docs: []
-branch: ss-21/feat/image-upload-system
+branch: ss-22/feat/image-upload-system
 pr_number: null
 ---
 
-[← Previous: SS-20 Rate Limiting](./ss-20-rate-limiting.md) | [📋 Index](./index.md) | [Next: SS-22 YouTube Video Embeds →](./ss-22-youtube-video-embeds.md)
+[← Previous: SS-21 Admin Authentication](./ss-21-admin-authentication.md) | [📋 Index](./index.md) | [Next: SS-23 YouTube Video Embeds →](./ss-23-youtube-video-embeds.md)
 
 # [Feature] Image Upload System with Vercel Blob
 
@@ -47,9 +47,10 @@ As a site administrator, I want to upload and manage property images so that pot
 ## Prerequisites/Dependencies
 
 - [x] SS-7: Vercel Blob integration configured (completed)
-- [ ] Vercel Blob storage enabled in Vercel dashboard
-- [ ] `BLOB_READ_WRITE_TOKEN` environment variable set
-- [ ] `@vercel/blob` package installed
+- [ ] SS-21: Admin authentication system (protects upload routes)
+- [x] Vercel Blob storage enabled in Vercel dashboard
+- [x] `BLOB_READ_WRITE_TOKEN` environment variable set
+- [x] `@vercel/blob` package installed
 - [ ] Next.js Image component understanding
 
 ---
@@ -325,15 +326,16 @@ Files that need updating after this task:
 **Depends On:**
 
 - [SS-7: Vercel Blob Integration](./ss-7-vercel-blob-integration.md) - Blob storage must be configured first
+- [SS-21: Admin Authentication](./ss-21-admin-authentication.md) - Admin routes must be protected before enabling uploads
 
 **Blocks:**
 
-- [SS-23: Image Gallery Component](./ss-23-image-gallery-component.md) - Gallery needs image upload system
-- [SS-24: Responsive Images](./ss-24-responsive-images.md) - Responsive system uses uploaded images
+- [SS-24: Image Gallery Component](./ss-24-image-gallery-component.md) - Gallery needs image upload system
+- [SS-25: Responsive Images](./ss-25-responsive-images.md) - Responsive system uses uploaded images
 
 **Related:**
 
-- [SS-22: YouTube Video Embeds](./ss-22-youtube-video-embeds.md) - Complementary media system
+- [SS-23: YouTube Video Embeds](./ss-23-youtube-video-embeds.md) - Complementary media system
 
 ---
 

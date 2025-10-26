@@ -1,5 +1,5 @@
 ---
-task_id: ss-22
+task_id: ss-23
 title: '[Feature] YouTube Video Embeds (Loop, No Ads)'
 status: not_started
 priority: medium
@@ -10,11 +10,11 @@ created: 2025-01-20
 started: null
 completed: null
 related_docs: []
-branch: ss-22/feat/youtube-video-embeds
+branch: ss-23/feat/youtube-video-embeds
 pr_number: null
 ---
 
-[← Previous: SS-21 Image Upload System](./ss-21-image-upload-system.md) | [📋 Index](./index.md) | [Next: SS-23 Image Gallery Component →](./ss-23-image-gallery-component.md)
+[← Previous: SS-22 Image Upload System](./ss-22-image-upload-system.md) | [📋 Index](./index.md) | [Next: SS-24 Image Gallery Component →](./ss-24-image-gallery-component.md)
 
 # [Feature] YouTube Video Embeds (Loop, No Ads)
 
@@ -319,12 +319,12 @@ Files that need updating after this task:
 
 **Blocks:**
 
-- [SS-25: Homepage](./ss-25-homepage.md) - Homepage may include hero video
-- [SS-28: Activities Page](./ss-28-activities-page.md) - Activities page includes surf footage
+- [SS-26: Homepage](./ss-26-homepage.md) - Homepage may include hero video
+- [SS-29: Activities Page](./ss-29-activities-page.md) - Activities page includes surf footage
 
 **Related:**
 
-- [SS-21: Image Upload System](./ss-21-image-upload-system.md) - Complementary media system
+- [SS-22: Image Upload System](./ss-22-image-upload-system.md) - Complementary media system
 
 ---
 
