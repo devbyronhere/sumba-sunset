@@ -10,6 +10,7 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "prettier:fix": "prettier --write .",
     "type-check": "tsc --noEmit",
     "lint-staged": "lint-staged",
     "code:pre-commit": "yarn type-check && yarn lint-staged --allow-empty",
