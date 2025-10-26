@@ -302,15 +302,36 @@ When a PR is waiting for review and blocking dependent work:
 - **Third-party services**: Some services (webhooks, APIs) work better with stable domain
 - **Confidence building**: Progressive validation that everything works in real environment
 
-### Pre-Launch Privacy
+### Pre-Launch Privacy Controls
 
-Since we deploy to the live domain during development, we control public visibility:
+Since we deploy to the live domain during development, we control public visibility through a three-layer privacy control system:
 
-1. **robots.txt blocking**: Prevent search engine indexing until official launch
-2. **"Under construction" banner**: Clear messaging to any visitors who find the site
-3. **Easy launch**: Simply remove banner and unblock search engines (no deployment needed)
+1. **robots.txt blocking**: Prevent search engine crawling and indexing until official launch
+2. **Pre-launch banner**: Professional "under construction" banner for any visitors who find the site
+3. **Environment variable toggle**: Single `NEXT_PUBLIC_PRE_LAUNCH` flag controls banner visibility
 
-**Implementation**: Milestone 2 (SS-4) adds banner and robots.txt blocking
+**Implementation**: SS-6 (Pre-Launch Privacy Controls) ✅ Completed 2025-10-26
+
+**How It Works:**
+
+- Banner displays when `NEXT_PUBLIC_PRE_LAUNCH=true` (set in Vercel Dashboard for Production)
+- `public/robots.txt` blocks all search engines with `Disallow: /`
+- Banner component: `src/components/layout/PreLaunchBanner.tsx`
+- Banner integrated in root layout: `app/layout.tsx`
+
+**At Launch (Milestone 8):**
+
+1. Set `NEXT_PUBLIC_PRE_LAUNCH=false` in Vercel Dashboard
+2. Update `public/robots.txt` to allow crawling
+3. Commit and deploy
+4. Banner removed, search engines allowed - site is public! 🚀
+
+**Benefits:**
+
+- Deploy continuously to sumbasunset.com without worrying about premature visibility
+- Professional appearance for any visitors who find the site
+- Easy launch toggle (no code changes needed, just flip env var)
+- Zero cutover risk - domain is already live and tested throughout development
 
 ### Deployment Process (After Each Milestone)
 
@@ -340,7 +361,7 @@ After each milestone deployment, user must verify:
 
 Some milestones require extra validation in production:
 
-- **Milestone 2 (Domain Setup)**: Verify DNS resolves, SSL works, banner displays
+- **Milestone 2 (Domain Setup & Privacy)**: Verify DNS resolves, SSL works, pre-launch banner displays, robots.txt blocks crawlers
 - **Milestone 3 (Beds24)**: Test booking widget loads on real domain
 - **Milestone 4 (Communication)**: Test contact form → Twilio → WhatsApp flow (real webhooks)
 - **Milestone 5 (Media)**: Verify Vercel Blob uploads work in production
