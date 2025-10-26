@@ -149,7 +149,7 @@ export default function ComponentsDemoPage() {
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold">Alerts</h2>
         <div className="space-y-4">
-          <Alert>
+          <Alert className="flex gap-2">
             <div className="font-medium">Heads up!</div>
             <div className="text-sm">
               This is a default alert. You can use it to show information to
@@ -157,7 +157,7 @@ export default function ComponentsDemoPage() {
             </div>
           </Alert>
 
-          <Alert variant="destructive">
+          <Alert variant="destructive" className="flex gap-2">
             <div className="font-medium">Error!</div>
             <div className="text-sm">
               This is a destructive alert for errors or warnings.
@@ -208,10 +208,12 @@ export default function ComponentsDemoPage() {
       </Card>
 
       {/* Footer Note */}
-      <Alert>
+      <Alert className="flex">
         <div className="text-sm">
-          <strong>Note:</strong> This demo page is for development only and will
-          be removed before production deployment.
+          <p>
+            <strong>Note:</strong> This demo page is for development only and
+            will be removed before production deployment.
+          </p>
         </div>
       </Alert>
     </div>
