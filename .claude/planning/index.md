@@ -54,12 +54,15 @@ _No blocked tasks_
 After completing each milestone:
 
 1. **Verify all quality gates pass** (tests, linting, type-checking)
-2. **Create Pull Request** for milestone branch
-3. **User reviews, approves and merges to main** PR
-4. **Vercel automatically deploys** to production (via GitHub integration)
-5. **Verify deployment successful** at production URL
-6. **User performs smoke testing** on production site
-7. **Document any deployment issues** in retrospective
+2. **Claude stages all changes** and notifies user
+3. **User reviews staged changes** using the Source Control window in VS Code
+4. **User approves** and instructs Claude to commit and push
+5. **Claude creates Pull Request** for milestone branch
+6. **User reviews, approves and merges to main** PR
+7. **Vercel automatically deploys** to production (via GitHub integration)
+8. **Verify deployment successful** at production URL
+9. **User performs smoke testing** on production site
+10. **Document any deployment issues** in retrospective
 
 ## 📈 Milestones
 
@@ -287,14 +290,18 @@ The site has been production-tested throughout development with the correct curr
 
 1. Update "Current Sprint Focus" if high priority
 2. Open relevant planning doc [ss-?] and start working through this implementation plan
-3. Check each item in the relevant implementation planning doc as tyou work through it
+3. Check each item in the relevant implementation planning doc as you work through it
 
 ### Completing a Task
 
 1. Verify ALL quality gates pass in task document
 2. Add retrospective notes to task document
-3. Check the task's checkbox in the milestones section
-4. Create follow-up tasks if discovered during implementation
+3. **Stage all changes** (`git add -A`) and notify user
+4. **Wait for user review** - user verifies staged changes before commit
+5. After user approval, commit and push changes
+6. Create PR and await user merge
+7. Check the task's checkbox in the milestones section
+8. Create follow-up tasks if discovered during implementation
 
 ### Blocking a Task
 

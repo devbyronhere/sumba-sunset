@@ -15,7 +15,13 @@
     "code:pre-commit": "yarn type-check && yarn lint-staged --allow-empty",
     "code:fix": "yarn lint:fix && yarn format:check",
     "_git:pre-commit": "yarn code:pre-commit",
-    "_git:pre-push": "yarn code:fix",
+    "_git:pre-push": "yarn code:fix && yarn test:run",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:ci": "vitest run --coverage --reporter=json",
     "prepare": "husky"
   },
   "dependencies": {
@@ -46,19 +52,29 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/testing-library__jest-dom": "^6.0.0",
     "@typescript-eslint/eslint-plugin": "^8.46.1",
     "@typescript-eslint/parser": "^8.46.1",
+    "@vitejs/plugin-react": "^5.1.0",
+    "@vitest/coverage-v8": "^4.0.3",
+    "@vitest/ui": "^4.0.3",
     "eslint": "^9.37.0",
     "eslint-config-next": "^15.5.6",
     "husky": "^9.1.7",
+    "jsdom": "^27.0.1",
     "lint-staged": "^16.2.4",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.7.0",
     "tailwindcss": "^4",
     "tw-animate-css": "^1.4.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^4.0.3"
   }
 }

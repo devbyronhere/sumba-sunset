@@ -178,6 +178,17 @@ This project follows Test-Driven Development (TDD):
 2. Implement minimum code to pass tests
 3. Refactor while keeping tests green
 
+### Development Workflow
+
+After completing each task (SS-X):
+
+1. **Claude stages changes** and notifies completion
+2. **User reviews staged changes** using the Source Control window in VS Code
+3. **User approves** and instructs Claude to commit
+4. **Claude commits and pushes** to feature branch
+5. **Claude creates PR** with testing checklist
+6. **User reviews, tests, and merges** PR
+
 See [`.claude/planning/`](./.claude/planning/) for task management and planning documents.
 
 ## Learn More
