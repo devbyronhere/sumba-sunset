@@ -630,22 +630,21 @@ Files that need updating after this task:
 
 | Service          | Status          | Account Exists?     | Credentials Available? | Environment   | Blocking Tasks | Priority | Notes                                                                                                                                        |
 | ---------------- | --------------- | ------------------- | ---------------------- | ------------- | -------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Twilio**       | ✅ Ready        | ☑ Yes              | ⏸️ Pending             | ☑ Production | SS-9           | High     | Upgraded account, WhatsApp enabled, $20 USD credits, Number: (606) 755-8767. **Need to obtain Account SID & Auth Token from console**        |
+| **Twilio**       | ✅ Ready        | ☑ Yes              | ✅ Yes                 | ☑ Production | SS-9           | High     | **COMPLETE** - Account upgraded, WhatsApp enabled, $20 USD credits, Number: (606) 755-8767. All credentials added to .env.local ✅           |
 | **Beds24**       | ⏸️ Setup Needed | ☐ No                | ☐ No                   | N/A           | SS-10          | High     | **PAID SERVICE** - £3.50-50/month. Need to: 1) Create account, 2) Add property, 3) Obtain API keys (Account + Property), 4) Configure widget |
 | **Hostinger**    | ✅ Ready        | ☑ Yes              | ⏸️ Pending             | ☑ Production | SS-3           | High     | Domain: sumbasunset.com. **Domain registrar ONLY** - DNS points to Vercel. Need DNS configuration for SS-3                                   |
 | **Vercel**       | ✅ Ready        | ☑ Yes              | ☑ Yes                 | ☑ Production | SS-3, SS-6     | High     | Hosting platform (automatic deployments from GitHub). Free tier includes hosting + automatic SSL                                             |
 | Vercel Blob      | ⏸️ Setup Needed | ☑ Yes (via Vercel) | ☐ No                   | N/A           | SS-6           | Medium   | Image storage via Vercel. Need to create blob store and obtain BLOB_READ_WRITE_TOKEN                                                         |
-| Sentry           | ⏸️ Pending      | ☐ No                | ☐ No                   | Development   | SS-7           | Low      | Can defer until after MVP launch                                                                                                             |
-| Google Analytics | ⏸️ Pending      | ☐ No                | ☐ No                   | Production    | SS-7           | Low      | Can defer until after MVP launch                                                                                                             |
+| Sentry           | ✅ Ready        | ☑ Yes              | ☑ Yes                 | Development   | SS-7           | Low      | **VERIFIED** - Test error sent successfully at /sentry-example-page, email notification received ✅                                          |
+| Google Analytics | ✅ Ready        | ☑ Yes              | ✅ Yes                 | Production    | SS-7           | Low      | **COMPLETE** - GA4 property created, Measurement ID: G-VTSTRR8XEZ. Component added to root layout ✅                                         |
 
 **Summary:**
 
-- **Ready to Use:** 3 services (Twilio, Hostinger domain, Vercel hosting)
-- **Need Credentials:** Twilio (SID/Token), Vercel Blob (token)
-- **Need Account Creation:** 2 services (Beds24, Sentry, GA4) - Beds24 is HIGH priority
-- **Can Proceed With:** SS-3 (Domain → Vercel), SS-9 (Twilio), SS-6 (Vercel Blob)
+- **Ready to Use:** 5 services (Twilio ✅, Hostinger domain, Vercel hosting, Sentry ✅, Google Analytics ✅)
+- **Need Credentials:** Vercel Blob (token)
+- **Need Account Creation:** 1 service (Beds24) - HIGH priority
+- **Can Proceed With:** SS-3 (Domain → Vercel), SS-9 (Twilio ✅), SS-6 (Vercel Blob), SS-7 (Monitoring - Sentry ✅, GA4 ✅)
 - **Blocked:** SS-10 (Beds24 widget) until account created and configured
-- **Deferred:** SS-7 (Sentry, GA4 - post-MVP)
 
 ---
 
@@ -710,45 +709,37 @@ _(Fill out after completion)_
 
 ### Credentials Obtained
 
-- [x] **Twilio (production)**: Account upgraded, WhatsApp enabled, $20 USD credits, Number: (606) 755-8767
+- [x] **Twilio (production)**: Account upgraded, WhatsApp enabled, $20 USD credits, Number: (606) 755-8767. **ALL CREDENTIALS ADDED** to .env.local ✅
 - [x] **Hostinger (production)**: Domain sumbasunset.com (domain registrar ONLY - DNS points to Vercel)
-- [x] **Hostinger (production)**: Domain sumbasunset.com (domain registrar ONLY - DNS points to Vercel)
+- [x] **Sentry (development)**: Account created, project configured, DSN and Auth Token obtained. **VERIFIED** via test error at /sentry-example-page ✅
+- [x] **Google Analytics (production)**: GA4 property created, Measurement ID: G-VTSTRR8XEZ. **COMPONENT INTEGRATED** in root layout ✅
 - [ ] **Beds24**: Not yet created - HIGH PRIORITY (blocks SS-10)
-- [ ] **Vercel Blob**: Needed for image storage with CDN delivery (part of SS-8)
-- [ ] **Sentry**: Needed for error monitoring (can defer post-MVP)
-- [ ] **Google Analytics**: Needed for analytics (can defer post-MVP)
-- [ ] **Vercel Blob**: Needed for image storage with CDN delivery (part of SS-8)
-- [ ] **Sentry**: Needed for error monitoring (can defer post-MVP)
-- [ ] **Google Analytics**: Needed for analytics (can defer post-MVP)
+- [ ] **Vercel Blob**: Needed for image storage with CDN delivery (part of SS-6)
 
 ### Still Needed
 
-- Twilio Account SID and Auth Token (obtain from Twilio console)
-- Beds24 account creation (£3.50-50/month)
+- Beds24 account creation (£3.50-50/month) - **HIGH PRIORITY**
 - Beds24 API Key (account-level, from Account → Settings → API)
 - Beds24 Property Key (property-level, from Property → Settings → API Key)
 - Beds24 widget configuration and customization
-- Vercel Blob token (obtain from Vercel Dashboard → Storage → Blob)
-- DNS configuration in Hostinger (point to Vercel via SS-3)
-- Staff WhatsApp number for forwarding
-- Sentry account creation (can defer)
-- Google Analytics property creation (can defer)
+- Vercel Blob token (obtain from Vercel Dashboard → Storage → Blob) - **MEDIUM PRIORITY**
+- DNS configuration in Hostinger (point to Vercel via SS-3) - **HIGH PRIORITY**
 
 ### Follow-up Tasks Created
 
 - [x] ~~Create Twilio account~~ - DONE (upgraded, WhatsApp enabled)
+- [x] ~~Obtain Twilio credentials~~ - DONE (Account SID, Auth Token, WhatsApp numbers added to .env.local)
 - [x] ~~Setup domain~~ - DONE (Hostinger domain registration)
 - [x] ~~Setup hosting~~ - DONE (Vercel hosting platform)
+- [x] ~~Setup Sentry project~~ - DONE (test error verified successfully)
+- [x] ~~Setup Google Analytics~~ - DONE (GA4 property created, Measurement ID: G-VTSTRR8XEZ, component integrated)
 - [ ] **HIGH PRIORITY**: Create Beds24 account (budget £40-50/month)
 - [ ] **HIGH PRIORITY**: Configure property in Beds24 dashboard
 - [ ] **HIGH PRIORITY**: Obtain Beds24 API keys (Account + Property)
-- [ ] **HIGH PRIORITY**: Obtain Twilio credentials from console
 - [ ] **HIGH PRIORITY**: Configure DNS in Hostinger to point to Vercel (SS-3)
 - [ ] **MEDIUM PRIORITY**: Setup Vercel Blob storage and obtain token (SS-6)
 - [ ] **MEDIUM PRIORITY**: Customize Beds24 widget with CSS for mobile-first design
 - [ ] **MEDIUM PRIORITY**: Test Beds24 booking flow on mobile and desktop
-- [ ] Setup Sentry project (low priority)
-- [ ] Setup Google Analytics property (low priority)
 
 ---
 
