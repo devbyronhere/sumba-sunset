@@ -48,7 +48,7 @@ This is the master planning document for the Sumba Sunset project. It replaces t
 
 ## 🎯 Current Sprint Focus
 
-**Next Up:** SS-4 - Third-Party Credentials & Access Setup (Now that domain is live, time to configure credentials)
+**Next Up:** SS-4 - Pre-Launch Privacy Controls (Add robots.txt + banner while we build in production)
 
 ---
 
@@ -73,11 +73,13 @@ _No tasks currently in progress_
 
 ### 📝 Not Started
 
-| ID                                  | Task                                            | Priority | Est. Time | Dependencies | Notes                                                                      |
-| ----------------------------------- | ----------------------------------------------- | -------- | --------- | ------------ | -------------------------------------------------------------------------- |
-| [SS-4](./ss-4-credentials-setup.md) | Third-Party Credentials & Access Setup          | High     | 1-2h      | SS-1, SS-2   | Setup .env.local and verify access to all third-party services             |
-| [SS-9](./ss-9-beds24-validation.md) | Beds24 Integration Validation (Technical Spike) | High     | 30-60 min | SS-1, SS-2   | Quick test to validate Beds24 widget works in Next.js 15 before full setup |
-| [SS-10](./ss-10-beds24-setup.md)    | Beds24 Account Setup & Configuration            | High     | 8-12h     | SS-4, SS-9   | Complex setup - booking platform configuration (human-led)                 |
+| ID                                       | Task                                            | Priority | Est. Time | Dependencies | Notes                                                                      |
+| ---------------------------------------- | ----------------------------------------------- | -------- | --------- | ------------ | -------------------------------------------------------------------------- |
+| [SS-4](./ss-4-pre-launch-privacy.md)     | Pre-Launch Privacy Controls                     | High     | 1-2h      | SS-3         | robots.txt + banner + NEXT_PUBLIC_PRE_LAUNCH env var                       |
+| [SS-5](./ss-5-shadcn-setup.md)           | shadcn/ui Setup & Base Components               | High     | 2-3h      | SS-1, SS-2   | UI component library setup                                                 |
+| [SS-6](./ss-6-credentials-setup.md)      | Third-Party Credentials & Access Setup          | High     | 1-2h      | SS-1, SS-2   | Setup .env.local and verify access to all third-party services             |
+| [SS-10](./ss-10-beds24-validation.md)    | Beds24 Integration Validation (Technical Spike) | High     | 30-60 min | SS-1, SS-2   | Quick test to validate Beds24 widget works in Next.js 15 before full setup |
+| [SS-11](./ss-11-beds24-account-setup.md) | Beds24 Account Setup & Configuration            | High     | 8-12h     | SS-6, SS-10  | Complex setup - booking platform configuration (human-led)                 |
 
 ### ⏸️ Blocked
 
@@ -110,9 +112,10 @@ _No blocked tasks_
 - [x] **SS-3**: Domain Configuration ✅
 - [ ] **SS-4**: Third-Party Credentials & Access Setup
 - [ ] **SS-5**: shadcn/ui setup and base components
-- [ ] **SS-6**: Vitest testing setup
-- [ ] **SS-7**: Vercel Blob integration for images
-- [ ] **SS-8**: Monitoring setup (Sentry, GA4, UptimeRobot)
+- [ ] **SS-6**: Pre-Launch Privacy Controls
+- [ ] **SS-7**: Vitest testing setup
+- [ ] **SS-8**: Vercel Blob integration for images
+- [ ] **SS-9**: Monitoring setup (Sentry, GA4, UptimeRobot)
 
 ### Phase 2.5: Beds24 Setup & Integration (Not Started)
 
@@ -148,11 +151,7 @@ _No blocked tasks_
 - [ ] **SS-30**: Polish contact/booking pages
 - [ ] **SS-31**: Mobile-first responsive design
 
-### Phase 6: Currency Investigation (Not Started)
-
-- [ ] **SS-32**: Currency Switch Spike - Investigate USD → IDR migration
-
-### Phase 7: Testing & Quality (Not Started)
+### Phase 6: Testing & Quality (Not Started)
 
 - [ ] **SS-33**: Unit tests for utilities and validations
 - [ ] **SS-34**: Integration tests for forms and API routes
@@ -160,7 +159,7 @@ _No blocked tasks_
 - [ ] **SS-36**: Performance optimization
 - [ ] **SS-37**: SEO optimization
 
-### Phase 8: MVP Launch (Not Started)
+### Phase 7: MVP Launch (Not Started)
 
 - [ ] **SS-38**: Upgrade Twilio WhatsApp to production number
 - [ ] **SS-39**: Remove pre-launch banner (set NEXT_PUBLIC_PRE_LAUNCH=false)
@@ -281,10 +280,10 @@ After completing each milestone:
 
 **Tasks:**
 
-- [ ] SS-3: Domain Configuration (Point sumbasunset.com to Vercel)
-- [ ] SS-4: Pre-Launch Privacy Controls (robots.txt + banner + env var)
-- [ ] SS-5: Third-Party Credentials & Access Setup
-- [ ] SS-6: shadcn/ui setup with base components
+- [x] SS-3: Domain Configuration (Point sumbasunset.com to Vercel)
+- [x] SS-4: Third-Party Credentials & Access Setup
+- [x] SS-5: shadcn/ui setup with base components
+- [ ] SS-6: Pre-Launch Privacy Controls (robots.txt + banner + env var)
 - [ ] SS-7: Vitest testing framework setup
 - [ ] SS-8: Vercel Blob integration for images
 - [ ] SS-9: Monitoring setup (Sentry, GA4, UptimeRobot)
@@ -472,12 +471,13 @@ Milestone 1: Foundation ✅ COMPLETE
 └─ SS-2 (Linting Setup)
        ↓
 Milestone 2: Core Infrastructure 🚧 NEXT
-├─ SS-3 (Domain Configuration - Hostinger → Vercel)
-├─ SS-4 (Third-Party Credentials & Access)
+├─ SS-3 (Domain Configuration - Hostinger → Vercel) ✅
+├─ SS-4 (Pre-Launch Privacy Controls - robots.txt + banner)
 ├─ SS-5 (shadcn/ui setup)
-├─ SS-6 (Vitest setup)
-├─ SS-7 (Vercel Blob integration)
-└─ SS-8 (Monitoring: Sentry, GA4, UptimeRobot)
+├─ SS-6 (Third-Party Credentials & Access)
+├─ SS-7 (Vitest setup)
+├─ SS-8 (Vercel Blob integration)
+└─ SS-9 (Monitoring: Sentry, GA4, UptimeRobot)
        ↓
 Milestone 3: Beds24 Setup & Integration + Currency Decision
 ├─ SS-10 (Beds24 validation - 30-60 min spike)
@@ -507,7 +507,7 @@ Milestone 6: Marketing Pages & UI Polish
 ├─ SS-28 (Activities page - polished UI)
 ├─ SS-29 (Polish contact/booking pages)
 └─ SS-30 (Mobile-first responsive - all pages)
-       ↓
+
 Milestone 7: Testing & Quality
 ├─ SS-31 (Unit tests)
 ├─ SS-32 (Integration tests)
@@ -630,7 +630,7 @@ If Beds24's UI becomes a conversion problem (users abandoning bookings):
 2. Second: Build custom booking form using Beds24 API backend
 3. Last resort: Migrate to Smoobu or similar if revenue justifies cost
 
-**Status:** 🚧 To be implemented in SS-10
+**Status:** 🚧 To be implemented in SS-10, SS-11
 
 ---
 

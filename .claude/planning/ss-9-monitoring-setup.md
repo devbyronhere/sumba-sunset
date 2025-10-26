@@ -14,7 +14,7 @@ branch: ss-8/infra/monitoring
 pr_number: null
 ---
 
-[← Previous: SS-7 Vercel Blob](./ss-7-vercel-blob-integration.md) | [📋 Index](./index.md) | [Next: SS-9 Beds24 Validation →](./ss-9-beds24-validation.md)
+[← Previous: SS-7 Vercel Blob](./ss-7-vercel-blob-integration.md) | [📋 Index](./index.md) | [Next: SS-10 Beds24 Validation →](./ss-10-beds24-validation.md)
 
 # [Infrastructure] Monitoring Setup - Sentry, GA4, UptimeRobot
 

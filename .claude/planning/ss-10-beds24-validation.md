@@ -1,5 +1,5 @@
 ---
-task_id: ss-9
+task_id: ss-10
 title: '[Infrastructure] Beds24 Integration Validation - Technical Spike'
 status: not_started
 priority: high
@@ -11,11 +11,11 @@ started: null
 completed: null
 related_docs: ['beds24-feasibility-research.md']
 infra_type: validation
-branch: ss-9/infra/beds24-validation
+branch: ss-10/infra/beds24-validation
 pr_number: null
 ---
 
-[← Previous: SS-8 Monitoring Setup](./ss-8-monitoring-setup.md) | [📋 Index](./index.md) | [Next: SS-10 Beds24 Setup →](./ss-10-beds24-setup.md)
+[← Previous: SS-8 Monitoring Setup](./ss-8-monitoring-setup.md) | [📋 Index](./index.md) | [Next: SS-11 Beds24 Account Setup →](./ss-11-beds24-account-setup.md)
 
 **Milestone:** 3 - Beds24 Setup & Integration + Currency Decision
 
