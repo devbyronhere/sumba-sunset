@@ -391,7 +391,8 @@ Files that need updating after this task:
 - [x] `.env.example` - Document NEXT_PUBLIC_PRE_LAUNCH variable
 - [ ] `README.md` - Add note about pre-launch banner (optional)
 - [x] `.claude/CLAUDE.md` - Document continuous deployment strategy with privacy controls
-- [ ] `.claude/planning/ss-39-remove-pre-launch-banner.md` - Create launch task doc with removal steps (will be created at Milestone 8)
+- [x] `.claude/planning/ss-39-remove-pre-launch-banner.md` - Create launch task doc with removal steps
+- [x] `.claude/planning/index.md` - Updated Milestone 8 task list to include SS-39
 
 ---
 

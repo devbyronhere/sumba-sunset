@@ -283,7 +283,7 @@ After completing each milestone:
 - [x] SS-3: Domain Configuration (Point sumbasunset.com to Vercel)
 - [x] SS-4: Third-Party Credentials & Access Setup
 - [x] SS-5: shadcn/ui setup with base components
-- [ ] SS-6: Pre-Launch Privacy Controls (robots.txt + banner + env var)
+- [x] SS-6: Pre-Launch Privacy Controls (robots.txt + banner + env var)
 - [ ] SS-7: Vitest testing framework setup
 - [ ] SS-8: Vercel Blob integration for images
 - [ ] SS-9: Monitoring setup (Sentry, GA4, UptimeRobot)
@@ -438,9 +438,9 @@ After completing each milestone:
 **Tasks:**
 
 - [ ] SS-36: Upgrade Twilio WhatsApp to production number (purchase WhatsApp-enabled Twilio number, update environment variables)
-- [ ] SS-37: Remove pre-launch banner (set NEXT_PUBLIC_PRE_LAUNCH=false)
-- [ ] SS-38: Update robots.txt to allow search engine indexing
-- [ ] SS-39: Final pre-launch checklist (comprehensive QA)
+- [ ] SS-37: SEO Optimization (meta tags, sitemap.xml, structured data)
+- [ ] SS-38: Final pre-launch checklist (comprehensive QA)
+- [ ] SS-39: Remove pre-launch privacy controls (banner + robots.txt)
 - [ ] SS-40: Go live announcement! (social media, press, etc.)
 
 **Outcome:** Fully functional, tested, and polished surf camp website publicly launched at sumbasunset.com with chosen currency (USD or IDR from M3 decision) and production WhatsApp integration.
@@ -517,9 +517,9 @@ Milestone 7: Testing & Quality
        ↓
 Milestone 8: MVP Launch
 ├─ SS-36 (Upgrade Twilio WhatsApp to production)
-├─ SS-37 (Remove pre-launch banner)
-├─ SS-38 (Update robots.txt)
-├─ SS-39 (Final pre-launch QA)
+├─ SS-37 (SEO Optimization)
+├─ SS-38 (Final pre-launch QA)
+├─ SS-39 (Remove pre-launch privacy controls)
 └─ SS-40 (Go live announcement! 🚀)
        ↓
 Post-MVP: Booking Site Integrations
