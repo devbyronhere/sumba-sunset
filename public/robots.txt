@@ -1,0 +1,10 @@
+# Pre-Launch: Block all search engines from crawling
+# This is TEMPORARY until official launch (Milestone 8)
+#
+# At launch, replace with:
+# User-agent: *
+# Allow: /
+# Sitemap: https://sumbasunset.com/sitemap.xml
+
+User-agent: *
+Disallow: /
