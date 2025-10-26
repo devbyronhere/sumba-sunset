@@ -1,20 +1,20 @@
 ---
-task_id: ss-24
+task_id: ss-25
 title: '[Feature] Responsive Images for Mobile/Desktop'
 status: not_started
 priority: high
 estimated_time: '3-4 hours'
 actual_time: null
-dependencies: [ss-21]
+dependencies: [ss-22]
 created: 2025-01-20
 started: null
 completed: null
 related_docs: []
-branch: ss-24/feat/responsive-images
+branch: ss-25/feat/responsive-images
 pr_number: null
 ---
 
-[← Previous: SS-23 Image Gallery Component](./ss-23-image-gallery-component.md) | [📋 Index](./index.md) | [Next: SS-25 Homepage →](./ss-25-homepage.md)
+[← Previous: SS-24 Image Gallery Component](./ss-24-image-gallery-component.md) | [📋 Index](./index.md) | [Next: SS-26 Homepage →](./ss-26-homepage.md)
 
 # [Feature] Responsive Images for Mobile/Desktop
 
@@ -46,7 +46,7 @@ As a potential guest browsing on mobile, I want images to load quickly and look 
 
 ## Prerequisites/Dependencies
 
-- [x] SS-21: Image Upload System (images uploaded to Vercel Blob)
+- [x] SS-22: Image Upload System (images uploaded to Vercel Blob)
 - [ ] Next.js Image component configured in `next.config.ts`
 - [ ] Vercel Blob domain added to Next.js image domains
 - [ ] Understanding of responsive image sizes and breakpoints
@@ -164,7 +164,7 @@ As a potential guest browsing on mobile, I want images to load quickly and look 
   - Add blur placeholder support
   - Calculate appropriate sizes based on layout (full-width, half-width, etc.)
 - [ ] **Step 2.6**: Verify ResponsiveImage component tests pass (AC5-AC10)
-- [ ] **Step 2.7**: Update OptimizedImage component from SS-21 to use ResponsiveImage
+- [ ] **Step 2.7**: Update OptimizedImage component from SS-22 to use ResponsiveImage
   - Refactor to use new ResponsiveImage wrapper
   - Ensure backward compatibility
 - [ ] **Step 2.8**: Verify integration with existing image components
@@ -353,18 +353,18 @@ Files that need updating after this task:
 
 **Depends On:**
 
-- [SS-21: Image Upload System](./ss-21-image-upload-system.md) - Responsive images use uploaded images
+- [SS-22: Image Upload System](./ss-22-image-upload-system.md) - Responsive images use uploaded images
 
 **Blocks:**
 
-- [SS-25: Homepage](./ss-25-homepage.md) - Homepage uses responsive hero images
-- [SS-27: Rooms Page](./ss-27-rooms-page.md) - Rooms page uses responsive room photos
-- [SS-28: Activities Page](./ss-28-activities-page.md) - Activities page uses responsive images
+- [SS-26: Homepage](./ss-26-homepage.md) - Homepage uses responsive hero images
+- [SS-28: Rooms Page](./ss-28-rooms-page.md) - Rooms page uses responsive room photos
+- [SS-29: Activities Page](./ss-29-activities-page.md) - Activities page uses responsive images
 
 **Related:**
 
-- [SS-23: Image Gallery Component](./ss-23-image-gallery-component.md) - Gallery uses responsive images
-- [SS-34: Performance Optimization](./ss-34-performance-optimization.md) - Responsive images improve performance
+- [SS-24: Image Gallery Component](./ss-24-image-gallery-component.md) - Gallery uses responsive images
+- [SS-35: Performance Optimization](./ss-35-performance-optimization.md) - Responsive images improve performance
 
 ---
 

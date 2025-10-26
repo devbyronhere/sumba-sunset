@@ -1,20 +1,20 @@
 ---
-task_id: ss-34
+task_id: ss-35
 title: '[Optimization] Performance Optimization'
 status: not_started
 priority: high
 estimated_time: '4-6 hours'
 actual_time: null
-dependencies: [ss-30, ss-33]
+dependencies: [ss-31, ss-34]
 created: 2025-01-20
 started: null
 completed: null
 related_docs: []
-branch: ss-34/feat/performance-optimization
+branch: ss-35/feat/performance-optimization
 pr_number: null
 ---
 
-[← Previous: SS-33 Mobile Device Testing](./ss-33-mobile-device-testing.md) | [📋 Index](./index.md) | [Next: SS-35 SEO Optimization →](./ss-35-seo-optimization.md)
+[← Previous: SS-34 Mobile Device Testing](./ss-34-mobile-device-testing.md) | [📋 Index](./index.md) | [Next: SS-36 SEO Optimization →](./ss-36-seo-optimization.md)
 
 # [Optimization] Performance Optimization
 
@@ -100,7 +100,7 @@ As a potential guest, I want pages to load quickly so that I don't get frustrate
 - [ ] **Step 3.2**: Convert remaining JPEG/PNG to WebP/AVIF
 - [ ] **Step 3.3**: Ensure all images have srcset for responsive sizes
 - [ ] **Step 3.4**: Implement blur placeholders for below-fold images
-- [ ] **Step 3.5**: Lazy load all images except hero (already done in SS-24)
+- [ ] **Step 3.5**: Lazy load all images except hero (already done in SS-25)
 - [ ] **Step 3.6**: Use Vercel Blob CDN for all images
 
 ### Phase 4: Bundle Size Optimization

@@ -1,5 +1,5 @@
 ---
-task_id: ss-31
+task_id: ss-32
 title: '[Testing] Unit Tests for Utilities and Validations'
 status: not_started
 priority: high
@@ -10,11 +10,11 @@ created: 2025-01-20
 started: null
 completed: null
 related_docs: []
-branch: ss-31/test/unit-tests
+branch: ss-32/test/unit-tests
 pr_number: null
 ---
 
-[← Previous: SS-30 Mobile-First Responsive Design](./ss-30-mobile-responsive-design.md) | [📋 Index](./index.md) | [Next: SS-32 Integration Tests →](./ss-32-integration-tests.md)
+[← Previous: SS-31 Mobile-First Responsive Design](./ss-31-mobile-responsive-design.md) | [📋 Index](./index.md) | [Next: SS-33 Integration Tests →](./ss-33-integration-tests.md)
 
 # [Testing] Unit Tests for Utilities and Validations
 
@@ -146,7 +146,7 @@ src/__tests__/
 
 - **Zod schemas**: 100%
 - **Utilities**: ≥80%
-- **Components**: ≥60% (tested in SS-32)
+- **Components**: ≥60% (tested in SS-33)
 - **Overall**: ≥70%
 
 ---

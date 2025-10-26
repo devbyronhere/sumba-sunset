@@ -1,20 +1,20 @@
 ---
-task_id: ss-33
+task_id: ss-34
 title: '[Testing] Mobile Device Testing'
 status: not_started
 priority: high
 estimated_time: '3-4 hours'
 actual_time: null
-dependencies: [ss-30]
+dependencies: [ss-31]
 created: 2025-01-20
 started: null
 completed: null
 related_docs: []
-branch: ss-33/test/mobile-device-testing
+branch: ss-34/test/mobile-device-testing
 pr_number: null
 ---
 
-[← Previous: SS-32 Integration Tests](./ss-32-integration-tests.md) | [📋 Index](./index.md) | [Next: SS-34 Performance Optimization →](./ss-34-performance-optimization.md)
+[← Previous: SS-33 Integration Tests](./ss-33-integration-tests.md) | [📋 Index](./index.md) | [Next: SS-35 Performance Optimization →](./ss-35-performance-optimization.md)
 
 # [Testing] Mobile Device Testing
 

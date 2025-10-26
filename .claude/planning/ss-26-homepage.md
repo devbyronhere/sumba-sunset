@@ -1,20 +1,20 @@
 ---
-task_id: ss-25
+task_id: ss-26
 title: '[Feature] Homepage with Hero, Features, Gallery, CTA'
 status: not_started
 priority: high
 estimated_time: '6-8 hours'
 actual_time: null
-dependencies: [ss-21, ss-22, ss-23, ss-24]
+dependencies: [ss-22, ss-23, ss-24, ss-25]
 created: 2025-01-20
 started: null
 completed: null
 related_docs: []
-branch: ss-25/feat/homepage
+branch: ss-26/feat/homepage
 pr_number: null
 ---
 
-[← Previous: SS-24 Responsive Images](./ss-24-responsive-images.md) | [📋 Index](./index.md) | [Next: SS-26 About Page →](./ss-26-about-page.md)
+[← Previous: SS-25 Responsive Images](./ss-25-responsive-images.md) | [📋 Index](./index.md) | [Next: SS-27 About Page →](./ss-27-about-page.md)
 
 # [Feature] Homepage with Hero, Features, Gallery, CTA
 
@@ -46,10 +46,10 @@ As a potential guest, I want to immediately understand what Sumba Sunset offers 
 
 ## Prerequisites/Dependencies
 
-- [x] SS-21: Image Upload System (hero and gallery images)
-- [x] SS-22: YouTube Video Embeds (optional hero video)
-- [x] SS-23: Image Gallery Component (photo gallery section)
-- [x] SS-24: Responsive Images (optimized image loading)
+- [x] SS-22: Image Upload System (hero and gallery images)
+- [x] SS-23: YouTube Video Embeds (optional hero video)
+- [x] SS-24: Image Gallery Component (photo gallery section)
+- [x] SS-25: Responsive Images (optimized image loading)
 - [ ] SS-5: shadcn/ui components (Button, Card, etc.)
 - [ ] Content from user (copy, images, videos)
 - [ ] Brand colors and fonts defined
@@ -326,19 +326,19 @@ Files that need updating after this task:
 
 **Depends On:**
 
-- [SS-21: Image Upload System](./ss-21-image-upload-system.md) - Homepage uses uploaded images
-- [SS-22: YouTube Video Embeds](./ss-22-youtube-video-embeds.md) - Hero may include video
-- [SS-23: Image Gallery Component](./ss-23-image-gallery-component.md) - Gallery section uses gallery component
-- [SS-24: Responsive Images](./ss-24-responsive-images.md) - All images are responsive
+- [SS-22: Image Upload System](./ss-22-image-upload-system.md) - Homepage uses uploaded images
+- [SS-23: YouTube Video Embeds](./ss-23-youtube-video-embeds.md) - Hero may include video
+- [SS-24: Image Gallery Component](./ss-24-image-gallery-component.md) - Gallery section uses gallery component
+- [SS-25: Responsive Images](./ss-25-responsive-images.md) - All images are responsive
 
 **Blocks:**
 
-- [SS-30: Mobile-First Responsive Design](./ss-30-mobile-first-responsive-design.md) - Homepage sets design patterns
+- [SS-31: Mobile-First Responsive Design](./ss-31-mobile-responsive-design.md) - Homepage sets design patterns
 
 **Related:**
 
-- [SS-26: About Page](./ss-26-about-page.md) - Similar page structure
-- [SS-27: Rooms Page](./ss-27-rooms-page.md) - Similar page structure
+- [SS-27: About Page](./ss-27-about-page.md) - Similar page structure
+- [SS-28: Rooms Page](./ss-28-rooms-page.md) - Similar page structure
 - [SS-12: Beds24 Widget](./ss-12-beds24-widget-integration.md) - CTAs link to booking page
 
 ---

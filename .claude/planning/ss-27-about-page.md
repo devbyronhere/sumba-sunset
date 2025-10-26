@@ -1,20 +1,20 @@
 ---
-task_id: ss-26
+task_id: ss-27
 title: '[Feature] About Page (Surf Camp Story, Team)'
 status: not_started
 priority: medium
 estimated_time: '4-5 hours'
 actual_time: null
-dependencies: [ss-25]
+dependencies: [ss-26]
 created: 2025-01-20
 started: null
 completed: null
 related_docs: []
-branch: ss-26/feat/about-page
+branch: ss-27/feat/about-page
 pr_number: null
 ---
 
-[← Previous: SS-25 Homepage](./ss-25-homepage.md) | [📋 Index](./index.md) | [Next: SS-27 Rooms & Accommodation Page →](./ss-27-rooms-page.md)
+[← Previous: SS-26 Homepage](./ss-26-homepage.md) | [📋 Index](./index.md) | [Next: SS-28 Rooms & Accommodation Page →](./ss-28-rooms-page.md)
 
 # [Feature] About Page (Surf Camp Story, Team)
 
@@ -46,9 +46,9 @@ As a potential guest, I want to learn about the surf camp's story and team so th
 
 ## Prerequisites/Dependencies
 
-- [x] SS-25: Homepage (establishes design patterns)
+- [x] SS-26: Homepage (establishes design patterns)
 - [ ] SS-5: shadcn/ui components
-- [ ] SS-24: Responsive Images
+- [ ] SS-25: Responsive Images
 - [ ] Content from user (story, team bios, photos)
 
 ---
@@ -257,12 +257,12 @@ As a potential guest, I want to learn about the surf camp's story and team so th
 
 **Depends On:**
 
-- [SS-25: Homepage](./ss-25-homepage.md) - Design patterns established
+- [SS-26: Homepage](./ss-26-homepage.md) - Design patterns established
 
 **Related:**
 
-- [SS-27: Rooms Page](./ss-27-rooms-page.md) - Similar page structure
-- [SS-28: Activities Page](./ss-28-activities-page.md) - Similar page structure
+- [SS-28: Rooms Page](./ss-28-rooms-page.md) - Similar page structure
+- [SS-29: Activities Page](./ss-29-activities-page.md) - Similar page structure
 
 ---
 
