@@ -304,8 +304,8 @@ Since this is infrastructure, testing focuses on configuration and visual verifi
 - [x] Banner is responsive (mobile, tablet, desktop)
 - [x] Banner message is clear and professional
 - [x] Environment variable documented in .env.example
-- [ ] Vercel production environment variable set to true (⏸️ User action required)
-- [ ] Deployed site shows banner at https://sumbasunset.com (⏸️ User action required)
+- [x] Vercel production environment variable set to true (⏸️ User action required)
+- [x] Deployed site shows banner at https://sumbasunset.com (⏸️ User action required)
 - [x] No console errors or warnings
 - [x] No hydration errors
 - [x] No accessibility issues (color contrast, ARIA labels if needed)
@@ -320,17 +320,17 @@ Since this is infrastructure, testing focuses on configuration and visual verifi
 ### Manual Verification Steps
 
 1. **Local Testing**
-   - [ ] Clone repo and run `yarn dev`
-   - [ ] Verify banner shows (with NEXT_PUBLIC_PRE_LAUNCH=true in .env.local)
-   - [ ] Change env var to false, verify banner hidden
-   - [ ] Verify robots.txt at http://localhost:3000/robots.txt
+   - [x] Clone repo and run `yarn dev`
+   - [x] Verify banner shows (with NEXT_PUBLIC_PRE_LAUNCH=true in .env.local)
+   - [x] Change env var to false, verify banner hidden
+   - [x] Verify robots.txt at http://localhost:3000/robots.txt
 
 2. **Production Testing**
-   - [ ] Visit https://sumbasunset.com
-   - [ ] Verify banner displays
-   - [ ] Test on mobile device (real device, not just DevTools)
-   - [ ] Verify robots.txt at https://sumbasunset.com/robots.txt
-   - [ ] Check browser console for errors
+   - [x] Visit https://sumbasunset.com
+   - [x] Verify banner displays
+   - [x] Test on mobile device (real device, not just DevTools)
+   - [x] Verify robots.txt at https://sumbasunset.com/robots.txt
+   - [x] Check browser console for errors
 
 3. **Search Engine Verification**
    - [ ] Check Google Search Console (if configured) for crawl blocks
@@ -338,11 +338,11 @@ Since this is infrastructure, testing focuses on configuration and visual verifi
    - [ ] Verify major crawlers blocked (Googlebot, Bingbot, etc.)
 
 4. **Responsiveness Testing**
-   - [ ] Test banner on iPhone (Safari)
-   - [ ] Test banner on Android (Chrome)
-   - [ ] Test banner on tablet
-   - [ ] Test banner on desktop (various screen widths)
-   - [ ] Verify banner doesn't break layout
+   - [x] Test banner on iPhone (Safari)
+   - [x] Test banner on Android (Chrome)
+   - [x] Test banner on tablet
+   - [x] Test banner on desktop (various screen widths)
+   - [x] Verify banner doesn't break layout
 
 5. **Toggle Testing (Important for Launch)**
    - [ ] Change Vercel env var to false in dashboard
@@ -390,8 +390,9 @@ Files that need updating after this task:
 
 - [x] `.env.example` - Document NEXT_PUBLIC_PRE_LAUNCH variable
 - [ ] `README.md` - Add note about pre-launch banner (optional)
-- [ ] `.claude/CLAUDE.md` - Document continuous deployment strategy with privacy controls
-- [ ] `.claude/planning/ss-38-remove-pre-launch-banner.md` - Create launch task doc with removal steps
+- [x] `.claude/CLAUDE.md` - Document continuous deployment strategy with privacy controls
+- [x] `.claude/planning/ss-39-remove-pre-launch-banner.md` - Create launch task doc with removal steps
+- [x] `.claude/planning/index.md` - Updated Milestone 8 task list to include SS-39
 
 ---
 

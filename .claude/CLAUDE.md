@@ -38,9 +38,13 @@ This file provides core guidance to Claude Code (claude.ai/code) when working wi
 
 1. User creates/guides planning document creation
 2. Claude implements the task following the plan
-3. Claude reports completion and provides manual testing checklist
-4. User verifies the implementation
-5. User merges PR, then instructs Claude to proceed to next task
+3. Claude stages changes and reports completion
+4. **User reviews staged changes** Using the source control window in VS code
+5. User approves changes or requests modifications
+6. **After approval**, user instructs Claude to commit and push
+7. Claude creates PR with manual testing checklist
+8. User reviews PR and verifies implementation
+9. User merges PR, then instructs Claude to proceed to next task
 
 ---
 
@@ -88,6 +92,71 @@ Infrastructure and configuration tasks (setup, deployment, DNS, credentials, etc
 5. **Verify**: Run all tests and ensure no regressions
 
 This approach ensures robust, maintainable code with comprehensive test coverage across the Sumba Sunset platform.
+
+### What to Test (and What NOT to Test)
+
+**Test YOUR code and business logic, NOT third-party libraries:**
+
+**✅ DO Test:**
+
+- **Business logic**: Custom validation, data transformations, calculations
+- **Integration points**: How your code integrates with APIs (Beds24, Twilio, Vercel Blob)
+- **Custom utilities**: Functions you write that implement specific logic
+- **Component behavior**: Your custom components' state management and conditional rendering
+- **API routes**: Request/response handling, data parsing, error handling
+- **Edge cases**: Boundary conditions, error states, unusual inputs in YOUR code
+
+**❌ DON'T Test:**
+
+- **Third-party library functionality**: React hooks, Radix UI components, date-fns, Zod schemas
+- **Framework features**: Next.js routing, React rendering, form submission mechanics
+- **UI library components**: shadcn/ui Button, Dialog, Select (already tested by maintainers)
+- **Standard library functions**: Array methods, string manipulation, etc.
+- **CSS/Tailwind classes**: Class merging with `cn()`, Tailwind variant application
+
+**Examples:**
+
+```typescript
+// ❌ DON'T: Testing that React onClick works
+it('handles click events', () => {
+  const handleClick = vi.fn();
+  render(<Button onClick={handleClick}>Click</Button>);
+  fireEvent.click(screen.getByRole('button'));
+  expect(handleClick).toHaveBeenCalledTimes(1); // Testing React, not our code
+});
+
+// ❌ DON'T: Testing that cn() merges classes
+it('merges class names correctly', () => {
+  const result = cn('px-4', 'py-2');
+  expect(result).toBe('px-4 py-2'); // Testing clsx/tailwind-merge
+});
+
+// ✅ DO: Testing your business logic
+it('calculates booking total with discount correctly', () => {
+  const booking = { nights: 7, pricePerNight: 100, isReturningGuest: true };
+  const total = calculateBookingTotal(booking);
+  expect(total).toBe(630); // 700 - 10% discount = 630
+});
+
+// ✅ DO: Testing your API integration
+it('fetches available rooms from Beds24 API', async () => {
+  mockBeds24Response({ rooms: [{ id: '1', name: 'Ocean Villa' }] });
+  const rooms = await fetchAvailableRooms('2025-06-01', '2025-06-07');
+  expect(rooms).toHaveLength(1);
+  expect(rooms[0].name).toBe('Ocean Villa');
+});
+
+// ✅ DO: Testing your component's conditional logic
+it('shows error message when form validation fails', async () => {
+  render(<BookingForm />);
+  await user.click(screen.getByRole('button', { name: /submit/i }));
+  expect(screen.getByText(/please fill all required fields/i)).toBeInTheDocument();
+});
+```
+
+**Rule of Thumb:**
+
+If you're testing whether a popular, well-maintained library works correctly, **don't write that test**. Focus on testing the unique logic and integrations you build for Sumba Sunset.
 
 ---
 
@@ -146,23 +215,28 @@ The `.claude/planning/` directory is the single source of truth for all work. It
    - `not_started` → `in_progress` when you begin
    - `in_progress` → `completed` only when ALL quality gates pass
    - `in_progress` → `blocked` if you cannot proceed
-5. **Commit incrementally**: Make atomic commits as you complete major steps
+5. **Stage changes incrementally**: Use `git add` as you complete major steps (DO NOT commit)
 6. **NEVER batch updates** - update the planning doc after EVERY completed step
 7. **Track time**: Update `started` and `completed` timestamps, record `actual_time`
+8. **After task completion**: Notify user that changes are staged and await review before committing
 
 ### After Implementation
 
 1. **Complete the Quality Gates checklist** - ALL items must pass
 2. **Add Retrospective section** documenting learnings
-3. **Push branch**: `git push -u origin <branch-name>`
-4. **Create Pull Request** using `gh pr create` with:
+3. **Stage all changes**: `git add -A`
+4. **Notify user** that task is complete and changes are staged for review
+5. **Wait for user approval** - DO NOT commit or push without user instruction
+6. **After user approval**, commit with descriptive message
+7. **Push branch**: `git push -u origin <branch-name>`
+8. **Create Pull Request** using `gh pr create` with:
    - Descriptive title from planning doc
    - Summary of changes
    - Link to planning doc
    - Manual testing checklist for user
-5. **Update the Planning Index** (`.claude/planning/index.md`) to move task to "Completed"
-6. **Link PR in planning doc** - Add PR number/URL to retrospective
-7. **Link to related tasks** if follow-up work is needed
+9. **Update the Planning Index** (`.claude/planning/index.md`) to move task to "Completed"
+10. **Link PR in planning doc** - Add PR number/URL to retrospective
+11. **Link to related tasks** if follow-up work is needed
 
 ### Planning Templates
 
@@ -202,9 +276,10 @@ Use these commands for planning workflows:
 
 ### Commit Strategy
 
-- Make atomic commits during implementation
-- Each major step = one commit
-- Follow conventional commit format: `feat:`, `fix:`, `refactor:`, etc.
+- **Stage changes** incrementally as work progresses (`git add`)
+- **DO NOT commit without user review** after completing SS-X tasks
+- After user approves staged changes, create commit with conventional format: `feat:`, `fix:`, `refactor:`, etc.
+- User may request changes before committing
 
 ### Pull Request Creation
 
@@ -215,20 +290,21 @@ Use these commands for planning workflows:
 ### Claude's Git Responsibilities
 
 1. Create feature branch at start of task
-2. Commit incrementally during implementation (atomic commits)
-3. Push branch when all quality gates pass
-4. Create PR with comprehensive description
-5. Link PR URL back to planning doc
+2. **Stage changes** as work progresses (using `git add`)
+3. **DO NOT commit or push** - wait for user review after task completion
+4. When task is complete, notify user that changes are staged and ready for review
+5. After user reviews and approves, user will instruct Claude to commit and push
 
 ### User's Git Responsibilities
 
-1. Review PR and code changes
-2. Run manual testing checklist
-3. Approve and merge PR (or request changes)
-4. **Verify deployment** after merge to main (Vercel auto-deploys)
-5. **Perform smoke testing** on production after each milestone deployment
-6. **Verify deployment** after merge to main (Vercel auto-deploys)
-7. **Perform smoke testing** on production after each milestone deployment
+1. **Review staged changes** after Claude completes each SS-X task
+2. Verify code changes look correct using the Source Control window in VS Code
+3. **Instruct Claude to commit and push** if approved (or request changes)
+4. Review PR after Claude creates it
+5. Run manual testing checklist
+6. Approve and merge PR (or request changes)
+7. **Verify deployment** after merge to main (Vercel auto-deploys)
+8. **Perform smoke testing** on production after each milestone deployment
 
 ### Handling PR Review Delays
 
@@ -302,15 +378,36 @@ When a PR is waiting for review and blocking dependent work:
 - **Third-party services**: Some services (webhooks, APIs) work better with stable domain
 - **Confidence building**: Progressive validation that everything works in real environment
 
-### Pre-Launch Privacy
+### Pre-Launch Privacy Controls
 
-Since we deploy to the live domain during development, we control public visibility:
+Since we deploy to the live domain during development, we control public visibility through a three-layer privacy control system:
 
-1. **robots.txt blocking**: Prevent search engine indexing until official launch
-2. **"Under construction" banner**: Clear messaging to any visitors who find the site
-3. **Easy launch**: Simply remove banner and unblock search engines (no deployment needed)
+1. **robots.txt blocking**: Prevent search engine crawling and indexing until official launch
+2. **Pre-launch banner**: Professional "under construction" banner for any visitors who find the site
+3. **Environment variable toggle**: Single `NEXT_PUBLIC_PRE_LAUNCH` flag controls banner visibility
 
-**Implementation**: Milestone 2 (SS-4) adds banner and robots.txt blocking
+**Implementation**: SS-6 (Pre-Launch Privacy Controls) ✅ Completed 2025-10-26
+
+**How It Works:**
+
+- Banner displays when `NEXT_PUBLIC_PRE_LAUNCH=true` (set in Vercel Dashboard for Production)
+- `public/robots.txt` blocks all search engines with `Disallow: /`
+- Banner component: `src/components/layout/PreLaunchBanner.tsx`
+- Banner integrated in root layout: `app/layout.tsx`
+
+**At Launch (Milestone 8):**
+
+1. Set `NEXT_PUBLIC_PRE_LAUNCH=false` in Vercel Dashboard
+2. Update `public/robots.txt` to allow crawling
+3. Commit and deploy
+4. Banner removed, search engines allowed - site is public! 🚀
+
+**Benefits:**
+
+- Deploy continuously to sumbasunset.com without worrying about premature visibility
+- Professional appearance for any visitors who find the site
+- Easy launch toggle (no code changes needed, just flip env var)
+- Zero cutover risk - domain is already live and tested throughout development
 
 ### Deployment Process (After Each Milestone)
 
@@ -340,7 +437,7 @@ After each milestone deployment, user must verify:
 
 Some milestones require extra validation in production:
 
-- **Milestone 2 (Domain Setup)**: Verify DNS resolves, SSL works, banner displays
+- **Milestone 2 (Domain Setup & Privacy)**: Verify DNS resolves, SSL works, pre-launch banner displays, robots.txt blocks crawlers
 - **Milestone 3 (Beds24)**: Test booking widget loads on real domain
 - **Milestone 4 (Communication)**: Test contact form → Twilio → WhatsApp flow (real webhooks)
 - **Milestone 5 (Media)**: Verify Vercel Blob uploads work in production
