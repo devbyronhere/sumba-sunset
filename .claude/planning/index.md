@@ -97,7 +97,7 @@ After completing each milestone:
 - [x] SS-4: Third-Party Credentials & Access Setup
 - [x] SS-5: shadcn/ui setup with base components
 - [x] SS-6: Pre-Launch Privacy Controls (robots.txt + banner + env var)
-- [ ] SS-7: Vitest testing framework setup
+- [x] SS-7: Vitest testing framework setup
 - [ ] SS-8: Vercel Blob integration for images
 - [ ] SS-9: Monitoring setup (Sentry, GA4, UptimeRobot)
 
@@ -176,6 +176,7 @@ After completing each milestone:
 
 **Tasks:**
 
+- [ ] SS-21: Admin Authentication (basic password-protected admin routes)
 - [ ] SS-22: Image upload system (Vercel Blob with pre-optimization)
 - [ ] SS-23: YouTube video embeds (loop, no ads)
 - [ ] SS-24: Image gallery component (basic version)
