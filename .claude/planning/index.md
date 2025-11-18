@@ -98,7 +98,7 @@ After completing each milestone:
 - [x] SS-5: shadcn/ui setup with base components
 - [x] SS-6: Pre-Launch Privacy Controls (robots.txt + banner + env var)
 - [x] SS-7: Vitest testing framework setup
-- [ ] SS-8: Vercel Blob integration for images
+- [x] SS-8: Vercel Blob integration for images
 - [ ] SS-9: Monitoring setup (Sentry, GA4, UptimeRobot)
 
 **Outcome:** Core infrastructure ready for feature development with testing and monitoring in place. Domain configured and pointing to live site with pre-launch privacy controls active.

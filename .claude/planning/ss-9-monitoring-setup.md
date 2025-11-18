@@ -43,9 +43,9 @@ Set up comprehensive monitoring for the Sumba Sunset website including error tra
 
 - [x] SS-1: Next.js Project Setup completed
 - [x] SS-2: Linting & Formatting Setup completed
-- [ ] SS-3: Domain Configuration (for uptime monitoring)
-- [ ] SS-4: Credentials Setup (need monitoring service keys)
-- [ ] User creates accounts for services
+- [x] SS-3: Domain Configuration (for uptime monitoring)
+- [x] SS-4: Credentials Setup (need monitoring service keys)
+- [x] User creates accounts for services
 
 ---
 
