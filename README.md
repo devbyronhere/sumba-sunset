@@ -166,9 +166,11 @@ vercel --prod
 - Contact form with Twilio → WhatsApp integration
 - Beds24 booking widget integration
 - Image optimization with Vercel Blob
-- Google Analytics 4 tracking
-- Sentry error monitoring
-- UptimeRobot monitoring
+- Comprehensive monitoring and observability:
+  - **Sentry:** Error tracking and performance monitoring
+  - **Google Analytics 4:** User behavior and conversion tracking
+  - **UptimeRobot:** 24/7 uptime monitoring and alerts
+  - **Vercel Analytics:** Core Web Vitals and performance metrics
 
 ## Contributing
 
@@ -211,6 +213,8 @@ See [`.claude/planning/`](./.claude/planning/) for task management and planning 
 - **[Architecture](./.claude/docs/architecture.md)** - Technical architecture, services, and integrations
 - **[Coding Standards](./.claude/docs/coding-standards.md)** - Code conventions, patterns, and examples
 - **[Deployment](./.claude/docs/deployment.md)** - Deployment process, environment, and CI/CD
+- **[Monitoring](./docs/MONITORING.md)** - Monitoring runbook, alert response, and troubleshooting
+- **[UptimeRobot Setup](./docs/UPTIME_ROBOT_SETUP.md)** - Step-by-step uptime monitoring setup
 
 ## License
 
