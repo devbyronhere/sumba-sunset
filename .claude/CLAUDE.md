@@ -30,7 +30,8 @@ This file provides core guidance to Claude Code (claude.ai/code) when working wi
 - Follow TDD workflow for all features
 - Update planning documents in real-time during implementation
 - Run all quality gates (tests, linting, type-checking)
-- Create commits, branches, and pull requests
+- have code ready for user's manual committing,
+- on user's command, push and create a PR
 - Ask clarifying questions when requirements are unclear
 - Report blockers (missing API keys, permission issues, etc.) to user
 
@@ -53,7 +54,7 @@ This file provides core guidance to Claude Code (claude.ai/code) when working wi
 **Claude MUST follow Test-Driven Development (TDD) for all feature development on this project:**
 **Claude MUST follow Test-Driven Development (TDD) for all feature development on this project:**
 
-1. **New Features**: First write tests to define AC. Run tests to ensure code quality and functionality before committing. Always write tests unless explicitly told not to.
+1. **New Features**: First write tests to define AC. Run tests to ensure code quality and functionality before the user will manually commit. Always write tests unless explicitly told not to.
 
 **EXCEPTION: Infrastructure/Configuration Tasks**
 
@@ -399,7 +400,7 @@ Since we deploy to the live domain during development, we control public visibil
 
 1. Set `NEXT_PUBLIC_PRE_LAUNCH=false` in Vercel Dashboard
 2. Update `public/robots.txt` to allow crawling
-3. Commit and deploy
+3. Deploy
 4. Banner removed, search engines allowed - site is public! 🚀
 
 **Benefits:**
@@ -469,7 +470,7 @@ If deployment causes production issues:
 - [ ] Code coverage meets target (typically 80%)
 - [ ] Documentation updated (README, JSDoc, etc.)
 - [ ] Planning doc fully checked off
-- [ ] Git commit created with descriptive message
+- [ ] User's manaul git commit created with descriptive message
 
 ---
 
