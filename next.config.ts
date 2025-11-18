@@ -47,4 +47,9 @@ export default withSentryConfig(nextConfig, {
   // https://docs.sentry.io/product/crons/
   // https://vercel.com/docs/cron-jobs
   automaticVercelMonitors: true,
+
+  // Capture React component names for better debugging in Session Replay
+  reactComponentAnnotation: {
+    enabled: true,
+  },
 });
