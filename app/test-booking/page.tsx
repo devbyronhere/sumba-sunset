@@ -1,13 +1,12 @@
-import Beds24TestWidget from '@/components/Beds24TestWidget';
+import Beds24IframeWidget from '@/components/booking/Beds24IframeWidget';
 
-export default function TestBookingPage() {
+export default function BookingPage() {
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="mb-4 text-2xl font-bold">Beds24 Widget Validation</h1>
-      <p className="mb-4 text-gray-600">
-        Testing Beds24 widget integration with Next.js 15
-      </p>
-      <Beds24TestWidget />
+    <div>
+      <div className="container mx-auto p-4">
+        <h1 className="mb-4 text-2xl font-bold">Beds24 Booking Widget</h1>
+        <Beds24IframeWidget />
+      </div>
     </div>
   );
 }

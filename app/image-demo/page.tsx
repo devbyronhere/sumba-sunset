@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { ImageUploader } from '@/components/image/ImageUploader';
-import { ImageGallery, type ImageItem } from '@/components/image/ImageGallery';
+import { ImageUploader } from '@/components/media/ImageUploader';
+import { ImageGallery, type ImageItem } from '@/components/media/ImageGallery';
 
 export default function ImageDemoPage() {
   const [images, setImages] = useState<ImageItem[]>([]);

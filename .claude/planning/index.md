@@ -113,9 +113,9 @@ After completing each milestone:
 
 ---
 
-### Milestone 3: Beds24 Setup & Integration + Currency Decision
+### Milestone 3: Beds24 Setup & Integration
 
-**Status:** Not Started
+**Status:** In Progress
 **Target Date:** TBD
 **Dependencies:** Milestone 2 (requires SS-4 credentials)
 
@@ -125,25 +125,21 @@ After completing each milestone:
 
 **Tasks:**
 
-- [ ] SS-10: Beds24 Integration Validation (30-60 min technical spike)
-- [ ] SS-11: Beds24 Account Setup & Configuration (USER creates account, 8-12 hours)
-- [ ] SS-12: Beds24 widget integration (basic placeholder booking page)
-- [ ] SS-13: Beds24 payment configuration (Stripe integration, 50% deposit model)
-- [ ] SS-14: Beds24 email templates (booking confirmation, pre-arrival, post-stay)
+- [x] SS-10: Beds24 Integration Validation (30-60 min technical spike)
+- [x] SS-11: Beds24 Account Setup & Configuration (USER creates account, 8-12 hours) - Using test rooms, IDR currency and offline payments
+- [x] SS-12: Beds24 widget integration (basic placeholder booking page)
+- [ ] SS-13: Beds24 payment configuration (Figure out which payment gateway to use). See the 'payment-gateway-comparison.md' and 'midtrans-beds24-integration-guide.md' for existing research
+- [ ] SS-14: Beds24 email templates (booking confirmation, pre-arrival, post-stay) - Using defaults, customization optional. Do they all arrive
 - [ ] SS-15: Beds24 widget CSS customization (mobile-first responsive design)
-- [ ] SS-16: Currency Switch Spike - Investigate USD → IDR migration
+- [ ] SS-16: Add Real Room Info - Replace test rooms with actual property details when owner provides info
 
-**Outcome:** Fully functional booking system with Beds24 widget integrated, payment processing configured, and automated email workflows set up. **Currency decision made** before building marketing pages (avoids rework if switching from USD to IDR).
+**Current state/progress:** The booking widget is set up. Leaving payment gateway (ss-13), styling of email templates (ss-14), widget custom styling (ss-15) and the addition of real room info (ss-16) for now. Will come back to this at a later stage.
 
-**Note:** User will create Beds24 account at start of this milestone. Claude will guide through configuration steps in SS-11 planning doc.
+**Outcome:** Fully functional booking system with Beds24 widget integrated, payment processing configured (Stripe pending), and automated email workflows set up. **Currency set to IDR (Indonesian Rupiah)** - all pricing will display in IDR throughout the site.
 
-**Why Currency Decision Here?** Making the USD vs. IDR decision NOW (before Milestone 5-6 marketing pages) means:
+**Note:** User created Beds24 account with test rooms and IDR currency. SS-16 will replace test rooms with real property details when owner provides information.
 
-- If you choose IDR, we build all pricing displays with IDR from the start
-- No rework needed to update currency formatting in already-built pages
-- Beds24 currency is set correctly before any content references it
-
-**Deployment:** After milestone completion, merge to main and deploy. **CRITICAL**: Test end-to-end booking flow in production with real Stripe test cards. Verify email automation triggers correctly. Document currency decision for all future work.
+**Deployment:** After milestone completion, merge to main and deploy. **CRITICAL**: Test end-to-end booking flow in production. Verify email automation triggers correctly. Currency is set to IDR for all future work.
 
 ---
 
@@ -256,6 +252,7 @@ After completing each milestone:
 - [ ] SS-40: Remove pre-launch banner (set NEXT_PUBLIC_PRE_LAUNCH=false)
 - [ ] SS-41: Final pre-launch checklist (comprehensive QA)
 - [ ] SS-42: Go live announcement! (social media, press, etc.)
+- [ ] SS-43: Gmail email integration for info@sumbasunset.com (Hostinger → Gmail)
 
 **Outcome:** Fully functional, tested, and polished surf camp website publicly launched at sumbasunset.com with chosen currency (USD or IDR from M3 decision) and production WhatsApp integration.
 

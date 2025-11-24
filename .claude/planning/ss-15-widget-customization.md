@@ -14,7 +14,7 @@ branch: ss-15/feat/widget-css
 pr_number: null
 ---
 
-[← Previous: SS-14 Email Templates](./ss-14-email-templates.md) | [📋 Index](./index.md) | [Next: SS-16 Currency Decision →](./ss-16-currency-decision.md)
+[← Previous: SS-14 Email Templates](./ss-14-email-templates.md) | [📋 Index](./index.md) | [Next: SS-16 Add Real Room Info →](./ss-16-real-room-info.md)
 
 # [Feature] Beds24 Widget CSS Customization
 
@@ -55,6 +55,7 @@ As a potential guest, I want a visually appealing and easy-to-use booking interf
 - [ ] **AC5**: Loading states and transitions smooth
 - [ ] **AC6**: Accessibility maintained (contrast, focus states)
 - [ ] **AC7**: Cross-browser compatibility verified
+- [ ] **AC8**: Add booking page layout and navigation. header, footer, breadcrumbs, etc.
 
 ---
 
@@ -90,20 +91,9 @@ As a potential guest, I want a visually appealing and easy-to-use booking interf
 
 ## Implementation Steps
 
-### Phase 1: Setup & Test Writing (TDD)
-
-- [ ] **Step 1.1**: Create test files for CSS utilities
-- [ ] **Step 1.2**: Write tests for style injection function
-- [ ] **Step 1.3**: Write tests for responsive breakpoints
-- [ ] **Step 1.4**: Write tests for theme variable application
-- [ ] **Step 1.5**: Write tests for CSS scoping
-- [ ] **Step 1.6**: Run tests to verify they fail
-
-**TDD Checkpoint:** All tests written and failing
-
 ---
 
-### Phase 2: CSS Architecture Setup
+### Phase 1: CSS Architecture Setup
 
 - [ ] **Step 2.1**: Create widget styles structure:
 
@@ -147,7 +137,7 @@ As a potential guest, I want a visually appealing and easy-to-use booking interf
 
 ---
 
-### Phase 3: Core Component Styling
+### Phase 2: Core Component Styling
 
 - [ ] **Step 3.1**: Style form elements:
 
@@ -215,7 +205,7 @@ As a potential guest, I want a visually appealing and easy-to-use booking interf
 
 ---
 
-### Phase 4: Mobile Optimization
+### Phase 3: Mobile Optimization
 
 - [ ] **Step 4.1**: Implement responsive layout:
 
@@ -286,7 +276,7 @@ As a potential guest, I want a visually appealing and easy-to-use booking interf
 
 ---
 
-### Phase 5: Visual Polish
+### Phase 4: Visual Polish
 
 - [ ] **Step 5.1**: Add loading states:
 
@@ -364,7 +354,7 @@ As a potential guest, I want a visually appealing and easy-to-use booking interf
 
 ---
 
-### Phase 6: Cross-Browser Testing
+### Phase 5: Cross-Browser Testing
 
 - [ ] **Step 6.1**: Test on major browsers:
   - Chrome (latest)
