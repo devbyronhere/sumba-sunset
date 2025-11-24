@@ -14,7 +14,7 @@ branch: ss-17/feat/contact-form
 pr_number: null
 ---
 
-[← Previous: SS-16 Currency Decision](./ss-16-currency-decision.md) | [📋 Index](./index.md) | [Next: SS-18 Twilio Integration →](./ss-18-twilio-integration.md)
+[← Previous: SS-16 Add Real Room Info](./ss-16-real-room-info.md) | [📋 Index](./index.md) | [Next: SS-18 Twilio Integration →](./ss-18-twilio-integration.md)
 
 # [Feature] Contact Form with React Hook Form + Zod
 

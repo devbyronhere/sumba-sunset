@@ -1,19 +1,19 @@
 ---
 task_id: ss-11
 title: '[Infrastructure] Beds24 Account Setup & Configuration'
-status: not_started
+status: in_progress
 priority: high
 estimated_time: '8-12 hours'
 actual_time: null
 dependencies: [ss-4, ss-10]
 created: 2025-01-19
-started: null
+started: 2025-01-18
 completed: null
-related_docs: ['beds24-feasibility-research.md']
+related_docs: ['beds24-feasibility-research.md', 'beds24-email-templates.md']
 infra_type: configuration
 branch: ss-11/infra/beds24-setup
-currency_decision: USD
-currency_rationale: 'Start with USD for simplicity - most international surf travelers expect USD. SS-16 (in this milestone) will investigate USD→IDR currency switch BEFORE building marketing pages to avoid rework.'
+currency_decision: IDR
+currency_rationale: 'Using Indonesian Rupiah (IDR) as primary currency. Property is in Indonesia, aligns with local operations. SS-16 will handle adding real room details when property owner provides information.'
 ---
 
 [← Previous: SS-10 Beds24 Validation](./ss-10-beds24-validation.md) | [📋 Index](./index.md) | [Next: SS-12 Beds24 Widget Integration →](./ss-12-beds24-widget-integration.md)
@@ -22,7 +22,7 @@ currency_rationale: 'Start with USD for simplicity - most international surf tra
 
 ## Overview
 
-Create and fully configure a Beds24 account for booking management, including property setup, pricing rules, availability calendar, payment gateway (Stripe), and widget generation.
+Create and fully configure a Beds24 account for booking management, including property setup, pricing rules, availability calendar, payment gateway (offline for now), and widget generation.
 
 **Infrastructure Type:** Configuration (Third-party Service)
 **Impact:** Enables booking functionality for Sumba Sunset website
@@ -40,51 +40,49 @@ Create and fully configure a Beds24 account for booking management, including pr
 2. **Property Configuration** - Add property details, rooms, capacity
 3. **Pricing System** - Base rates, seasonal pricing, weekend rates
 4. **Availability Rules** - Min/max nights, advance booking, buffer days
-5. **Payment Gateway** - Connect Stripe, configure deposit rules
+5. **Payment Gateway** - Connect offline payments for noew, configure deposit rules
 6. **Booking Widget** - Generate embed code, test functionality
 7. **Email Automation** - Booking confirmation, pre-arrival, check-in, post-stay
 8. **API Keys** - Obtain account + property keys for integration
 
-**⚠️ Currency Decision:** This task sets up Beds24 with USD initially. **SS-16 (Currency Investigation)** in this same milestone will investigate switching to IDR. If you decide on IDR, you'll update the Beds24 currency setting before completing this milestone. This ensures marketing pages (M5-6) are built with the correct currency from the start.
+**✅ Currency Decision:** Beds24 configured with Indonesian Rupiah (IDR) as primary currency. **SS-16 (Add Real Room Info)** will handle replacing mock room data with actual room details when property owner provides information.
 
 ---
 
 ## Prerequisites/Dependencies
 
 - [x] SS-5: Credentials setup document exists
-- [ ] Budget approved for Beds24 ($40-50/month for 9-room property)
-- [ ] Stripe account ready (for payment gateway connection)
-- [ ] Property details documented (rooms, capacity, amenities, photos)
-- [ ] Pricing strategy defined (base rates, seasonal rates, weekend rates)
-- [ ] Business email for Beds24 account
+- [x] Budget approved for Beds24 ($40-50/month for 9-room property)
+- [x] Property details uploaded using dummy rooms
+- [x] Pricing strategy defined (base rate only)
+- [x] Business dummy/dev email for Beds24 account = devbyronhere@gmail.com
 
 ---
 
 ## Acceptance Criteria
 
-- [ ] **AC1**: Beds24 account created and plan selected
-- [ ] **AC2**: Property added with complete details (name, address, description, photos)
-- [ ] **AC3**: Room types configured with capacity and amenities
-- [ ] **AC4**: Pricing calendar set up with base rates and seasonal variations
-- [ ] **AC5**: Availability rules configured (min/max nights, advance booking)
-- [ ] **AC6**: Stripe payment gateway connected
-- [ ] **AC7**: Deposit payment model configured (50% upfront)
-- [ ] **AC8**: Booking widget generated and embed code obtained
-- [ ] **AC9**: Widget tested on mobile and desktop
-- [ ] **AC10**: Automated email templates customized
-- [ ] **AC11**: Test booking completed end-to-end
-- [ ] **AC12**: Account-level API key obtained
-- [ ] **AC13**: Property-level API key obtained
-- [ ] **AC14**: API keys added to `.env.local`
-- [ ] **AC15**: Beds24 setup documented in beds24-setup-guide.md
+- [x] **AC1**: Beds24 account created and plan selected ✅ (Fixed rate pricing plan)
+- [x] **AC2**: Property added with complete details (name, address, description, photos) ✅ (Using test property for now)
+- [x] **AC3**: Room types configured with capacity and amenities ✅ (2 test rooms added, awaiting real room info)
+- [x] **AC4**: Pricing calendar set up with base rates ✅ (Fixed rate, no seasonal variations)
+- [x] **AC5**: Availability rules configured ✅ (No min/max nights or buffer days)
+- [x] **AC6**: Offline payment method coniguration
+- [x] **AC7**: Deposit payment model configured (50% upfront)
+- [x] **AC8**: Booking widget generated and embed code obtained ✅
+- [x] **AC9**: Widget tested on test page ✅
+- [x] **AC10**: Automated email templates (using defaults) ✅
+- [x] **AC11**: Test booking completed end-to-end ✅ (Email confirmation received)
+- [x] **AC12**: Account-level API key obtained ✅
+- [x] **AC13**: Property-level API key obtained ✅
+- [x] **AC14**: API keys added to `.env.local` ✅ (BEDS24_API_KEY, BEDS24_PROP_KEY, NEXT_PUBLIC_BEDS24_WIDGET_ID)
 
 ---
 
 ## Implementation Steps
 
-### Phase 1: Account Creation (USER - 1 hour)
+### Phase 1: Account Creation (USER - 1 hour) ✅ COMPLETED
 
-- [ ] **Step 1.1**: Visit [beds24.com](https://beds24.com) and create account
+- [x] **Step 1.1**: Visit [beds24.com](https://beds24.com) and create account ✅
   - Click "Sign Up" or "Create Account"
   - Fill in business details:
     - Business name: "Sumba Sunset Surf Camp"
@@ -92,9 +90,9 @@ Create and fully configure a Beds24 account for booking management, including pr
     - Password: Strong password (store in password manager)
     - Country: Indonesia
 
-- [ ] **Step 1.2**: Verify email address
+- [x] **Step 1.2**: Verify email address ✅
 
-- [ ] **Step 1.3**: Choose pricing plan:
+- [x] **Step 1.3**: Choose pricing plan ✅ (Fixed rate plan selected):
   - Research available plans at beds24.com/pricing
   - Check features included:
     - Number of properties supported
@@ -107,327 +105,112 @@ Create and fully configure a Beds24 account for booking management, including pr
     - Channel manager for OTA integrations
     - Full API access
     - Automated email templates
-    - Payment gateway integration (Stripe)
+    - Payment gateway integration (offline for now)
   - Document plan choice and features included
 
-- [ ] **Step 1.4**: Complete account profile
+- [x] **Step 1.4**: Complete account profile ✅
   - Company information:
     - Business name: "Sumba Sunset Surf Camp"
     - Address: Sumba, Indonesia
     - Phone number
     - Tax ID (if applicable in Indonesia)
   - **Time zone**: Asia/Makassar (WITA) - CRITICAL for Sumba
-  - **Default currency**: USD (firm decision - see frontmatter for rationale)
-  - **Default currency**: USD (firm decision - see frontmatter for rationale)
+  - **Default currency**: IDR (Indonesian Rupiah) ✅
   - **Language**: English
 
-- [ ] **Step 1.5**: Set up billing information
+- [x] **Step 1.5**: Set up billing information ✅
 
-**Checkpoint:** Account created, plan activated
+**Checkpoint:** Account created, plan activated ✅
 
 ---
 
-### Phase 2: Property Configuration (USER - 2-3 hours)
+### Phase 2: Property Configuration (USER - 2-3 hours) ✅ COMPLETED (Using test data)
 
-- [ ] **Step 2.1**: Add new property
+- [x] **Step 2.1**: Add new property ✅
   - Navigate to: Dashboard → Properties → Add Property
   - Property name: "Sumba Sunset Surf Camp"
   - Address: [Full Sumba, Indonesia address]
   - Property type: Guest House / Surf Camp
   - GPS coordinates: [Latitude, Longitude] (for map display)
-  - Currency: USD (firm decision - see frontmatter for rationale)
-  - Currency: USD (firm decision - see frontmatter for rationale)
+  - Currency: IDR (Indonesian Rupiah) ✅
 
-- [ ] **Step 2.2**: Upload property photos
-  - **Essential Photos (10-15 minimum)**:
-    1. Hero shot (exterior with beach/sunset)
-    2. Each room type (2-3 photos per room)
-    3. Communal areas (lounge, dining, outdoor space)
-    4. Kitchen facilities
-    5. Bathroom facilities
-    6. Surf/beach views
-    7. Activity photos (surfing, social areas)
-    8. Nearby attractions
-  - **Photo Guidelines**:
-    - High resolution (at least 1920x1080)
-    - Horizontal orientation (landscape)
-    - Well-lit (natural light preferred)
-    - Clean, decluttered spaces
-    - Show actual property (no stock photos)
-    - First photo is the hero image (most important)
+- [x] **Step 2.2**: Upload property photos ✅ (Using test photos - **SS-16 will add real photos**)
 
-- [ ] **Step 2.3**: Write property description
-  - **Guest-facing copy** (example):
+- [x] **Step 2.3**: Write property description ✅ (Using test description - **SS-16 will add real copy**)
 
-    ```
-    Sumba Sunset is a surf camp located in [location], Sumba, Indonesia.
+- [x] **Step 2.4**: Configure rooms/accommodation ✅ (2 test rooms added - **SS-16 will add real room details**)
+  - Currently using mock room data
+  - Awaiting property owner to provide:
+    - Real room names, types, and quantities
+    - Actual capacity and bed configurations
+    - Real amenities per room
+    - Actual room photos
+    - Real pricing in IDR
 
-    Nestled on the edge of [beach name], we offer the perfect base for your
-    surf adventure. Our property features [number] comfortable rooms, communal
-    areas for relaxing after a day in the water, and easy access to some of
-    Sumba's best surf breaks.
+- [x] **Step 2.5**: Set property-level amenities ✅ (Using test amenities - **SS-16 will add real amenities**)
 
-    [Add more details about amenities, nearby surf spots, vibe, etc.]
-    ```
+- [x] **Step 2.6**: Set house rules ✅ (Using test rules - **SS-16 will add real house rules**)
 
-  - Include:
-    - Surf camp overview
-    - Location highlights
-    - Amenities and facilities
-    - Nearby surf breaks
-    - Property vibe and atmosphere
-
-- [ ] **Step 2.4**: Configure rooms/accommodation
-
-  **For each room type:**
-  1. **Room Name**: "Ocean View Private Room", "Shared Dorm - 4 Beds", etc.
-  2. **Room Type**: Private room, Shared room, Dorm bed
-  3. **Capacity**:
-     - Max guests: [number]
-     - Max adults: [number]
-     - Max children: [number]
-  4. **Bed Configuration**:
-     - 1 Double bed, or
-     - 2 Single beds, or
-     - 4 Bunk beds, etc.
-  5. **Room Size**: [square meters]
-  6. **Room Amenities**:
-     - Private bathroom or shared
-     - Air conditioning or fan
-     - Ocean view
-     - Balcony
-     - [Other amenities]
-  7. **Quantity**: Number of this room type available
-  8. **Photos**: Upload 2-3 photos per room type
-
-  **Example Room Setup for Sumba Sunset:**
-  - **Room Type 1**: Ocean View Private (2 rooms)
-    - 2 guests, 1 double bed, private bathroom, AC, balcony
-    - Price: $XX/night
-
-  - **Room Type 2**: Standard Private (3 rooms)
-    - 2 guests, 1 double bed, shared bathroom, fan
-    - Price: $XX/night
-
-  - **Room Type 3**: Shared Dorm - 4 Beds (1 room)
-    - 4 guests, 4 single beds (bunk beds), shared bathroom, fan
-    - Price: $XX/night per bed
-
-- [ ] **Step 2.5**: Set property-level amenities
-  - Check all that apply:
-    - WiFi
-    - Parking
-    - Outdoor space / Garden
-    - Communal kitchen
-    - Laundry facilities
-    - Surf equipment storage
-    - Board rental
-    - [Other amenities specific to property]
-
-- [ ] **Step 2.6**: Set house rules
-  - Check-in time: [e.g., 2:00 PM]
-  - Check-out time: [e.g., 11:00 AM]
-  - Quiet hours: [e.g., 10:00 PM - 7:00 AM]
-  - No smoking indoors
-  - Respect communal spaces
-  - [Other rules]
-
-**Checkpoint:** Property fully configured with rooms and details
+**Checkpoint:** Property configured with test data ✅ (Real data will be added in SS-16)
 
 ---
 
-### Phase 3: Pricing Setup (USER - 2-3 hours)
+### Phase 3: Pricing Setup (USER - 2-3 hours) ✅ COMPLETED (Fixed rate plan)
 
-- [ ] **Step 3.1**: Set base rates per room type
+- [x] **Step 3.1**: Set base rates per room type ✅
   - Navigate to: Property → Prices
-  - Set base rate per room type:
-    - Ocean View Private: $XX/night
-    - Standard Private: $XX/night
-    - Shared Dorm Bed: $XX/night
+  - Fixed rate pricing plan selected (no seasonal variations)
+  - Using test pricing in IDR - **SS-16 will add real pricing**
   - Set date range: Next 12 months
   - Document pricing strategy
 
-- [ ] **Step 3.2**: Set up seasonal pricing
+- [x] **Step 3.2**: Set up seasonal pricing ✅ (SKIPPED - Using fixed rate plan, no seasonal variations)
 
-  **Strategy for Sumba (Surf Seasons):**
-  - **High Season** (Best Surf): May - October
-    - Increase base rates by 20-30%
-    - Example: Ocean View $XX → $XX
+- [x] **Step 3.3**: Configure weekend pricing ✅ (SKIPPED - Not needed for surf camp)
 
-  - **Shoulder Season**: April, November
-    - Keep base rates or slight discount
-
-  - **Low Season**: December - March
-    - Reduce rates by 10-20% to fill occupancy
-    - Example: Ocean View $XX → $XX
-
-  **Implementation:**
-  1. Navigate to: Property → Calendar → Prices
-  2. Select date range for high season
-  3. Adjust rates for all room types
-  4. Repeat for shoulder and low seasons
-  5. Save changes
-
-- [ ] **Step 3.3**: Configure weekend pricing (optional)
-  - **For Sumba:** Likely not needed (surf travelers book weekly stays, not weekends)
-  - If needed:
-    1. Navigate to: Property → Prices → Day of Week
-    2. Set Friday/Saturday premium (+10-20%)
-
-- [ ] **Step 3.4**: Set minimum stay requirements
+- [x] **Step 3.4**: Set minimum stay requirements ✅ (No min/max nights configured)
   - Navigate to: Property → Booking Rules
-  - **Minimum Stay**:
-    - High season: 3 nights minimum
-    - Low season: 2 nights minimum
-    - Special dates (holidays): 5-7 nights
-  - **Maximum Stay**:
-    - No maximum (encourage long stays)
+  - **No minimum stay** requirements set
+  - **No maximum stay** limits
 
-- [ ] **Step 3.5**: Configure advance booking rules
-  - **Advance Booking**:
-    - Open bookings: 12 months in advance
-    - Last-minute cutoff: Same day bookings allowed (or 24 hours)
+- [x] **Step 3.5**: Configure advance booking rules ✅
+  - Bookings open 12 months in advance
+  - Same day bookings allowed
 
-- [ ] **Step 3.6**: Add buffer days (optional)
-  - **Buffer Days** (Optional):
-    - 0 days (back-to-back bookings OK)
-    - Or 1 day between bookings for deep cleaning
-  - Navigate to: Property → Booking Rules
-  - Add buffer days if needed
+- [x] **Step 3.6**: Add buffer days ✅ (No buffer days - back-to-back bookings OK)
 
-- [ ] **Step 3.7**: Block closed dates
-  - Mark any dates you're closed for maintenance
-  - Mark dates already booked outside Beds24
-  - Navigate to calendar and block dates
+- [x] **Step 3.7**: Block closed dates ✅ (None currently blocked)
 
-**Checkpoint:** Pricing calendar fully configured
+**Checkpoint:** Pricing calendar configured with fixed rates ✅
 
 ---
 
-### Phase 4: Payment Gateway Setup (USER - 1-2 hours)
+### Phase 4: Widget Generation & Customization (USER - 2-3 hours) ✅ COMPLETED
 
-- [ ] **Step 4.1**: Connect Stripe account to Beds24
-  - **Prerequisites**:
-    - Stripe account already created
-    - Stripe verified and active
-    - Know your Stripe API keys
-  - **Steps**:
-    1. Navigate to: Settings → Payments → Payment Gateways
-    2. Select "Stripe"
-    3. Enter Stripe credentials:
-       - Publishable Key: `pk_live_...`
-       - Secret Key: `sk_live_...`
-    4. Test connection
-    5. Save settings
-
-- [ ] **Step 4.2**: Configure payment rules
-  - **Sumba Sunset Requirements**:
-    - Deposit: 50% due at booking
-    - Remainder: Cash on arrival
-  - **Implementation**:
-    1. Navigate to: Settings → Payments → Payment Rules
-    2. **Deposit Amount**:
-       - Select "Percentage"
-       - Enter `50`
-       - Due: "At time of booking"
-    3. **Remainder Payment**:
-       - Select "Manual" or "Cash"
-       - Instructions for guest: "Remainder payment due in cash on arrival"
-       - Add to booking confirmation email
-    4. **Currency**: USD (firm decision - see frontmatter for rationale)
-    5. **Accepted Cards**: All major cards (Visa, Mastercard, Amex)
-
-- [ ] **Step 4.3**: Set up refund & cancellation policy
-  - **Recommended Policy for Surf Camp**:
-    - **Flexible** (0-14 days before): Full refund minus processing fee
-    - **Moderate** (14-30 days before): 50% refund
-    - **Strict** (30+ days before): No refund, but can reschedule
-  - **Implementation**:
-    1. Navigate to: Settings → Policies → Cancellation
-    2. Select policy tier or create custom
-    3. Define refund amounts per timeframe
-    4. Add policy text to booking confirmation
-
-- [ ] **Step 4.4**: Configure invoice settings
-  - **Invoice Template**:
-    - Company name: Sumba Sunset Surf Camp
-    - Logo: Upload property logo
-    - Address: Sumba, Indonesia address
-    - Tax ID: If applicable
-  - **Email Settings**:
-    - Send invoice automatically on booking
-    - Send receipt on payment received
-  - **Tax Configuration** (if applicable):
-    - Indonesia VAT: [X%] (research local requirements)
-    - Tourist tax: [X IDR per night] (if applicable)
-
-- [ ] **Step 4.5**: Test payment flow with test credit card
-  - Make test booking
-  - Enter test credit card: `4242 4242 4242 4242`
-  - Process test payment
-  - Verify deposit amount correct (50%)
-  - Check confirmation email sent
-  - Verify booking appears in dashboard
-
-**Checkpoint:** Payments working correctly
-
----
-
-### Phase 5: Widget Generation & Customization (USER - 2-3 hours)
-
-- [ ] **Step 5.1**: Generate booking widget
+- [x] **Step 5.1**: Generate booking widget ✅
   - Navigate to: Widgets → Create New Widget
-  - Choose widget type:
-    - **Calendar View** (recommended) - Visual availability
-    - **Date Picker** - Simpler, less visual
-  - Configure widget settings:
-    - Language: English (primary), add Indonesian if needed
-    - Currency: USD (firm decision - see frontmatter for rationale)
-    - Currency: USD (firm decision - see frontmatter for rationale)
-    - Date format: DD/MM/YYYY or MM/DD/YYYY
-    - Show prices: Yes
-    - Show availability: Yes
-    - Number of months to show: 2-3
-  - Generate widget code
+  - Widget generated and configured
+  - Language: English
+  - Currency: IDR (Indonesian Rupiah) ✅
+  - Show prices: Yes
+  - Show availability: Yes
+  - Widget ID stored in `NEXT_PUBLIC_BEDS24_WIDGET_ID`
 
-- [ ] **Step 5.2**: Get embed code
+- [x] **Step 5.2**: Get embed code ✅
+  - Widget ID obtained and added to environment variables
+  - Widget tested on test page
 
-  **Option 1: iFrame Embed** (simpler, less customizable):
+- [x] **Step 5.3**: Test widget in Beds24 preview ✅
+  - Widget tested and working
+  - Booking flow functional
+  - Pricing displays correctly in IDR
 
-  ```html
-  <iframe
-    src="https://beds24.com/booking.php?propid=XXXXX"
-    width="100%"
-    height="800px"
-    frameborder="0"
-  >
-  </iframe>
-  ```
+- [x] **Step 5.4**: Test on actual devices ✅
+  - Widget tested on test page
+  - Basic functionality verified
 
-  **Option 2: JavaScript Embed** (more customizable):
-
-  ```html
-  <div id="beds24-widget"></div>
-  <script src="https://beds24.com/widget.js?propid=XXXXX"></script>
-  ```
-
-  - Copy both options - will decide in SS-10
-
-- [ ] **Step 5.3**: Test widget in Beds24 preview
-  - Use Beds24's widget preview feature
-  - Test all interactions (date selection, room choice, etc.)
-  - Check mobile responsiveness
-  - Test booking flow
-  - Verify pricing displays correctly
-  - Check availability calendar
-
-- [ ] **Step 5.4**: Test on actual devices
-  - iPhone (iOS Safari)
-  - Android phone (Chrome)
-  - Tablet (iPad)
-  - Desktop (Chrome, Firefox, Safari)
-
-- [ ] **Step 5.5**: Identify CSS customization needs
+- [x] **Step 5.5**: Identify CSS customization needs ✅
+  - CSS customization will be handled in SS-15
 
   **Visual Issues with Default Widget:**
   - Colors don't match Sumba Sunset brand
@@ -481,284 +264,51 @@ Create and fully configure a Beds24 account for booking management, including pr
 
 ---
 
-### Phase 6: Email Template Customization (USER - 1-2 hours)
+### Phase 5: Email Template Customization (USER - 1-2 hours) ✅ COMPLETED (Using defaults)
 
-Beds24 provides basic templates. Customize for professional appearance:
+Beds24 provides basic templates. Currently using default templates.
 
-- [ ] **Step 6.1**: Customize booking confirmation email
+- [x] **Step 6.1**: Email templates configured ✅ (Using Beds24 defaults)
+  - **Booking confirmation**: Email sent immediately after booking ✅
+  - **Pre-arrival**: Default template (customization guidance in [beds24-email-templates.md](beds24-email-templates.md))
+  - **Check-in**: Default template
+  - **Post-stay**: Default template
+  - Test booking completed successfully - emails received by both guest and property manager ✅
 
-  **Purpose:** Sent immediately after booking
+**Note:** See [beds24-email-templates.md](beds24-email-templates.md) for details on default templates and how to customize them in the future.
 
-  **Template Structure:**
-
-  ```
-  Subject: Booking Confirmed - Sumba Sunset Surf Camp
-
-  Hi [Guest Name],
-
-  🌅 Your Sumba Sunset adventure is booked!
-
-  BOOKING DETAILS:
-  - Check-in: [Date]
-  - Check-out: [Date]
-  - Nights: [X]
-  - Room: [Room Type]
-  - Guests: [Number]
-
-  PAYMENT SUMMARY:
-  - Total: $[Total]
-  - Deposit Paid: $[Deposit] ✅
-  - Balance Due: $[Balance] (cash on arrival)
-
-  NEXT STEPS:
-  1. We'll send check-in details 3 days before your arrival
-  2. Review our surf guide: [link]
-  3. Pack your boardshorts and stoke!
-
-  Questions? Reply to this email or WhatsApp: [number]
-
-  See you soon,
-  The Sumba Sunset Team
-
-  [Branding footer with logo, social links]
-  ```
-
-  **Implementation:**
-  1. Navigate to: Settings → Templates → Booking Confirmation
-  2. Replace default with custom HTML
-  3. Use merge fields: `{guestname}`, `{checkin}`, `{checkout}`, etc.
-  4. Test send to your email
-
-- [ ] **Step 6.2**: Customize pre-arrival email (sent 3-7 days before)
-
-  **Purpose:** Sent 3-7 days before check-in
-
-  **Template Structure:**
-
-  ```
-  Subject: Get Ready for Sumba! Check-in Info for [Guest Name]
-
-  Hi [Guest Name],
-
-  You're just [X] days away from Sumba Sunset!
-
-  HOW TO GET HERE:
-  - From Tambolaka Airport: [directions]
-  - GPS Coordinates: [coordinates]
-  - Airport pickup available: [booking link or price]
-
-  WHAT TO BRING:
-  - Surf equipment (or rent ours - $X/day)
-  - Reef booties (rocky entry at some breaks)
-  - Sunscreen (reef-safe only!)
-  - Cash for remainder payment ($[Balance])
-  - Mosquito repellent
-  - Your best surf stoke 🏄
-
-  CHECK-IN DETAILS:
-  - Time: 2:00 PM onwards
-  - Location: [address]
-  - WiFi password: (we'll share on arrival)
-
-  WEATHER & SURF:
-  Current conditions: [link to forecast]
-  Best breaks this week: [surf report]
-
-  Can't wait to host you!
-
-  The Sumba Sunset Team
-
-  [Branding footer]
-  ```
-
-  **Implementation:**
-  1. Navigate to: Settings → Templates → Pre-Arrival
-  2. Set trigger: 3 days before check-in
-  3. Customize content
-  4. Test send
-
-- [ ] **Step 6.3**: Customize check-in email (sent day of arrival)
-
-  **Purpose:** Sent on day of arrival
-
-  **Template Structure:**
-
-  ```
-  Subject: Welcome to Sumba Sunset! Check-in Today
-
-  Hi [Guest Name],
-
-  Welcome day! 🌅
-
-  CHECK-IN INFO:
-  - Time: From 2:00 PM
-  - Address: [full address]
-  - Contact: [phone number]
-
-  IMPORTANT INFO:
-  - WiFi: SumbaSunset / Password: [password]
-  - Breakfast: 7:00 AM - 9:00 AM
-  - Surf report board in common area
-  - Checkout: 11:00 AM on [date]
-
-  HOUSE RULES:
-  - No shoes inside
-  - Quiet hours: 10 PM - 7 AM
-  - Respect communal spaces
-  - Rinse surf gear outside
-
-  EMERGENCY CONTACTS:
-  - Property manager: [number]
-  - Local clinic: [number]
-  - Police: [number]
-
-  Need anything? We're here to help!
-
-  The Sumba Sunset Team
-
-  [Branding footer]
-  ```
-
-  **Implementation:**
-  1. Navigate to: Settings → Templates → Check-in
-  2. Set trigger: Day of arrival (8:00 AM)
-  3. Customize content
-  4. Test send
-
-- [ ] **Step 6.4**: Customize post-stay email (sent after checkout)
-
-  **Purpose:** Sent 1-2 days after checkout
-
-  **Template Structure:**
-
-  ```
-  Subject: Thanks for staying at Sumba Sunset! 🌅
-
-  Hi [Guest Name],
-
-  We hope you caught some epic waves!
-
-  SHARE YOUR EXPERIENCE:
-  We'd love to hear about your stay:
-  - Google Review: [link]
-  - TripAdvisor: [link]
-  - Instagram: Tag @sumbasunset
-
-  Your feedback helps future surfers find us.
-
-  COME BACK SOON:
-  Use code RETURN15 for 15% off your next stay.
-
-  STAY CONNECTED:
-  - Instagram: @sumbasunset
-  - Facebook: /sumbasunset
-  - Surf blog: [link]
-
-  Until next time, may the surf be with you! 🏄
-
-  The Sumba Sunset Team
-
-  [Branding footer]
-  ```
-
-  **Implementation:**
-  1. Navigate to: Settings → Templates → Post-Stay
-  2. Set trigger: 1 day after checkout (10:00 AM)
-  3. Customize content
-  4. Test send
-
-- [ ] **Step 6.5**: Configure email triggers
-  1. Navigate to: Settings → Automation → Email Triggers
-  2. Configure timing:
-     - Confirmation: Immediate (on booking)
-     - Pre-arrival: 3 days before check-in (8:00 AM)
-     - Check-in: Day of arrival (8:00 AM)
-     - Post-stay: 1 day after checkout (10:00 AM)
-  3. Test all triggers with test booking
-
-- [ ] **Step 6.6**: Email design tips
-  - **Mobile-first**: 60%+ will read on phone
-  - **Keep it concise**: Highlight key info
-  - **Clear CTAs**: Make links/buttons obvious
-  - **Branding**: Use logo and brand colors
-  - **Personal touch**: Friendly, casual tone for surf vibe
-  - **Test thoroughly**: Send to various email clients
-
-**Checkpoint:** Email automation configured and tested
+**Checkpoint:** Email automation working with default templates ✅
 
 ---
 
-### Phase 7: API Keys & Integration Prep (USER - 30 minutes)
+### Phase 6: API Keys & Integration Prep (USER - 30 minutes) ✅ COMPLETED
 
-- [ ] **Step 7.1**: Obtain account-level API key
+- [x] **Step 7.1**: Obtain account-level API key ✅
   - Navigate to: Account → Settings → API
-  - Generate new API key (if not exists)
-  - Copy `BEDS24_API_KEY`
-  - Store securely
+  - API key obtained
+  - Stored in `BEDS24_API_KEY`
 
-- [ ] **Step 7.2**: Obtain property-level API key
+- [x] **Step 7.2**: Obtain property-level API key ✅
   - Navigate to: Property → Settings → API Key
-  - Generate property key (if not exists)
-  - Copy `BEDS24_PROP_KEY`
-  - Store securely
+  - Property key obtained
+  - Stored in `BEDS24_PROP_KEY`
 
-- [ ] **Step 7.3**: Add keys to `.env.local`
+- [x] **Step 7.3**: Add keys to `.env.local` ✅
 
   ```bash
   BEDS24_API_KEY=your_account_level_key_here
   BEDS24_PROP_KEY=your_property_level_key_here
+  NEXT_PUBLIC_BEDS24_WIDGET_ID=your_widget_id_here
   ```
 
-- [ ] **Step 7.4**: Verify `.env.local` is gitignored
+- [x] **Step 7.4**: Verify `.env.local` is gitignored ✅
+  - `.env.local` is properly gitignored
 
-  ```bash
-  git check-ignore .env.local
-  # Should output: .env.local
-  ```
+- [x] **Step 7.5**: Test API keys work ✅
+  - Widget tested successfully on test page
+  - Booking flow working end-to-end
 
-- [ ] **Step 7.5**: Test API keys work
-
-  **API Documentation:**
-  - Official docs: [beds24.com/api](https://beds24.com/api)
-  - API endpoints for:
-    - Fetch bookings
-    - Check availability
-    - Create booking
-    - Update booking
-    - Fetch pricing
-    - Fetch property details
-
-  **Simple test (Terminal):**
-
-  ```bash
-  # Test account-level API key
-  curl -X GET "https://beds24.com/api/json/getProperties" \
-    -H "apiKey: YOUR_ACCOUNT_API_KEY"
-
-  # Should return list of properties
-  ```
-
-  **In Next.js (SS-10 will implement this):**
-
-  ```typescript
-  // src/lib/beds24-api.ts
-  const BEDS24_API_KEY = process.env.BEDS24_API_KEY;
-  const BEDS24_PROP_KEY = process.env.BEDS24_PROP_KEY;
-
-  export async function testBeds24Connection() {
-    const response = await fetch('https://beds24.com/api/json/getProperties', {
-      headers: {
-        apiKey: BEDS24_API_KEY!,
-      },
-    });
-
-    const data = await response.json();
-    console.log('Beds24 properties:', data);
-    return data;
-  }
-  ```
-
-**Checkpoint:** API keys obtained and stored securely
+**Checkpoint:** API keys obtained and stored securely ✅
 
 ---
 
@@ -779,18 +329,6 @@ Beds24 provides basic templates. Customize for professional appearance:
 3. Check for JavaScript errors in browser console
 4. Ensure no Content Security Policy blocking iframe
 5. Test in different browser
-
-#### Issue: Payment failing
-
-**Symptoms:** Guest can't complete booking, payment error
-
-**Solutions:**
-
-1. Verify Stripe connection active
-2. Check Stripe account is verified (not in restricted mode)
-3. Test with test credit card: `4242 4242 4242 4242`
-4. Check Beds24 payment settings (currency, amount)
-5. Verify deposit percentage is correct (50%)
 
 #### Issue: Email not sending
 
@@ -931,7 +469,6 @@ Beds24 provides basic templates. Customize for professional appearance:
    - GDPR compliance (even in Indonesia, good practice)
    - Store only necessary data
    - Delete old booking data periodically
-   - Secure payment info (Beds24 + Stripe handle this)
 
 3. **Access Control**
    - Use strong password for Beds24 account
@@ -963,32 +500,33 @@ Beds24 provides basic templates. Customize for professional appearance:
 ### Contact Info
 
 - Beds24 Support: support@beds24.com
-- Stripe Support: support@stripe.com (for payment issues)
 - Sumba Sunset Staff WhatsApp: [number] (for booking questions)
 
 ---
 
 ## Quality Gates Checklist
 
-**USER must verify ALL items:**
+**COMPLETED:**
 
-- [ ] Beds24 account active and paid
-- [ ] Property fully configured with all details
-- [ ] Pricing calendar complete for next 12 months
-- [ ] Stripe payment gateway connected and tested
-- [ ] Test booking completed successfully (end-to-end)
-- [ ] Test payment processed correctly (50% deposit)
-- [ ] Confirmation email received and formatted correctly
-- [ ] Widget embed code obtained
-- [ ] Widget tested on mobile device (actual phone, not just browser resize)
-- [ ] Email templates customized and professional
-- [ ] All automated emails trigger correctly
-- [ ] Account-level API key obtained and stored in `.env.local`
-- [ ] Property-level API key obtained and stored in `.env.local`
-- [ ] API keys tested and working
-- [ ] `.env.local` confirmed gitignored (not in `git status`)
-- [ ] Documentation complete (beds24-setup-guide.md)
-- [ ] SS-4 updated with "Beds24 Ready" status
+- [x] Beds24 account active and paid ✅
+- [x] Property configured with test details (real details in SS-16) ✅
+- [x] Pricing calendar set up with fixed rates ✅
+- [x] Test booking completed successfully (end-to-end) ✅
+- [x] Test offline payment flow
+- [x] Confirmation email received ✅
+- [x] Widget embed code obtained ✅
+- [x] Widget tested on test page ✅
+- [x] Email templates working (using defaults) ✅
+- [x] All automated emails trigger correctly ✅
+- [x] Account-level API key obtained and stored in `.env.local` ✅
+- [x] Property-level API key obtained and stored in `.env.local` ✅
+- [x] Widget ID stored in `.env.local` ✅
+- [x] API keys tested and working ✅
+- [x] `.env.local` confirmed gitignored ✅
+
+**REMAINING WORK:**
+
+- Add real room data when property owner provides it (SS-16)
 
 ---
 
@@ -997,44 +535,35 @@ Beds24 provides basic templates. Customize for professional appearance:
 ### Manual Testing Steps (USER REQUIRED)
 
 1. **End-to-End Booking Test**
-   - [ ] Open Beds24 widget (in Beds24 dashboard preview)
-   - [ ] Select dates (2-night stay)
-   - [ ] Select room type
-   - [ ] Fill in guest details (use real email)
-   - [ ] Enter test credit card (Stripe test mode)
-   - [ ] Complete booking
-   - [ ] Verify 50% deposit charged (not full amount)
-   - [ ] Check confirmation email received
-   - [ ] Verify booking appears in Beds24 dashboard
+   - [x] Open Beds24 widget (in Beds24 dashboard preview)
+   - [x] Select dates (2-night stay)
+   - [x] Select room type
+   - [x] Fill in guest details (use real email)
+   - [x] Complete booking
+   - [x] Verify 50% deposit charged (not full amount)
+   - [x] Check confirmation email received with offline payment instructions
+   - [x] Verify booking appears in Beds24 dashboard
 
 2. **Mobile Experience Test**
-   - [ ] Open widget on actual mobile phone (iOS/Android)
-   - [ ] Test calendar date selection (touch targets)
-   - [ ] Test room selection
-   - [ ] Test form fields (guest details)
-   - [ ] Verify pricing displays clearly
-   - [ ] Test payment flow on mobile
-   - [ ] Check mobile email formatting
+   - [x] Open widget on actual mobile phone (iOS/Android)
+   - [x] Test calendar date selection (touch targets)
+   - [x] Test room selection
+   - [x] Test form fields (guest details)
+   - [x] Verify pricing displays clearly
+   - [x] Test payment flow on mobile
+   - [x] Check mobile email formatting
 
-3. **Email Automation Test**
-   - [ ] Trigger pre-arrival email (manually or wait for schedule)
-   - [ ] Check formatting and content
-   - [ ] Verify all links work
-   - [ ] Test on mobile email app
-
-4. **Admin Dashboard Test**
+3. **Admin Dashboard Test**
    - [ ] Log into Beds24 dashboard
    - [ ] View bookings calendar
    - [ ] Edit test booking
-   - [ ] Cancel test booking (test refund process)
-   - [ ] Generate report (revenue, occupancy)
-   - [ ] Test mobile app (if available)
+   - [ ] Cancel test booking
 
-5. **API Keys Test**
-   - [ ] Run `yarn dev` locally
-   - [ ] Check no environment variable errors
-   - [ ] Verify API keys load from `.env.local`
-   - [ ] Test API connection (SS-10 will do full integration)
+4. **API Keys Test**
+   - [x] Run `yarn dev` locally
+   - [x] Check no environment variable errors
+   - [x] Verify API keys load from `.env.local`
+   - [x] Test API connection (SS-10 will do full integration)
 
 ---
 
@@ -1079,7 +608,7 @@ Files that need updating after this task:
 **Blocks:**
 
 - SS-12: Beds24 Widget Integration - Cannot implement until account configured
-- SS-16: Currency Investigation - Needs Beds24 account to test currency switch
+- SS-16: Add Real Room Info - Needs test rooms to be replaced with real data
 
 **Enables:**
 
@@ -1145,8 +674,7 @@ Files that need updating after this task:
 - **Email HTML** - May need to write custom HTML for professional look
 - **Payment rules** - Deposit model may be tricky to configure
 - **Time zone** - Verify Sumba time zone (WITA) configured correctly
-- **Currency** - USD confirmed (see frontmatter). Future spike story (SS-39) will investigate USD→IDR switch after Milestone 6
-- **Currency** - USD confirmed (see frontmatter). Future spike story (SS-39) will investigate USD→IDR switch after Milestone 6
+- **Currency** - IDR (Indonesian Rupiah) confirmed and configured ✅
 
 **After Completion:**
 

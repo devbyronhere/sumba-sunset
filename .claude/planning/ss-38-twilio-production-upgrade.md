@@ -33,6 +33,8 @@ Upgrade from Twilio Sandbox WhatsApp number (used during development) to a produ
 - Better deliverability and trust with Meta/WhatsApp platform
 - Consistent sender number (sandbox number can change)
 
+**Additional Task:** This task also includes updating the Beds24 account email from the development email (devbyronhere@gmail.com) to the official business email provided by the property owner (Petu).
+
 ---
 
 ## Problem Statement
@@ -167,11 +169,12 @@ Environment variable updates only (no code changes):
 - [ ] **AC3**: WhatsApp Business profile configured (name, description, profile image)
 - [ ] **AC4**: `TWILIO_WHATSAPP_NUMBER` updated in `.env.local`
 - [ ] **AC5**: `TWILIO_WHATSAPP_NUMBER` updated in Vercel (all environments)
-- [ ] **AC6**: Contact form sends messages from production number successfully
-- [ ] **AC7**: Staff WhatsApp receives messages without sandbox join code
-- [ ] **AC8**: No sandbox references remain in environment variables
-- [ ] **AC9**: Documentation updated with production number setup
-- [ ] **AC10**: Old sandbox configuration documented for reference (in case rollback needed)
+- [ ] **AC6**: Beds24 account email updated from dev email (devbyronhere@gmail.com) to business email
+- [ ] **AC7**: Contact form sends messages from production number successfully
+- [ ] **AC8**: Staff WhatsApp receives messages without sandbox join code
+- [ ] **AC9**: No sandbox references remain in environment variables
+- [ ] **AC10**: Documentation updated with production number setup
+- [ ] **AC11**: Old sandbox configuration documented for reference (in case rollback needed)
 
 ---
 
@@ -303,6 +306,31 @@ Since this is infrastructure configuration (no code changes), verification is ma
 
 ---
 
+### Phase 5.5: Update Beds24 Business Email
+
+**Context:** During development, Beds24 account was created with dev email (devbyronhere@gmail.com). Before launch, replace with official business email.
+
+- [ ] **Step 5.5.1**: Obtain business email from property owner (Petu)
+  - Ask Petu for official business email address
+  - Verify email is active and accessible
+  - Format should be professional (e.g., info@sumbasunset.com, bookings@sumbasunset.com)
+
+- [ ] **Step 5.5.2**: Log into Beds24 dashboard
+- [ ] **Step 5.5.3**: Navigate to: Account → Settings → Account Information
+- [ ] **Step 5.5.4**: Find "Email Address" field (currently: devbyronhere@gmail.com)
+- [ ] **Step 5.5.5**: Update to business email provided by Petu
+- [ ] **Step 5.5.6**: Save changes
+- [ ] **Step 5.5.7**: Verify confirmation email sent to new address
+- [ ] **Step 5.5.8**: Have Petu verify/confirm new email address (if Beds24 requires verification)
+- [ ] **Step 5.5.9**: Test booking confirmation - verify emails go to new business address
+- [ ] **Step 5.5.10**: Update SS-11 planning doc with new business email (remove dev email reference)
+
+**Email Update Checkpoint:** ✅ Beds24 using official business email
+
+**Note:** Get business email from Petu close to launch time to ensure it's ready and active.
+
+---
+
 ### Phase 6: End-to-End Testing
 
 - [ ] **Step 6.1**: Test locally - submit contact form on `localhost:3000`
@@ -343,6 +371,8 @@ Since this is infrastructure configuration (no code changes), verification is ma
 - [ ] WhatsApp Business profile configured (name, description)
 - [ ] `.env.local` updated with production number
 - [ ] Vercel environment variables updated (all environments)
+- [ ] Beds24 email updated from dev email to business email (from Petu)
+- [ ] Booking confirmation emails go to business email address
 - [ ] Contact form tested locally - messages delivered successfully
 - [ ] Contact form tested on Vercel Preview - messages delivered successfully
 - [ ] Contact form tested on production - messages delivered successfully

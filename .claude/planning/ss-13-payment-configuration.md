@@ -16,7 +16,11 @@ pr_number: null
 
 [← Previous: SS-12 Widget Integration](./ss-12-beds24-widget-integration.md) | [📋 Index](./index.md) | [Next: SS-14 Email Templates →](./ss-14-email-templates.md)
 
-# [Infrastructure] Beds24 Payment Configuration with Stripe
+# [Infrastructure] Beds24 Payment Configuration
+
+## NEW DIRECTION
+
+this document is outdated. we will not use stripe as it is not in Indonesia. See the 'payment-gateway-comparison.md' and 'midtrans-beds24-integration-guide.md' for existing research about alternate options
 
 ## Overview
 

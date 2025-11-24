@@ -20,10 +20,10 @@ pr_number: null
 
 ## Overview
 
-Build a polished rooms page showcasing accommodation options with photos, amenities, pricing (using currency from SS-16 decision), and booking CTAs. This is a key conversion page where guests choose their room type.
+Build a polished rooms page showcasing accommodation options with photos, amenities, pricing (in IDR - Indonesian Rupiah), and booking CTAs. This is a key conversion page where guests choose their room type.
 
 **Project Context:**
-Mobile-first surf camp website. Rooms page must clearly present accommodation options with visual appeal and pricing transparency using the currency decided in Milestone 3 (USD or IDR).
+Mobile-first surf camp website. Rooms page must clearly present accommodation options with visual appeal and pricing transparency using IDR (Indonesian Rupiah) as configured in Milestone 3.
 
 **User Story:**
 As a potential guest, I want to compare room options and see what's included so that I can choose the right accommodation and book confidently.
@@ -40,7 +40,7 @@ As a potential guest, I want to compare room options and see what's included so 
 ## Prerequisites/Dependencies
 
 - [x] SS-26: Homepage (design patterns)
-- [x] SS-16: Currency decision (USD vs IDR)
+- [x] SS-16: Real room info added (awaiting property owner data)
 - [ ] SS-24: Image Gallery Component
 - [ ] SS-25: Responsive Images
 - [ ] Room details from user (names, photos, amenities, pricing)
@@ -52,7 +52,7 @@ As a potential guest, I want to compare room options and see what's included so 
 - [ ] **AC1**: Hero section with rooms page headline
 - [ ] **AC2**: Room card for each accommodation type (photo, name, description)
 - [ ] **AC3**: Amenities list for each room (WiFi, AC, ocean view, etc.)
-- [ ] **AC4**: Pricing display using currency from SS-16 (USD or IDR)
+- [ ] **AC4**: Pricing display in IDR (Indonesian Rupiah)
 - [ ] **AC5**: "Book Now" CTA on each room card → `/booking` page
 - [ ] **AC6**: Photo gallery for each room (multiple images)
 - [ ] **AC7**: Mobile-first responsive layout
@@ -79,7 +79,7 @@ As a potential guest, I want to compare room options and see what's included so 
 
 1. **Missing room photos**: Fallback image
 2. **Long amenity lists**: Overflow handling
-3. **Currency formatting**: Test with USD and IDR formats
+3. **Currency formatting**: Test IDR formatting (Rp X,XXX,XXX)
 4. **Various room counts**: 2 rooms vs. 5 rooms
 
 ---
@@ -103,8 +103,8 @@ As a potential guest, I want to compare room options and see what's included so 
 ### Phase 2: Core Implementation
 
 - [ ] **Step 2.1**: Create PricingDisplay component `src/components/ui/PricingDisplay.tsx`
-  - Accept `amount` and `currency` props
-  - Format based on currency (USD: $X, IDR: Rp X,XXX,XXX)
+  - Accept `amount` prop (in IDR)
+  - Format for IDR: Rp X,XXX,XXX/night
   - Display "per night" or "per person per night"
 - [ ] **Step 2.2**: Verify PricingDisplay tests pass (AC4)
 - [ ] **Step 2.3**: Create RoomCard component `src/components/sections/RoomCard.tsx`
@@ -139,7 +139,7 @@ As a potential guest, I want to compare room options and see what's included so 
   - Highlight differences in amenities and pricing
 - [ ] **Step 3.3**: Test on mobile devices
 - [ ] **Step 3.4**: Run Lighthouse audit
-- [ ] **Step 3.5**: Verify currency displays correctly based on SS-16 decision
+- [ ] **Step 3.5**: Verify pricing displays correctly in IDR
 - [ ] **Step 3.6**: Run full test suite
 
 **Integration Checkpoint:** Feature fully integrated and polished
@@ -169,7 +169,7 @@ As a potential guest, I want to compare room options and see what's included so 
 - [ ] Performance: LCP <2.5s
 - [ ] Lighthouse: Performance ≥90, Accessibility ≥95
 - [ ] Mobile responsive
-- [ ] Currency formatting correct (USD or IDR from SS-16)
+- [ ] Currency formatting correct (IDR - Rp X,XXX,XXX)
 
 ---
 
@@ -186,8 +186,7 @@ As a potential guest, I want to compare room options and see what's included so 
    - Desktop: Cards in grid (2-3 columns)
 
 3. **Currency Testing**
-   - If USD chosen in SS-16: Verify $X,XXX/night
-   - If IDR chosen in SS-16: Verify Rp X,XXX,XXX/night
+   - Verify IDR formatting: Rp X,XXX,XXX/night (e.g., Rp 2,250,000/night)
 
 4. **Browser Testing**
    - Chrome, Safari, Firefox
@@ -214,7 +213,7 @@ As a potential guest, I want to compare room options and see what's included so 
 **Depends On:**
 
 - [SS-26: Homepage](./ss-26-homepage.md)
-- [SS-16: Currency Decision](./ss-16-currency-decision.md)
+- [SS-16: Add Real Room Info](./ss-16-real-room-info.md)
 
 **Related:**
 
@@ -231,7 +230,7 @@ As a potential guest, I want to compare room options and see what's included so 
      - Photos: 6-8 images
      - Description: 100 words
      - Amenities: WiFi, AC, Ocean View, Private Bathroom, etc.
-     - Pricing: $150/night or Rp 2,250,000/night (from SS-16)
+     - Pricing: Rp 2,250,000/night (IDR)
 
    - Room 2: "Standard Garden View"
      - Photos: 6-8 images
@@ -239,9 +238,8 @@ As a potential guest, I want to compare room options and see what's included so 
      - Amenities: WiFi, AC, Garden View, Shared Bathroom, etc.
      - Pricing: $100/night or Rp 1,500,000/night
 
-2. **Currency Format** (from SS-16):
-   - USD: $X,XXX/night (e.g., $150/night)
-   - IDR: Rp X,XXX,XXX/night (e.g., Rp 2,250,000/night)
+2. **Currency Format** (IDR - Indonesian Rupiah):
+   - Format: Rp X,XXX,XXX/night (e.g., Rp 2,250,000/night)
 
 3. **Amenities Icons:**
    - WiFi, AC, Ocean/Garden View, Private/Shared Bathroom

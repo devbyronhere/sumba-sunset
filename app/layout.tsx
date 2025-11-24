@@ -3,8 +3,8 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
-import GoogleAnalytics from '@/src/components/GoogleAnalytics';
-import { PreLaunchBanner } from '@/src/components/layout/PreLaunchBanner';
+import GoogleAnalytics from '@/components/analytics/GoogleAnalytics';
+import { PreLaunchBanner } from '@/components/layout/PreLaunchBanner';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
